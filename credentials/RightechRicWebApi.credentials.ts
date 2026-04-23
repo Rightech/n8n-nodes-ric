@@ -6,10 +6,10 @@ import type {
 } from 'n8n-workflow';
 
 export class RightechRicWebApi implements ICredentialType {
-	name = 'RightechRicWebApi';
+	name = 'rightechRicWebApi';
 	displayName = 'Rightech Ric Web API';
 	icon: Icon = 'file:../logo.svg';
-	documentationUrl = 'TODO: publicly available doc about the node';
+	documentationUrl = 'https://rightech.io/en/developers/http/auth';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'Server',

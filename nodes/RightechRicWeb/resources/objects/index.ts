@@ -13,10 +13,10 @@ export const objectsApiProperties: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Read object',
+				name: 'Get Object',
 				value: 'readObject',
-				action: 'Read object data and state',
-				description: 'https://rightech.io/en/developers/http/objects#get-one',
+				action: 'Get object data and state',
+				description: 'Reads an entire object configuration and recorded state params. More at https://rightech.io/en/developers/http/objects#get-one.',
 				routing: {
 					request: {
 						method: 'GET',
@@ -25,22 +25,10 @@ export const objectsApiProperties: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Read telemetry',
-				value: 'readObject',
-				action: 'Read object telemetry packets history',
-				description: 'https://rightech.io/en/developers/http/objects#history',
-				routing: {
-					request: {
-						method: 'GET',
-						url: '=/objects/{{$parameter.objectId}}/packets',
-					},
-				},
-			},
-			{
-				name: 'Send command',
+				name: 'Send Command',
 				value: 'sendObjectCommand',
 				action: 'Send command to the object',
-				description: 'https://rightech.io/en/developers/http/objects#send-command',
+				description: 'Sends any existing command of the object to the object. More at https://rightech.io/en/developers/http/objects#send-command.',
 				routing: {
 					request: {
 						method: 'POST',
@@ -53,8 +41,8 @@ export const objectsApiProperties: INodeProperties[] = [
 		default: 'readObject',
 	},
 	{
-		name: 'objectId',
 		displayName: 'Object ID',
+		name: 'objectId',
 		required: true,
 		type: 'string',
 		default: '',
@@ -65,8 +53,8 @@ export const objectsApiProperties: INodeProperties[] = [
 		},
 	},
 	{
-		name: 'commandId',
 		displayName: 'Command ID',
+		name: 'commandId',
 		required: true,
 		type: 'string',
 		default: '',
@@ -78,8 +66,8 @@ export const objectsApiProperties: INodeProperties[] = [
 		},
 	},
 	{
+		displayName: 'Send Extra Command Data',
 		name: 'commandUseAuxiliaryData',
-		displayName: 'Send extra command data',
 		hint: 'Does anything only for commands with parametric fields.',
 		type: 'boolean',
 		default: false,
@@ -91,10 +79,9 @@ export const objectsApiProperties: INodeProperties[] = [
 		}
 	},
 	{
+		displayName: 'Extra Command Data',
 		name: 'commandAuxiliaryData',
-		displayName: 'Extra command data',
 		hint: 'Sent data must match with declared parametric fields, the entire object will be sent as is.',
-		required: false,
 		type: 'json',
 		default: {},
 		displayOptions: {

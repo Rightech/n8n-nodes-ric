@@ -13,10 +13,10 @@ export const logicApiProperties: INodeProperties[] = [
         },
         options: [
             {
-                name: 'Start automation',
+                name: 'Start Automation',
                 value: 'logicStart',
                 action: 'Start automation on an object',
-                description: 'https://rightech.io/en/developers/http/logic#execute-start',
+                description: 'Starts a new automation instance on the object. More at https://rightech.io/en/developers/http/logic#execute-start.',
                 routing: {
                     request: {
                         method: 'POST',
@@ -25,10 +25,10 @@ export const logicApiProperties: INodeProperties[] = [
                 },
             },
             {
-                name: 'Stop automation',
+                name: 'Stop Automation',
                 value: 'logicStop',
                 action: 'Stop automation on an object',
-                description: 'https://rightech.io/en/developers/http/logic#execute-stop',
+                description: 'Stops a running automaton on an object. More at https://rightech.io/en/developers/http/logic#execute-stop.',
                 routing: {
                     request: {
                         method: 'POST',
@@ -36,25 +36,12 @@ export const logicApiProperties: INodeProperties[] = [
                     },
                 },
             },
-            {
-                name: 'Emit automation event',
-                value: 'logicEmit',
-                action: 'Emit automation event to a running automation',
-                description: 'https://rightech.io/en/developers/http/logic#emit',
-                routing: {
-                    request: {
-                        method: 'POST',
-                        url: '=/objects/{{$parameter.objectId}}/automatons/{{$parameter.automatonId}}/emit',
-                        // todo: { "event": "<event-id>" }
-                    },
-                },
-            },
         ],
         default: 'logicStart',
     },
     {
-        name: 'objectId',
         displayName: 'Object ID',
+        name: 'objectId',
         required: true,
         type: 'string',
         default: '',
@@ -65,8 +52,8 @@ export const logicApiProperties: INodeProperties[] = [
         },
     },
     {
+        displayName: 'Logic Automation ID',
         name: 'automatonId',
-        displayName: 'Logic automation ID',
         required: true,
         type: 'resourceLocator',
         default: '',

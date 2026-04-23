@@ -6,7 +6,7 @@ import {listAutomatons} from "./methods/listAutomatons.js";
 export class RightechRicWeb implements INodeType {
     description: INodeTypeDescription = {
         displayName: 'Rightech Ric Web',
-        name: 'RightechRicWeb',
+        name: 'rightechRicWeb',
         icon: 'file:../../logo.svg',
         group: ['transform'],
         version: 1,
@@ -21,7 +21,7 @@ export class RightechRicWeb implements INodeType {
         inputs: [NodeConnectionTypes.Main],
         outputs: [NodeConnectionTypes.Main],
         credentials: [
-            {name: 'RightechRicWebApi', required: true}
+            {name: 'rightechRicWebApi', required: true}
         ],
         requestDefaults: {
             baseURL: '={{$credentials.ricServer}}',
@@ -38,7 +38,7 @@ export class RightechRicWeb implements INodeType {
                 noDataExpression: true,
                 options: [
                     {
-                        name: 'Objects',
+                        name: 'Object',
                         value: 'objects',
                     },
                     {

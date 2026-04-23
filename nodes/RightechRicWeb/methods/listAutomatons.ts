@@ -21,11 +21,10 @@ interface RightechRicWebApiCred {
 export async function listAutomatons(
     this: ILoadOptionsFunctions,
     filter?: string,
-    paginationToken?: string,
 ): Promise<INodeListSearchResult> {
     let responseData: AutomatonIndex[] = [];
 
-    let cred = await this.getCredentials<RightechRicWebApiCred>('RightechRicWebApi');
+    const cred = await this.getCredentials<RightechRicWebApiCred>('rightechRicWebApi');
 
     const request: IHttpRequestOptions = {
         method: 'GET',
@@ -34,7 +33,7 @@ export async function listAutomatons(
     };
 
     try {
-        responseData = await this.helpers.httpRequestWithAuthentication.call(this, 'RightechRicWebApi', request);
+        responseData = await this.helpers.httpRequestWithAuthentication.call(this, 'rightechRicWebApi', request);
     } catch (error) {
         return {
             results: [
