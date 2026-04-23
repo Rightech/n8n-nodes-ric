@@ -1,14 +1,14 @@
 {
-  "name": "@rightech/n8n-nodes-ric-web",
+  "name": "@rightech/n8n-nodes-ric",
   "version": "0.1.0",
-  "description": "",
+  "description": "Dedicated n8n nodes for controlling rightech.io cloud instances",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/Rightech/n8n-nodes-ric",
   "keywords": ["n8n-community-node-package"],
-  "author": { "name": "", "email": "" },
+  "author": { "name": "Lev Tarasov", "email": "l.tarasov@rightech.io" },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "https://github.com/Rightech/n8n-nodes-ric.git"
   },
   "scripts": {
     "build": "n8n-node build",
