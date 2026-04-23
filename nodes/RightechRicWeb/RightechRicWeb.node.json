@@ -1,0 +1,18 @@
+{
+	"node": "@rightech/n8n-nodes-ric-web",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Development"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://rightech.io/en/developers/http/auth"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://rightech.io/en/developers/http"
+			}
+		]
+	}
+}
