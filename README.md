@@ -1,9 +1,9 @@
-# n8n Nodes - Rightech IoT Cloud
+# n8n Nodes - <img src="logo.svg" width="32" height="32" alt="Rightech IoT Cloud" align="center"> Rightech IoT Cloud
 
-This is an n8n community node that provides some basic integration with [Rightech IoT Cloud (aka RIC)](https://rightech.io/en).
+This is an n8n community node that provides some basic integration with [<img src="logo.svg" width="16" height="16" alt="Rightech IoT Cloud" align="center"> Rightech IoT Cloud (aka RIC)](https://rightech.io/en).
 It lets you interact with your IoT devices and automations through the platform.
 
-The [RIC](https://rightech.io/en/about-platform) platform is an intermediate link between devices (sensors, actuators, etc.) on the one hand, and applications on the other.
+The [<img src="logo.svg" width="16" height="16" alt="Rightech IoT Cloud" align="center"> RIC](https://rightech.io/en/about-platform) platform is an intermediate link between devices (sensors, actuators, etc.) on the one hand, and applications on the other.
 Platform tools allow developers to create IoT solutions without extra code and developers reuse 90% of that solution to launch similar cases.
 RIC is independent of specific equipment and protocols. So, it is easy to combine different devices under one solution.
 
@@ -37,9 +37,9 @@ At the start, this node supports a bare minimum of operations you may need to in
 
 ## Credentials
 
-This node supports API Bearer auth credentials using `rightechIotCloudApi` credential. Read more about the keys here:
-- [How to create an API key in RIC platform.](https://rightech.io/en/developers/projects/admin#api-tokens)
-- [How API key is used](https://rightech.io/en/developers/http/auth)
+This node supports API Bearer auth credentials using [`rightechIotCloudApi`](credentials/RightechIotCloudApi.credentials.ts) credential. Read more about how to get access tokens here:
+- [How to create an access token in RIC platform](https://rightech.io/en/developers/projects/admin#api-tokens)
+- [How that access token is used in the API](https://rightech.io/en/developers/http/auth)
 
 By default, credentials point to the public development and demonstration server at [`dev.rightech.io`](https://dev.rightech.io). You can change server to point at your own instance of the platform.
 
@@ -54,7 +54,7 @@ This node is developed on and tested to work with the following configuration:
 ## Resources
 
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-- [RIC resources](https://rightech.io/en)
+- [<img src="logo.svg" width="16" height="16" alt="Rightech IoT Cloud" align="center"> RIC resources](https://rightech.io/en)
   - [Introduction](https://rightech.io/en/developers/intro)
   - [Tutorials](https://rightech.io/en/tutorials)
   - [HTTP API](https://rightech.io/en/developers/http)

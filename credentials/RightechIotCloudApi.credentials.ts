@@ -9,7 +9,7 @@ export class RightechIotCloudApi implements ICredentialType {
 	name = 'rightechIotCloudApi';
 	displayName = 'Rightech IoT Cloud API';
 	icon: Icon = 'file:../logo.svg';
-	documentationUrl = 'https://rightech.io/en/developers/http/auth';
+	documentationUrl = 'https://github.com/Rightech/n8n-nodes-ric#credentials';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'Server',
@@ -17,6 +17,8 @@ export class RightechIotCloudApi implements ICredentialType {
 			type: 'string',
 			required: true,
 			default: 'https://dev.rightech.io',
+			placeholder: 'https://dev.rightech.io',
+			hint: 'This must point at the base URL of your RIC instance - do not include `/api` or other prefixes. When using n8n cloud with on-premise RIC, make sure you have a public domain with HTTPS set up.',
 		},
 		{
 			displayName: 'Access Token',
@@ -25,6 +27,8 @@ export class RightechIotCloudApi implements ICredentialType {
 			typeOptions: { password: true },
 			required: true,
 			default: '',
+			placeholder: 'a long string e.g. eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...',
+			hint: 'Access token is a JWT token that you can issue in the RIC web UI - refer to documentation at https://github.com/Rightech/n8n-nodes-ric#credentials.',
 		},
 	];
 	authenticate: IAuthenticateGeneric = {
