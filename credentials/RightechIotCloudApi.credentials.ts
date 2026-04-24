@@ -5,9 +5,9 @@ import type {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class RightechRicWebApi implements ICredentialType {
-	name = 'rightechRicWebApi';
-	displayName = 'Rightech Ric Web API';
+export class RightechIotCloudApi implements ICredentialType {
+	name = 'rightechIotCloudApi';
+	displayName = 'Rightech IoT Cloud API';
 	icon: Icon = 'file:../logo.svg';
 	documentationUrl = 'https://rightech.io/en/developers/http/auth';
 	properties: INodeProperties[] = [

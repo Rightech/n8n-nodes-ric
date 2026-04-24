@@ -1,8 +1,11 @@
-# @rightech/n8n-nodes-ric
+# n8n Nodes - Rightech IoT Cloud
 
-This is an n8n community node. It lets you use _app/service name_ in your n8n workflows.
+This is an n8n community node that provides some basic integration with [Rightech IoT Cloud (aka RIC)](https://rightech.io/en).
+It lets you interact with your IoT devices and automations through the platform.
 
-_App/service name_ is _one or two sentences describing the service this node integrates with_.
+The [RIC](https://rightech.io/en/about-platform) platform is an intermediate link between devices (sensors, actuators, etc.) on the one hand, and applications on the other.
+Platform tools allow developers to create IoT solutions without extra code and developers reuse 90% of that solution to launch similar cases.
+RIC is independent of specific equipment and protocols. So, it is easy to combine different devices under one solution.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 

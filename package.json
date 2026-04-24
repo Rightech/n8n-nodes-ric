@@ -31,10 +31,10 @@
     "n8nNodesApiVersion": 1,
     "strict": true,
     "credentials": [
-      "dist/credentials/RightechRicWebApi.credentials.js"
+      "dist/credentials/RightechIotCloudApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/RightechRicWeb/RightechRicWeb.node.js"
+      "dist/nodes/RightechIotCloud/RightechIotCloud.node.js"
     ]
   },
   "devDependencies": {

@@ -13,7 +13,7 @@ interface CommandsIndexPerModel {
     type?: string,
 }
 
-interface RightechRicWebApiCred {
+interface RicApiCred {
     ricServer: string,
 }
 
@@ -29,7 +29,7 @@ export async function listCommands(
     }
     let responseData: ObjectSubModelShape = {};
 
-    const cred = await this.getCredentials<RightechRicWebApiCred>('rightechRicWebApi');
+    const cred = await this.getCredentials<RicApiCred>('rightechIotCloudApi');
 
     const url = `${cred.ricServer}/objects/${objectId.value}/model?only=model`;
 
@@ -40,7 +40,7 @@ export async function listCommands(
     };
 
     try {
-        responseData = await this.helpers.httpRequestWithAuthentication.call(this, 'rightechRicWebApi', request);
+        responseData = await this.helpers.httpRequestWithAuthentication.call(this, 'rightechIotCloudApi', request);
     } catch (error) {
         return {
             results: [

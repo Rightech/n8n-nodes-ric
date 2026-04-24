@@ -5,25 +5,25 @@ import {listScenarios} from "./methods/listScenarios.js";
 import {listObjects} from "./methods/listObjects.js";
 import {listCommands} from "./methods/listCommands.js";
 
-export class RightechRicWeb implements INodeType {
+export class RightechIotCloud implements INodeType {
     description: INodeTypeDescription = {
-        displayName: 'Rightech Ric Web',
-        name: 'rightechRicWeb',
+        displayName: 'Rightech IoT Cloud',
+        name: 'rightechIotCloud',
         icon: 'file:../../logo.svg',
         group: ['transform'],
         version: 1,
         subtitle: '={{$parameter.operation + ": " + $parameter.resource}}',
-        description: 'Interact with the Rightech Ric Web API',
-        documentationUrl: 'TODO:',
+        description: 'Interact with the Rightech IoT Cloud API',
+        documentationUrl: 'https://github.com/Rightech/n8n-nodes-ric',
         defaults: {
-            name: 'Rightech Ric Web',
+            name: 'Rightech IoT Cloud',
         },
         hints: [],
         usableAsTool: true,
         inputs: [NodeConnectionTypes.Main],
         outputs: [NodeConnectionTypes.Main],
         credentials: [
-            {name: 'rightechRicWebApi', required: true}
+            {name: 'rightechIotCloudApi', required: true}
         ],
         requestDefaults: {
             baseURL: '={{$credentials.ricServer}}',

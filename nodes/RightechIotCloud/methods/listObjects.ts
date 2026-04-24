@@ -1,40 +1,31 @@
 import {IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult} from "n8n-workflow";
 import {toSearchable} from "../common/util.js";
 
-interface ScenarioIndex {
+interface ObjectLookupSubsetFields {
     _id: string,
     name: string,
-    description?: string,
-    model: string,
-    models: string[],
-    type?: 'template',
-    base?: string,
-    processId?: string,
-    target?: string | null,
-    targets?: string[],
-    version?: number,
 }
 
-interface RightechRicWebApiCred {
+interface RicApiCred {
     ricServer: string,
 }
 
-export async function listScenarios(
+export async function listObjects(
     this: ILoadOptionsFunctions,
     filter?: string,
 ): Promise<INodeListSearchResult> {
-    let responseData: ScenarioIndex[] = [];
+    let responseData: ObjectLookupSubsetFields[] = [];
 
-    const cred = await this.getCredentials<RightechRicWebApiCred>('rightechRicWebApi');
+    const cred = await this.getCredentials<RicApiCred>('rightechIotCloudApi');
 
     const request: IHttpRequestOptions = {
         method: 'GET',
-        url: `${cred.ricServer}/automatons`,
+        url: `${cred.ricServer}/objects?limit=1000&only=_id,name`,
         json: true,
     };
 
     try {
-        responseData = await this.helpers.httpRequestWithAuthentication.call(this, 'rightechRicWebApi', request);
+        responseData = await this.helpers.httpRequestWithAuthentication.call(this, 'rightechIotCloudApi', request);
     } catch (error) {
         return {
             results: [
@@ -47,7 +38,7 @@ export async function listScenarios(
         const results: INodeListSearchItems[] = responseData
             .map(i => toSearchable(i, '_id', 'name'))
             .filter(i => !filter || i._search.includes(filter))
-            .map((item: ScenarioIndex) => ({
+            .map((item: ObjectLookupSubsetFields) => ({
                 name: item.name,
                 value: item._id,
             }));
