@@ -9,12 +9,13 @@ RIC is independent of specific equipment and protocols. So, it is easy to combin
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
-[Installation](#installation)
-[Operations](#operations)
-[Credentials](#credentials)
-[Compatibility](#compatibility)
-[Usage](#usage)
-[Resources](#resources)
+## Contents
+
+- [Installation](#installation)
+- [Operations](#operations)
+- [Credentials](#credentials)
+- [Compatibility](#compatibility)
+- [Resources](#resources)
 
 ## Installation
 
@@ -22,21 +23,42 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ## Operations
 
-_List the operations supported by your node._
+At the start, this node supports a bare minimum of operations you may need to interact with your IoT devices.
+
+### Objects
+
+- **Get object data and state**: Reads an entire object configuration and recorded state params. Read more at https://rightech.io/en/developers/http/objects#get-one.
+- **Send command to the object**: Sends any assigned command of the object to the device. Read more at https://rightech.io/en/developers/http/objects#send-command.
+
+### Scenarios
+
+- **Start scenario on an object**: Starts a new scenario execution on the object. Read more at https://rightech.io/en/developers/http/logic#execute-start.
+- **Stop scenario on an object**: Stops a running scenario execution on an object. Read more at https://rightech.io/en/developers/http/logic#execute-stop.
 
 ## Credentials
 
-_If users need to authenticate with the app/service, provide details here. You should include prerequisites (such as signing up with the service), available authentication methods, and how to set them up._
+This node supports API Bearer auth credentials using `rightechIotCloudApi` credential. Read more about the keys here:
+- [How to create an API key in RIC platform.](https://rightech.io/en/developers/projects/admin#api-tokens)
+- [How API key is used](https://rightech.io/en/developers/http/auth)
+
+By default, credentials point to the public development and demonstration server at [`dev.rightech.io`](https://dev.rightech.io). You can change server to point at your own instance of the platform.
 
 ## Compatibility
 
-_State the minimum n8n version, as well as which versions you test against. You can also include any known version incompatibility issues._
+This node is developed on and tested to work with the following configuration:
 
-## Usage
-
-_This is an optional section. Use it to help users with any difficult or confusing aspects of the node._
+- **n8n**: Version 2.15.0 and higher
+- **Node.js**: 24.x or higher
+- **npm**: 11.6.2 or higher
 
 ## Resources
 
-* [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-* [RIC WEB](https://rightech.io/en/developers/http)
+- [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
+- [RIC resources](https://rightech.io/en)
+  - [Introduction](https://rightech.io/en/developers/intro)
+  - [Tutorials](https://rightech.io/en/tutorials)
+  - [HTTP API](https://rightech.io/en/developers/http)
+  - [Connecting devices](https://rightech.io/en/developers/connect)
+  - [Forums](https://forum.rightech.io/)
+  - [Solutions](https://store.rightech.io/solutions)
+  - [Trial downloads](https://rightech.io/en/developers/trial/helm)
