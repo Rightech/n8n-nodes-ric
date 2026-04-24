@@ -2,6 +2,8 @@ import {NodeConnectionTypes, type INodeType, type INodeTypeDescription} from 'n8
 import {logicApiProperties} from "./resources/logic/index.js";
 import {objectsApiProperties} from "./resources/objects/index.js";
 import {listAutomatons} from "./methods/listAutomatons.js";
+import {listObjects} from "./methods/listObjects.js";
+import {listCommands} from "./methods/listCommands.js";
 
 export class RightechRicWeb implements INodeType {
     description: INodeTypeDescription = {
@@ -54,7 +56,9 @@ export class RightechRicWeb implements INodeType {
     };
     methods = {
         listSearch: {
-            listAutomatons,
+            listAutomatons: listAutomatons,
+            listObjects: listObjects,
+            listCommands: listCommands,
         }
     }
 }

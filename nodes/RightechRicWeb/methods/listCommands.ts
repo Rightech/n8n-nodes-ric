@@ -1,35 +1,41 @@
-import {IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult} from "n8n-workflow";
+import {
+    IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult
+} from "n8n-workflow";
 import {toSearchable} from "../common/util.js";
 
-interface AutomatonIndex {
-    _id: string,
+interface ObjectSubModelShape {
+    _actions?: CommandsIndexPerModel[],
+}
+
+interface CommandsIndexPerModel {
+    id: string,
     name: string,
-    description?: string,
-    model: string,
-    models: string[],
-    type?: 'template',
-    base?: string,
-    processId?: string,
-    target?: string | null,
-    targets?: string[],
-    version?: number,
+    type?: string,
 }
 
 interface RightechRicWebApiCred {
     ricServer: string,
 }
 
-export async function listAutomatons(
+export async function listCommands(
     this: ILoadOptionsFunctions,
     filter?: string,
 ): Promise<INodeListSearchResult> {
-    let responseData: AutomatonIndex[] = [];
+    const objectId = this.getCurrentNodeParameter('objectId');
+    if (!objectId || typeof objectId !== 'object' || !('__rl' in objectId) || !objectId.__rl || !objectId.value) {
+        return {
+            results: [], paginationToken: undefined
+        };
+    }
+    let responseData: ObjectSubModelShape = {};
 
     const cred = await this.getCredentials<RightechRicWebApiCred>('rightechRicWebApi');
 
+    const url = `${cred.ricServer}/objects/${objectId.value}/model?only=model`;
+
     const request: IHttpRequestOptions = {
         method: 'GET',
-        url: `${cred.ricServer}/automatons`,
+        url,
         json: true,
     };
 
@@ -38,18 +44,18 @@ export async function listAutomatons(
     } catch (error) {
         return {
             results: [
-                {name: "⚠️ " + error.toString(), value: 'error!'}
+                {name: "⚠️ " + error.toString() + ` at ${url}`, value: 'error!'}
             ], paginationToken: undefined
         };
     }
 
     try {
-        const results: INodeListSearchItems[] = responseData
-            .map(i => toSearchable(i, '_id', 'name'))
+        const results: INodeListSearchItems[] = (responseData._actions ?? [])
+            .map(i => toSearchable(i, 'id', 'name'))
             .filter(i => !filter || i._search.includes(filter))
-            .map((item: AutomatonIndex) => ({
+            .map((item: CommandsIndexPerModel) => ({
                 name: item.name,
-                value: item._id,
+                value: item.id,
             }));
 
         return {results, paginationToken: undefined};

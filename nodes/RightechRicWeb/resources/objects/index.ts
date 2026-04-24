@@ -1,4 +1,5 @@
 import type { INodeProperties } from 'n8n-workflow';
+import {objectSelector} from "../../common/properties.js";
 
 export const objectsApiProperties: INodeProperties[] = [
 	{
@@ -41,11 +42,7 @@ export const objectsApiProperties: INodeProperties[] = [
 		default: 'readObject',
 	},
 	{
-		displayName: 'Object ID',
-		name: 'objectId',
-		required: true,
-		type: 'string',
-		default: '',
+		...objectSelector,
 		displayOptions: {
 			show: {
 				resource: ['objects'],
@@ -56,8 +53,41 @@ export const objectsApiProperties: INodeProperties[] = [
 		displayName: 'Command ID',
 		name: 'commandId',
 		required: true,
-		type: 'string',
-		default: '',
+		type: 'resourceLocator',
+		default: {
+			mode: 'list',
+			value: '',
+		},
+		modes: [
+			{
+				displayName: 'List',
+				name: 'list',
+				type: 'list',
+				placeholder: 'Select a command...',
+				hint: 'Commands are tied to the object model, so you need to select an object first.',
+				typeOptions: {
+					searchListMethod: 'listCommands',
+					searchable: true,
+					searchFilterRequired: false,
+				},
+			},
+			{
+				displayName: 'ID',
+				name: 'id',
+				type: 'string',
+				hint: 'Enter an ID',
+				validation: [
+					{
+						type: 'regex',
+						properties: {
+							regex: '^[a-z0-9-_]$',
+							errorMessage: 'Command ID is an alphanumeric string.',
+						},
+					},
+				],
+				placeholder: 'e.g. `led-on`',
+			},
+		],
 		displayOptions: {
 			show: {
 				resource: ['objects'],
