@@ -4,7 +4,7 @@
  */
 export function toSearchable<T extends object>(item: T, ...fields: string[]): T & { _search: string } {
     const _search = fields
-        .map(field => item in field ? String(item[field]).toLowerCase() : '')
+        .map(field => field in item ? String(item[field]).toLowerCase() : '')
         .filter(part => part !== '')
         .join(' ');
 
