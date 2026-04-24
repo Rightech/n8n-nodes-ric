@@ -1,56 +1,56 @@
 import type {INodeProperties} from 'n8n-workflow';
 import {objectSelector, ricUuidPropertyMode} from "../../common/properties.js";
 
-export const logicApiProperties: INodeProperties[] = [
+export const scenarioApiProperties: INodeProperties[] = [
     {
-        displayName: 'Options',
+        displayName: 'Operation',
         name: 'operation',
         type: 'options',
         noDataExpression: true,
         displayOptions: {
             show: {
-                resource: ['logic'],
+                resource: ['scenario'],
             },
         },
         options: [
             {
-                name: 'Start Automation',
-                value: 'logicStart',
-                action: 'Start automation on an object',
-                description: 'Starts a new automation instance on the object. More at https://rightech.io/en/developers/http/logic#execute-start.',
+                name: 'Start Scenario',
+                value: 'scenarioStart',
+                action: 'Start scenario on an object',
+                description: 'Starts a new scenario execution on the object. More at https://rightech.io/en/developers/http/logic#execute-start.',
                 routing: {
                     request: {
                         method: 'POST',
-                        url: '=/objects/{{$parameter.objectId}}/automatons/{{$parameter.automatonId}}/start',
+                        url: '=/objects/{{$parameter.objectId}}/automatons/{{$parameter.scenarioId}}/start',
                     },
                 },
             },
             {
-                name: 'Stop Automation',
-                value: 'logicStop',
-                action: 'Stop automation on an object',
-                description: 'Stops a running automaton on an object. More at https://rightech.io/en/developers/http/logic#execute-stop.',
+                name: 'Stop Scenario',
+                value: 'scenarioStop',
+                action: 'Stop scenario on an object',
+                description: 'Stops a running scenario execution on an object. More at https://rightech.io/en/developers/http/logic#execute-stop.',
                 routing: {
                     request: {
                         method: 'POST',
-                        url: '=/objects/{{$parameter.objectId}}/automatons/{{$parameter.automatonId}}/stop',
+                        url: '=/objects/{{$parameter.objectId}}/automatons/{{$parameter.scenarioId}}/stop',
                     },
                 },
             },
         ],
-        default: 'logicStart',
+        default: 'scenarioStart',
     },
     {
         ...objectSelector,
         displayOptions: {
             show: {
-                resource: ['logic'],
+                resource: ['scenario'],
             },
         },
     },
     {
-        displayName: 'Logic Automation ID',
-        name: 'automatonId',
+        displayName: 'Scenario ID',
+        name: 'scenarioId',
         required: true,
         type: 'resourceLocator',
         default: {
@@ -59,7 +59,7 @@ export const logicApiProperties: INodeProperties[] = [
         },
         displayOptions: {
             show: {
-                resource: ['logic'],
+                resource: ['scenario'],
             },
         },
         modes: [
@@ -67,9 +67,9 @@ export const logicApiProperties: INodeProperties[] = [
                 displayName: 'From List',
                 name: 'list',
                 type: 'list',
-                placeholder: 'Select an automation...',
+                placeholder: 'Select a scenario...',
                 typeOptions: {
-                    searchListMethod: 'listAutomatons',
+                    searchListMethod: 'listScenarios',
                     searchable: true,
                     searchFilterRequired: false,
                 },

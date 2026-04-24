@@ -1,7 +1,7 @@
 import {IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult} from "n8n-workflow";
 import {toSearchable} from "../common/util.js";
 
-interface AutomatonIndex {
+interface ScenarioIndex {
     _id: string,
     name: string,
     description?: string,
@@ -19,11 +19,11 @@ interface RightechRicWebApiCred {
     ricServer: string,
 }
 
-export async function listAutomatons(
+export async function listScenarios(
     this: ILoadOptionsFunctions,
     filter?: string,
 ): Promise<INodeListSearchResult> {
-    let responseData: AutomatonIndex[] = [];
+    let responseData: ScenarioIndex[] = [];
 
     const cred = await this.getCredentials<RightechRicWebApiCred>('rightechRicWebApi');
 
@@ -47,7 +47,7 @@ export async function listAutomatons(
         const results: INodeListSearchItems[] = responseData
             .map(i => toSearchable(i, '_id', 'name'))
             .filter(i => !filter || i._search.includes(filter))
-            .map((item: AutomatonIndex) => ({
+            .map((item: ScenarioIndex) => ({
                 name: item.name,
                 value: item._id,
             }));

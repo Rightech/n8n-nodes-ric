@@ -1,7 +1,7 @@
 import {NodeConnectionTypes, type INodeType, type INodeTypeDescription} from 'n8n-workflow';
-import {logicApiProperties} from "./resources/logic/index.js";
+import {scenarioApiProperties} from "./resources/scenario/index.js";
 import {objectApiProperties} from "./resources/object/index.js";
-import {listAutomatons} from "./methods/listAutomatons.js";
+import {listScenarios} from "./methods/listScenarios.js";
 import {listObjects} from "./methods/listObjects.js";
 import {listCommands} from "./methods/listCommands.js";
 
@@ -42,22 +42,23 @@ export class RightechRicWeb implements INodeType {
                     {
                         name: 'Object',
                         value: 'object',
-                        description: 'Test test!',
+                        description: 'Objects bound to your IoT devices',
                     },
                     {
-                        name: 'Logic',
-                        value: 'logic',
+                        name: 'Scenario',
+                        value: 'scenario',
+                        description: 'Automation scenarios',
                     },
                 ],
                 default: 'object',
             },
-            ...logicApiProperties,
+            ...scenarioApiProperties,
             ...objectApiProperties,
         ],
     };
     methods = {
         listSearch: {
-            listAutomatons: listAutomatons,
+            listScenarios: listScenarios,
             listObjects: listObjects,
             listCommands: listCommands,
         }

@@ -3,7 +3,7 @@ import {objectSelector} from "../../common/properties.js";
 
 export const objectApiProperties: INodeProperties[] = [
 	{
-		displayName: 'Options',
+		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
@@ -29,7 +29,7 @@ export const objectApiProperties: INodeProperties[] = [
 				name: 'Send Command',
 				value: 'sendCommand',
 				action: 'Send command to the object',
-				description: 'Sends any existing command of the object to the device. More at https://rightech.io/en/developers/http/objects#send-command.',
+				description: 'Sends any assigned command of the object to the device. More at https://rightech.io/en/developers/http/objects#send-command.',
 				routing: {
 					request: {
 						method: 'POST',
