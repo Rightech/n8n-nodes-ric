@@ -1,6 +1,6 @@
 import {NodeConnectionTypes, type INodeType, type INodeTypeDescription} from 'n8n-workflow';
 import {logicApiProperties} from "./resources/logic/index.js";
-import {objectsApiProperties} from "./resources/objects/index.js";
+import {objectApiProperties} from "./resources/object/index.js";
 import {listAutomatons} from "./methods/listAutomatons.js";
 import {listObjects} from "./methods/listObjects.js";
 import {listCommands} from "./methods/listCommands.js";
@@ -41,17 +41,18 @@ export class RightechRicWeb implements INodeType {
                 options: [
                     {
                         name: 'Object',
-                        value: 'objects',
+                        value: 'object',
+                        description: 'Test test!',
                     },
                     {
                         name: 'Logic',
                         value: 'logic',
                     },
                 ],
-                default: 'objects',
+                default: 'object',
             },
             ...logicApiProperties,
-            ...objectsApiProperties,
+            ...objectApiProperties,
         ],
     };
     methods = {

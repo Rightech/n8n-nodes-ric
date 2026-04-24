@@ -2,11 +2,13 @@
  * Cast selected keys to lowercase for CI substring search
  * todo: go over use cases and convert to fuzzy API search when/if it becomes available
  */
-export function toSearchable<T = object>(item: T, ...fields: string[]): T & { _search: string } {
+export function toSearchable<T extends object>(item: T, ...fields: string[]): T & { _search: string } {
     const _search = fields
         .map(field => {
-            const value = (item as unknown)[field];
-            return value != null ? String(value).toLowerCase() : '';
+            if (field in item) {
+                return String(item[field]).toLowerCase();
+            }
+            return '';
         })
         .filter(part => part !== '')
         .join(' ');

@@ -1,7 +1,7 @@
 import type { INodeProperties } from 'n8n-workflow';
 import {objectSelector} from "../../common/properties.js";
 
-export const objectsApiProperties: INodeProperties[] = [
+export const objectApiProperties: INodeProperties[] = [
 	{
 		displayName: 'Options',
 		name: 'operation',
@@ -9,13 +9,13 @@ export const objectsApiProperties: INodeProperties[] = [
 		noDataExpression: true,
 		displayOptions: {
 			show: {
-				resource: ['objects'],
+				resource: ['object'],
 			},
 		},
 		options: [
 			{
-				name: 'Get Object',
-				value: 'readObject',
+				name: 'Get',
+				value: 'get',
 				action: 'Get object data and state',
 				description: 'Reads an entire object configuration and recorded state params. More at https://rightech.io/en/developers/http/objects#get-one.',
 				routing: {
@@ -27,9 +27,9 @@ export const objectsApiProperties: INodeProperties[] = [
 			},
 			{
 				name: 'Send Command',
-				value: 'sendObjectCommand',
+				value: 'sendCommand',
 				action: 'Send command to the object',
-				description: 'Sends any existing command of the object to the object. More at https://rightech.io/en/developers/http/objects#send-command.',
+				description: 'Sends any existing command of the object to the device. More at https://rightech.io/en/developers/http/objects#send-command.',
 				routing: {
 					request: {
 						method: 'POST',
@@ -39,13 +39,13 @@ export const objectsApiProperties: INodeProperties[] = [
 				},
 			},
 		],
-		default: 'readObject',
+		default: 'get',
 	},
 	{
 		...objectSelector,
 		displayOptions: {
 			show: {
-				resource: ['objects'],
+				resource: ['object'],
 			},
 		},
 	},
@@ -60,7 +60,7 @@ export const objectsApiProperties: INodeProperties[] = [
 		},
 		modes: [
 			{
-				displayName: 'List',
+				displayName: 'From List',
 				name: 'list',
 				type: 'list',
 				placeholder: 'Select a command...',
@@ -72,10 +72,11 @@ export const objectsApiProperties: INodeProperties[] = [
 				},
 			},
 			{
-				displayName: 'ID',
+				displayName: 'By ID',
 				name: 'id',
 				type: 'string',
-				hint: 'Enter an ID',
+				placeholder: 'e.g. led-on',
+				hint: 'You can find command IDs in the object model declaration tree in RIC web UI - typically, you would look for a "Commands" folders and then at contained objects.',
 				validation: [
 					{
 						type: 'regex',
@@ -85,47 +86,41 @@ export const objectsApiProperties: INodeProperties[] = [
 						},
 					},
 				],
-				placeholder: 'e.g. `led-on`',
 			},
 		],
 		displayOptions: {
 			show: {
-				resource: ['objects'],
-				operation: ['sendObjectCommand'],
+				resource: ['object'],
+				operation: ['sendCommand'],
 			},
 		},
 	},
 	{
-		displayName: 'Send Extra Command Data',
-		name: 'commandUseAuxiliaryData',
-		hint: 'Does anything only for commands with parametric fields.',
-		type: 'boolean',
-		default: false,
-		displayOptions: {
-			show: {
-				resource: ['objects'],
-				operation: ['sendObjectCommand'],
-			},
-		}
-	},
-	{
-		displayName: 'Extra Command Data',
-		name: 'commandAuxiliaryData',
-		hint: 'Sent data must match with declared parametric fields, the entire object will be sent as is.',
-		type: 'json',
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		placeholder: 'Add Field',
 		default: {},
 		displayOptions: {
 			show: {
-				resource: ['objects'],
-				operation: ['sendObjectCommand'],
-				commandUseAuxiliaryData: [true],
+				resource: ['object'],
+				operation: ['sendCommand'],
 			},
 		},
-		routing: {
-			request: {
-				body: '={{JSON.parse($value)}}',
-				json: true,
-			}
-		}
+		options: [
+			{
+				displayName: 'Command Data',
+				name: 'commandAuxiliaryData',
+				hint: 'Sent data must match with declared parametric fields, the entire object will be sent as is.',
+				type: 'json',
+				default: {},
+				routing: {
+					request: {
+						body: '={{JSON.parse($value)}}',
+						json: true,
+					}
+				}
+			},
+		],
 	},
 ];

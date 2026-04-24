@@ -3,20 +3,20 @@ import {INodeProperties, INodePropertyMode} from "n8n-workflow";
 // because INodePropertyMode does not have defaults
 // eslint-disable-next-line n8n-nodes-base/node-param-default-missing
 export const ricUuidPropertyMode: INodePropertyMode = {
-    displayName: 'ID',
+    displayName: 'By ID',
     name: 'id',
     type: 'string',
-    hint: 'Enter an ID',
+    placeholder: 'e.g. 5951113beb39561100fd5bbb',
+    hint: 'If you need to manually reference an ID of some thing, you can find it in the browser URL while looking at the thing in RIC web UI.',
     validation: [
         {
             type: 'regex',
             properties: {
                 regex: '^[a-z0-9]{24}$',
-                errorMessage: 'ID is 24 alphanumeric symbols.',
+                errorMessage: 'ID must be 24 alphanumeric symbols.',
             },
         },
     ],
-    placeholder: 'e.g. 5951113beb39561100fd5bbb',
 };
 
 export const objectSelector: INodeProperties = {
@@ -30,7 +30,7 @@ export const objectSelector: INodeProperties = {
     },
     modes: [
         {
-            displayName: 'List',
+            displayName: 'From List',
             name: 'list',
             type: 'list',
             placeholder: 'Select an object...',

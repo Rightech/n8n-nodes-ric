@@ -64,7 +64,7 @@ export const logicApiProperties: INodeProperties[] = [
         },
         modes: [
             {
-                displayName: 'List',
+                displayName: 'From List',
                 name: 'list',
                 type: 'list',
                 placeholder: 'Select an automation...',
