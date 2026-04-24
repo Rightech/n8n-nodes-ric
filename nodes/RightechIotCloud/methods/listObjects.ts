@@ -20,7 +20,7 @@ export async function listObjects(
 
     const request: IHttpRequestOptions = {
         method: 'GET',
-        url: `${cred.ricServer}/objects?limit=1000&only=_id,name`,
+        url: `${cred.ricServer}/api/v1/objects?limit=1000&only=_id,name`,
         json: true,
     };
 

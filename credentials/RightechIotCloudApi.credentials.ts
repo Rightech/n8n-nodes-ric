@@ -16,7 +16,7 @@ export class RightechIotCloudApi implements ICredentialType {
 			name: 'ricServer',
 			type: 'string',
 			required: true,
-			default: 'https://dev.rightech.io/api/v1',
+			default: 'https://dev.rightech.io',
 		},
 		{
 			displayName: 'Access Token',

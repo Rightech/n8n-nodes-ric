@@ -29,7 +29,7 @@ export async function listScenarios(
 
     const request: IHttpRequestOptions = {
         method: 'GET',
-        url: `${cred.ricServer}/automatons`,
+        url: `${cred.ricServer}/api/v1/automatons`,
         json: true,
     };
 

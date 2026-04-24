@@ -31,7 +31,7 @@ export async function listCommands(
 
     const cred = await this.getCredentials<RicApiCred>('rightechIotCloudApi');
 
-    const url = `${cred.ricServer}/objects/${objectId.value}/model?only=model`;
+    const url = `${cred.ricServer}/api/v1/objects/${objectId.value}/model?only=model`;
 
     const request: IHttpRequestOptions = {
         method: 'GET',

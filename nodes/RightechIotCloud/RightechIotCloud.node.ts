@@ -26,7 +26,7 @@ export class RightechIotCloud implements INodeType {
             {name: 'rightechIotCloudApi', required: true}
         ],
         requestDefaults: {
-            baseURL: '={{$credentials.ricServer}}',
+            baseURL: '={{$credentials.ricServer}}/api/v1',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
