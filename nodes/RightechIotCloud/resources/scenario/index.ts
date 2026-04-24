@@ -15,7 +15,7 @@ export const scenarioApiProperties: INodeProperties[] = [
         options: [
             {
                 name: 'Start Scenario',
-                value: 'scenarioStart',
+                value: 'start',
                 action: 'Start scenario on an object',
                 description: 'Starts a new scenario execution on the object. More at https://rightech.io/en/developers/http/logic#execute-start.',
                 routing: {
@@ -27,7 +27,7 @@ export const scenarioApiProperties: INodeProperties[] = [
             },
             {
                 name: 'Stop Scenario',
-                value: 'scenarioStop',
+                value: 'stop',
                 action: 'Stop scenario on an object',
                 description: 'Stops a running scenario execution on an object. More at https://rightech.io/en/developers/http/logic#execute-stop.',
                 routing: {
@@ -38,7 +38,7 @@ export const scenarioApiProperties: INodeProperties[] = [
                 },
             },
         ],
-        default: 'scenarioStart',
+        default: 'start',
     },
     {
         ...objectSelector,
