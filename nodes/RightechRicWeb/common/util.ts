@@ -5,7 +5,7 @@
 export function toSearchable<T = object>(item: T, ...fields: string[]): T & { _search: string } {
     const _search = fields
         .map(field => {
-            const value = (item as any)[field];
+            const value = (item as unknown)[field];
             return value != null ? String(value).toLowerCase() : '';
         })
         .filter(part => part !== '')
