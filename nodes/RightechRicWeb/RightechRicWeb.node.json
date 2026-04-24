@@ -1,5 +1,5 @@
 {
-  "node": "@rightech/n8n-nodes-ric-web",
+  "node": "@rightech/n8n-nodes-ric",
   "nodeVersion": "1.0",
   "codexVersion": "1.0",
   "categories": [
