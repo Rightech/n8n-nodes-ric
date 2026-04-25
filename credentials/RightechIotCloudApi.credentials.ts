@@ -7,7 +7,7 @@ import type {
 
 export class RightechIotCloudApi implements ICredentialType {
 	name = 'rightechIotCloudApi';
-	displayName = 'Rightech IoT Cloud API';
+	displayName = 'Rightech IoT Core API';
 	icon: Icon = 'file:../logo.svg';
 	documentationUrl = 'https://github.com/Rightech/n8n-nodes-ric#credentials';
 	properties: INodeProperties[] = [

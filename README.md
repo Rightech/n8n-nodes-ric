@@ -1,9 +1,9 @@
-# n8n Nodes - <img src="logo.svg" width="32" height="32" alt="Rightech IoT Cloud" align="center"> Rightech IoT Cloud
+# n8n Nodes - <img src="logo.svg" width="32" height="32" alt="Rightech IoT Core" align="center"> Rightech IoT Core
 
-This is an n8n community node that provides some basic integration with [<img src="logo.svg" width="16" height="16" alt="Rightech IoT Cloud" align="center"> Rightech IoT Cloud (aka RIC)](https://rightech.io/en).
+This is an n8n community node that provides some basic integration with [<img src="logo.svg" width="16" height="16" alt="Rightech IoT Core" align="center"> Rightech IoT Core (aka RIC)](https://rightech.io/en).
 It lets you interact with your IoT devices and automations through the platform.
 
-The [<img src="logo.svg" width="16" height="16" alt="Rightech IoT Cloud" align="center"> RIC](https://rightech.io/en/about-platform) platform is an intermediate link between devices (sensors, actuators, etc.) on the one hand, and applications on the other.
+The [<img src="logo.svg" width="16" height="16" alt="Rightech IoT Core" align="center"> RIC](https://rightech.io/en/about-platform) platform is an intermediate link between devices (sensors, actuators, etc.) on the one hand, and applications on the other.
 Platform tools allow developers to create IoT solutions without extra code and developers reuse 90% of that solution to launch similar cases.
 RIC is independent of specific equipment and protocols. So, it is easy to combine different devices under one solution.
 
@@ -54,7 +54,7 @@ This node is developed on and tested to work with the following configuration:
 ## Resources
 
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-- [<img src="logo.svg" width="16" height="16" alt="Rightech IoT Cloud" align="center"> RIC resources](https://rightech.io/en)
+- [<img src="logo.svg" width="16" height="16" alt="Rightech IoT Core" align="center"> RIC resources](https://rightech.io/en)
   - [Introduction](https://rightech.io/en/developers/intro)
   - [Tutorials](https://rightech.io/en/tutorials)
   - [HTTP API](https://rightech.io/en/developers/http)

@@ -7,16 +7,16 @@ import {listCommands} from "./methods/listCommands.js";
 
 export class RightechIotCloud implements INodeType {
     description: INodeTypeDescription = {
-        displayName: 'Rightech IoT Cloud',
+        displayName: 'Rightech IoT Core',
         name: 'rightechIotCloud',
         icon: 'file:../../logo.svg',
         group: ['transform'],
         version: 1,
         subtitle: '={{$parameter.operation + ": " + $parameter.resource}}',
-        description: 'Interact with the Rightech IoT Cloud API',
+        description: 'Interact with the Rightech IoT Core API',
         documentationUrl: 'https://github.com/Rightech/n8n-nodes-ric',
         defaults: {
-            name: 'Rightech IoT Cloud',
+            name: 'Rightech IoT Core',
         },
         hints: [],
         usableAsTool: true,
