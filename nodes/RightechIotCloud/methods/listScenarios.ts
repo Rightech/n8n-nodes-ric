@@ -1,5 +1,6 @@
 import {IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult} from "n8n-workflow";
 import {toSearchable} from "../common/util.js";
+import {RicApiCred, RicApiCredName} from "../common/types.js";
 
 interface ScenarioIndex {
     _id: string,
@@ -15,17 +16,13 @@ interface ScenarioIndex {
     version?: number,
 }
 
-interface RicApiCred {
-    ricServer: string,
-}
-
 export async function listScenarios(
     this: ILoadOptionsFunctions,
     filter?: string,
 ): Promise<INodeListSearchResult> {
     let responseData: ScenarioIndex[] = [];
 
-    const cred = await this.getCredentials<RicApiCred>('rightechIotCloudApi');
+    const cred = await this.getCredentials<RicApiCred>(RicApiCredName);
 
     const request: IHttpRequestOptions = {
         method: 'GET',
@@ -34,7 +31,7 @@ export async function listScenarios(
     };
 
     try {
-        responseData = await this.helpers.httpRequestWithAuthentication.call(this, 'rightechIotCloudApi', request);
+        responseData = await this.helpers.httpRequestWithAuthentication.call(this, RicApiCredName, request);
     } catch (error) {
         return {
             results: [
@@ -45,8 +42,7 @@ export async function listScenarios(
 
     try {
         const results: INodeListSearchItems[] = responseData
-            .map(i => toSearchable(i, '_id', 'name'))
-            .filter(i => !filter || i._search.includes(filter))
+            .filter(i => !filter || toSearchable(i, '_id', 'name').includes(filter))
             .map((item: ScenarioIndex) => ({
                 name: item.name,
                 value: item._id,

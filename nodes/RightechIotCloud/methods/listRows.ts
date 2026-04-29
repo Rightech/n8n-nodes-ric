@@ -1,26 +1,30 @@
 import {IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult} from "n8n-workflow";
-import {toSearchable} from "../common/util.js";
+import {readResourceLocatorId} from "../common/util.js";
 import {RicApiCred, RicApiCredName} from "../common/types.js";
 
-interface ObjectLookupSubsetFields {
+interface RowsIndex {
     _id: string,
-    name: string,
+    time: number,
+    data: Record<string, boolean | number | string>,
 }
 
-export async function listObjects(
+export async function listRows(
     this: ILoadOptionsFunctions,
     filter?: string,
 ): Promise<INodeListSearchResult> {
-    let responseData: ObjectLookupSubsetFields[] = [];
-
+    const tableId = readResourceLocatorId(this, 'tableId');
+    if (!tableId) {
+        return {
+            results: [], paginationToken: undefined
+        };
+    }
+    let responseData: RowsIndex[] = [];
     const cred = await this.getCredentials<RicApiCred>(RicApiCredName);
-
     const request: IHttpRequestOptions = {
         method: 'GET',
-        url: `${cred.ricServer}/api/v1/objects?limit=1000&only=_id,name`,
+        url: `${cred.ricServer}/api/v1/tables/${tableId}/rows`,
         json: true,
     };
-
     try {
         responseData = await this.helpers.httpRequestWithAuthentication.call(this, RicApiCredName, request);
     } catch (error) {
@@ -30,15 +34,14 @@ export async function listObjects(
             ], paginationToken: undefined
         };
     }
-
     try {
         const results: INodeListSearchItems[] = responseData
-            .filter(i => !filter || toSearchable(i, '_id', 'name').includes(filter))
-            .map((item: ObjectLookupSubsetFields) => ({
-                name: item.name,
+            // todo: this is problematic because there can be a lot of rows but API can't be used to look them up well (substrings and such), so return set will be limited
+            .filter(i => !filter || Object.values(i.data).join(" ").includes(filter))
+            .map((item: RowsIndex) => ({
+                name: Object.keys(item.data).slice(0, 5).map((k: keyof RowsIndex["data"]) => item.data[k]).join(' | ') || item._id,
                 value: item._id,
             }));
-
         return {results, paginationToken: undefined};
     } catch (error) {
         return {

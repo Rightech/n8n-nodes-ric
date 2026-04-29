@@ -1,7 +1,8 @@
 import {
     IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult
 } from "n8n-workflow";
-import {toSearchable} from "../common/util.js";
+import {readResourceLocatorId, toSearchable} from "../common/util.js";
+import {RicApiCred, RicApiCredName} from "../common/types.js";
 
 interface ObjectSubModelShape {
     _actions?: CommandsIndexPerModel[],
@@ -13,25 +14,21 @@ interface CommandsIndexPerModel {
     type?: string,
 }
 
-interface RicApiCred {
-    ricServer: string,
-}
-
 export async function listCommands(
     this: ILoadOptionsFunctions,
     filter?: string,
 ): Promise<INodeListSearchResult> {
-    const objectId = this.getCurrentNodeParameter('objectId');
-    if (!objectId || typeof objectId !== 'object' || !('__rl' in objectId) || !objectId.__rl || !objectId.value) {
+    const objectId = readResourceLocatorId(this, 'objectId');
+    if (!objectId) {
         return {
             results: [], paginationToken: undefined
         };
     }
     let responseData: ObjectSubModelShape = {};
 
-    const cred = await this.getCredentials<RicApiCred>('rightechIotCloudApi');
+    const cred = await this.getCredentials<RicApiCred>(RicApiCredName);
 
-    const url = `${cred.ricServer}/api/v1/objects/${objectId.value}/model?only=model`;
+    const url = `${cred.ricServer}/api/v1/objects/${objectId}/model?only=model`;
 
     const request: IHttpRequestOptions = {
         method: 'GET',
@@ -40,7 +37,7 @@ export async function listCommands(
     };
 
     try {
-        responseData = await this.helpers.httpRequestWithAuthentication.call(this, 'rightechIotCloudApi', request);
+        responseData = await this.helpers.httpRequestWithAuthentication.call(this, RicApiCredName, request);
     } catch (error) {
         return {
             results: [
@@ -51,8 +48,7 @@ export async function listCommands(
 
     try {
         const results: INodeListSearchItems[] = (responseData._actions ?? [])
-            .map(i => toSearchable(i, 'id', 'name'))
-            .filter(i => !filter || i._search.includes(filter))
+            .filter(i => !filter || toSearchable(i, 'id', 'name').includes(filter))
             .map((item: CommandsIndexPerModel) => ({
                 name: item.name,
                 value: item.id,

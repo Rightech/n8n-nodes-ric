@@ -4,6 +4,11 @@ import {objectApiProperties} from "./resources/object/index.js";
 import {listScenarios} from "./methods/listScenarios.js";
 import {listObjects} from "./methods/listObjects.js";
 import {listCommands} from "./methods/listCommands.js";
+import {tableApiProperties} from "./resources/table/index.js";
+import {listTables} from "./methods/listTables.js";
+import {listRows} from "./methods/listRows.js";
+import {mapTableRowQuery} from "./methods/mapTableRowQuery.js";
+import {RicApiCredName} from "./common/types.js";
 
 export class RightechIotCloud implements INodeType {
     description: INodeTypeDescription = {
@@ -23,7 +28,7 @@ export class RightechIotCloud implements INodeType {
         inputs: [NodeConnectionTypes.Main],
         outputs: [NodeConnectionTypes.Main],
         credentials: [
-            {name: 'rightechIotCloudApi', required: true}
+            {name: RicApiCredName, required: true}
         ],
         requestDefaults: {
             baseURL: '={{$credentials.ricServer}}/api/v1',
@@ -49,18 +54,29 @@ export class RightechIotCloud implements INodeType {
                         value: 'scenario',
                         description: 'Automation scenarios',
                     },
+                    {
+                        name: 'Table',
+                        value: 'table',
+                        description: 'Data tables',
+                    },
                 ],
                 default: 'object',
             },
             ...scenarioApiProperties,
             ...objectApiProperties,
+            ...tableApiProperties,
         ],
     };
     methods = {
         listSearch: {
-            listScenarios: listScenarios,
-            listObjects: listObjects,
-            listCommands: listCommands,
-        }
+            listScenarios,
+            listObjects,
+            listCommands,
+            listTables,
+            listRows,
+        },
+        resourceMapping: {
+            mapTableRowQuery,
+        },
     }
 }

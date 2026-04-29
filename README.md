@@ -35,6 +35,12 @@ At the start, this node supports a bare minimum of operations you may need to in
 - **Start scenario on an object**: Starts a new scenario execution on the object. Read more at https://rightech.io/en/developers/http/logic#execute-start.
 - **Stop scenario on an object**: Stops a running scenario execution on an object. Read more at https://rightech.io/en/developers/http/logic#execute-stop.
 
+### Tables
+
+- **Get data table declaration**: Returns table declaration with column properties. Read more at https://rightech.io/en/developers/objects/table.
+- **Get table row**: Returns a specific table row. More at https://rightech.io/en/developers/objects/table.
+- **Get table rows**: Returns table rows, optionally matching selected conditions. More at https://rightech.io/en/developers/objects/table.
+
 ## Credentials
 
 This node supports API Bearer auth credentials using [`rightechIotCloudApi`](credentials/RightechIotCloudApi.credentials.ts) credential. Read more about how to get access tokens here:
