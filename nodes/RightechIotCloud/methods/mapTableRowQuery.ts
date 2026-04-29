@@ -1,6 +1,5 @@
-import {ILoadOptionsFunctions, ResourceMapperFields} from "n8n-workflow/dist/esm/interfaces.js";
 import {RicApiCred, RicApiCredName, RicApiTableIndex} from "../common/types.js";
-import {IHttpRequestOptions} from "n8n-workflow";
+import {IHttpRequestOptions, ILoadOptionsFunctions, ResourceMapperFields} from "n8n-workflow";
 import {readResourceLocatorId} from "../common/util.js";
 
 export async function mapTableRowQuery(this: ILoadOptionsFunctions): Promise<ResourceMapperFields> {
@@ -21,7 +20,7 @@ export async function mapTableRowQuery(this: ILoadOptionsFunctions): Promise<Res
         const responseData: RicApiTableIndex = await this.helpers.httpRequestWithAuthentication.call(this, RicApiCredName, request);
         return {
             fields: responseData.columns.map(c => ({
-                id: `${tableId}::${c.id}`,
+                id: `where.data.${c.id}`,
                 displayName: c.name,
                 type: c.dataType === 'date' ? 'dateTime' : c.dataType,
                 required: false,

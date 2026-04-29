@@ -1,6 +1,5 @@
 import {IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult} from "n8n-workflow";
-import {toSearchable} from "../common/util.js";
-import {RicApiCred, RicApiCredName} from "../common/types.js";
+import {httpCall, toSearchable} from "../common/util.js";
 
 interface ScenarioIndex {
     _id: string,
@@ -21,17 +20,13 @@ export async function listScenarios(
     filter?: string,
 ): Promise<INodeListSearchResult> {
     let responseData: ScenarioIndex[] = [];
-
-    const cred = await this.getCredentials<RicApiCred>(RicApiCredName);
-
     const request: IHttpRequestOptions = {
         method: 'GET',
-        url: `${cred.ricServer}/api/v1/automatons`,
+        url: '/api/v1/automatons',
         json: true,
     };
-
     try {
-        responseData = await this.helpers.httpRequestWithAuthentication.call(this, RicApiCredName, request);
+        responseData = await httpCall(this, request) as ScenarioIndex[];
     } catch (error) {
         return {
             results: [

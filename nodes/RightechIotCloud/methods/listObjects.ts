@@ -1,4 +1,9 @@
-import {IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult} from "n8n-workflow";
+import {
+    IHttpRequestOptions,
+    ILoadOptionsFunctions,
+    INodeListSearchItems,
+    INodeListSearchResult,
+} from "n8n-workflow";
 import {toSearchable} from "../common/util.js";
 import {RicApiCred, RicApiCredName} from "../common/types.js";
 

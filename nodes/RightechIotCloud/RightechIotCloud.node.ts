@@ -1,4 +1,10 @@
-import {NodeConnectionTypes, type INodeType, type INodeTypeDescription} from 'n8n-workflow';
+import {
+    IExecuteFunctions,
+    INodeExecutionData,
+    type INodeType,
+    type INodeTypeDescription,
+    NodeConnectionTypes
+} from 'n8n-workflow';
 import {scenarioApiProperties} from "./resources/scenario/index.js";
 import {objectApiProperties} from "./resources/object/index.js";
 import {listScenarios} from "./methods/listScenarios.js";
@@ -9,6 +15,7 @@ import {listTables} from "./methods/listTables.js";
 import {listRows} from "./methods/listRows.js";
 import {mapTableRowQuery} from "./methods/mapTableRowQuery.js";
 import {RicApiCredName} from "./common/types.js";
+import {route} from "./resources/route.js";
 
 export class RightechIotCloud implements INodeType {
     description: INodeTypeDescription = {
@@ -30,13 +37,6 @@ export class RightechIotCloud implements INodeType {
         credentials: [
             {name: RicApiCredName, required: true}
         ],
-        requestDefaults: {
-            baseURL: '={{$credentials.ricServer}}/api/v1',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-        },
         properties: [
             {
                 displayName: 'Resource',
@@ -69,6 +69,7 @@ export class RightechIotCloud implements INodeType {
     };
     methods = {
         listSearch: {
+            // todo: look if NodeOperationError / NodeApiError etc. are a good fit for listing errors, and if yes - refactor all lists
             listScenarios,
             listObjects,
             listCommands,
@@ -78,5 +79,25 @@ export class RightechIotCloud implements INodeType {
         resourceMapping: {
             mapTableRowQuery,
         },
+    };
+    async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
+        const items = this.getInputData();
+        const returnData: INodeExecutionData[] = [];
+        for (let i = 0; i < items.length; i++) {
+            try {
+                const results = await route(this, i);
+                returnData.push(...results);
+            } catch (error) {
+                if (this.continueOnFail()) {
+                    returnData.push(...(this.helpers.constructExecutionMetaData(
+                        this.helpers.returnJsonArray({error: error.message}),
+                        {itemData: {item: i}},
+                    )));
+                    continue;
+                }
+                throw error;
+            }
+        }
+        return [returnData];
     }
 }

@@ -1,5 +1,7 @@
-import {ILoadOptionsFunctions} from "n8n-workflow";
-import {NodeParameterValueType} from "n8n-workflow/dist/esm/interfaces.js";
+import {IExecuteFunctions, IHttpRequestOptions, ILoadOptionsFunctions, NodeParameterValueType,
+    WorkflowConfigurationError
+} from "n8n-workflow";
+import {RicApiCred, RicApiCredName} from "./types.js";
 
 /**
  * Cast selected keys to lowercase for CI substring search
@@ -23,4 +25,15 @@ export function readResourceLocatorId(node: ILoadOptionsFunctions, option: strin
         return idOption.value;
     }
     return undefined;
+}
+
+export async function httpCall(exec: ILoadOptionsFunctions|IExecuteFunctions, request: IHttpRequestOptions): Promise<unknown> {
+    const cred = await exec.getCredentials<RicApiCred>(RicApiCredName);
+    if (!request.url) {
+        throw new WorkflowConfigurationError(exec.getNode(), "Service URL was not set up, but workflow was executed.");
+    }
+    if (!request.url.startsWith('http')) {
+        request.url = cred.ricServer.replace(/\/+$/g, '') + request.url;
+    }
+    return exec.helpers.httpRequestWithAuthentication.call(exec, RicApiCredName, request);
 }

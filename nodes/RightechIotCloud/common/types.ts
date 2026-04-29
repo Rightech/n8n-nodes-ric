@@ -1,8 +1,11 @@
+import {IExecuteFunctions, INodeExecutionData} from "n8n-workflow";
 
 export interface RicApiCred {
     ricServer: string,
     ricAccessToken: string,
 }
+
+export type handlerFn = (exec: IExecuteFunctions, index: number) => Promise<INodeExecutionData[]>;
 
 export const RicApiCredName = 'rightechIotCloudApi';
 

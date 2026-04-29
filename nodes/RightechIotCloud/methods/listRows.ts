@@ -39,6 +39,7 @@ export async function listRows(
             // todo: this is problematic because there can be a lot of rows but API can't be used to look them up well (substrings and such), so return set will be limited
             .filter(i => !filter || Object.values(i.data).join(" ").includes(filter))
             .map((item: RowsIndex) => ({
+                // todo: can load table schema to detect preferred name field
                 name: Object.keys(item.data).slice(0, 5).map((k: keyof RowsIndex["data"]) => item.data[k]).join(' | ') || item._id,
                 value: item._id,
             }));

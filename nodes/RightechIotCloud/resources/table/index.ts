@@ -1,5 +1,11 @@
 import type {INodeProperties} from 'n8n-workflow';
 import {ricUuidPropertyMode} from "../../common/properties.js";
+import {get} from "./get.js";
+import {getRow} from "./getRow.js";
+import {getRows} from "./getRows.js";
+import {handlerFn} from "../../common/types.js";
+
+export const table: Record<string, handlerFn> = {get, getRow, getRows};
 
 export const tableApiProperties: INodeProperties[] = [
     {
@@ -18,36 +24,18 @@ export const tableApiProperties: INodeProperties[] = [
                 value: 'get',
                 action: 'Get data table declaration',
                 description: 'Returns table declaration with column properties. More at https://rightech.io/en/developers/objects/table.',
-                routing: {
-                    request: {
-                        method: 'GET',
-                        url: '=/tables/{{$parameter.tableId}}',
-                    },
-                },
             },
             {
                 name: 'Get Row',
                 value: 'getRow',
                 action: 'Get table row',
                 description: 'Returns a specific table row. More at https://rightech.io/en/developers/objects/table.',
-                routing: {
-                    request: {
-                        method: 'GET',
-                        url: '=/tables/{{$parameter.tableId}}/rows{{$parameter.tableRowId}}',
-                    },
-                },
             },
             {
                 name: 'Get Rows',
                 value: 'getRows',
                 action: 'Get table rows',
                 description: 'Returns table rows, optionally matching selected conditions. More at https://rightech.io/en/developers/objects/table.',
-                routing: {
-                    request: {
-                        method: 'GET',
-                        url: '=/tables/{{$parameter.tableId}}/rows',
-                    },
-                },
             },
         ],
         default: 'get',
@@ -129,9 +117,8 @@ export const tableApiProperties: INodeProperties[] = [
             resourceMapper: {
                 resourceMapperMethod: "mapTableRowQuery",
                 mode: "add",
-                addAllFields: true,
+                addAllFields: false,
             }
-        }
-        // todo: cannot be routed to qs - need to use programmatic node
+        },
     },
 ];

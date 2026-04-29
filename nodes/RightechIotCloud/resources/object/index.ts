@@ -1,5 +1,10 @@
 import type {INodeProperties} from 'n8n-workflow';
 import {objectSelector} from "../../common/properties.js";
+import {get} from "./get.js";
+import {sendCommand} from "./sendCommand.js";
+import {handlerFn} from "../../common/types.js";
+
+export const object: Record<string, handlerFn> = {get, sendCommand};
 
 export const objectApiProperties: INodeProperties[] = [
     {
@@ -18,25 +23,12 @@ export const objectApiProperties: INodeProperties[] = [
                 value: 'get',
                 action: 'Get object data and state',
                 description: 'Reads an entire object configuration and recorded state params. More at https://rightech.io/en/developers/http/objects#get-one.',
-                routing: {
-                    request: {
-                        method: 'GET',
-                        url: '=/objects/{{$parameter.objectId}}',
-                    },
-                },
             },
             {
                 name: 'Send Command',
                 value: 'sendCommand',
                 action: 'Send command to the object',
                 description: 'Sends any assigned command of the object to the device. More at https://rightech.io/en/developers/http/objects#send-command.',
-                routing: {
-                    request: {
-                        method: 'POST',
-                        url: '=/objects/{{$parameter.objectId}}/commands/{{$parameter.commandId}}',
-                        body: '={{$parameter.commandAuxiliaryData}}'
-                    },
-                },
             },
         ],
         default: 'get',
@@ -114,12 +106,6 @@ export const objectApiProperties: INodeProperties[] = [
                 hint: 'Sent data must match with declared parametric fields, the entire object will be sent as is.',
                 type: 'json',
                 default: {},
-                routing: {
-                    request: {
-                        body: '={{JSON.parse($value)}}',
-                        json: true,
-                    }
-                }
             },
         ],
     },
