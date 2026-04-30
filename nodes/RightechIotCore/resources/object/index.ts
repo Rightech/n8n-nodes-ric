@@ -133,4 +133,41 @@ export const objectApiProperties: INodeProperties[] = [
             modelSelector,
         ],
     },
+    {
+        displayName: 'Custom Query Parameters',
+        name: 'customQueryParameters',
+        placeholder: 'Add Parameter',
+        hint: 'For expert users. Since object configurations are highly dynamic you may find it simpler to add arbitrary search parameters.',
+        type: 'fixedCollection',
+        default: {},
+        typeOptions: {
+            multipleValues: true,
+        },
+        displayOptions: {
+            show: {
+                resource: ['object'],
+                operation: ['getAll'],
+            },
+        },
+        options: [
+            {
+                name: 'parameters',
+                displayName: 'Parameters',
+                values: [
+                    {
+                        displayName: 'Query',
+                        name: 'query',
+                        type: 'string',
+                        default: '',
+                    },
+                    {
+                        displayName: 'Value',
+                        name: 'value',
+                        type: 'string',
+                        default: '',
+                    },
+                ],
+            },
+        ],
+    }
 ];
