@@ -43,7 +43,7 @@ At the start, this node supports a bare minimum of operations you may need to in
 
 ## Credentials
 
-This node supports API Bearer auth credentials using [`rightechIotCloudApi`](credentials/RightechIotCloudApi.credentials.ts) credential. Read more about how to get access tokens here:
+This node supports API Bearer auth credentials using [`rightechIotCoreApi`](credentials/RightechIotCoreApi.credentials.ts) credential. Read more about how to get access tokens here:
 - [How to create an access token in RIC platform](https://rightech.io/en/developers/projects/admin#api-tokens)
 - [How that access token is used in the API](https://rightech.io/en/developers/http/auth)
 

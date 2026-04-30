@@ -5,8 +5,8 @@ import type {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class RightechIotCloudApi implements ICredentialType {
-	name = 'rightechIotCloudApi';
+export class RightechIotCoreApi implements ICredentialType {
+	name = 'rightechIotCoreApi';
 	displayName = 'Rightech IoT Core API';
 	icon: Icon = 'file:../logo.svg';
 	documentationUrl = 'https://github.com/Rightech/n8n-nodes-ric#credentials';

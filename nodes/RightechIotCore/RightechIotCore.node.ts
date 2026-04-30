@@ -17,10 +17,10 @@ import {mapTableRowQuery} from "./methods/mapTableRowQuery.js";
 import {RicApiCredName} from "./common/types.js";
 import {route} from "./resources/route.js";
 
-export class RightechIotCloud implements INodeType {
+export class RightechIotCore implements INodeType {
     description: INodeTypeDescription = {
         displayName: 'Rightech IoT Core',
-        name: 'rightechIotCloud',
+        name: 'rightechIotCore',
         icon: 'file:../../logo.svg',
         group: ['transform'],
         version: 1,

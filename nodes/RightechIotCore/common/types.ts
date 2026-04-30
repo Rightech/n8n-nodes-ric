@@ -7,7 +7,7 @@ export interface RicApiCred {
 
 export type handlerFn = (exec: IExecuteFunctions, index: number) => Promise<INodeExecutionData[]>;
 
-export const RicApiCredName = 'rightechIotCloudApi';
+export const RicApiCredName = 'rightechIotCoreApi';
 
 export interface RicApiTableIndex {
     _id: string,
