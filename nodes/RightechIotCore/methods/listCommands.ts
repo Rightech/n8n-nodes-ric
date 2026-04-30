@@ -1,8 +1,7 @@
 import {
     IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult
 } from "n8n-workflow";
-import {readResourceLocatorId, toSearchable} from "../common/util.js";
-import {RicApiCred, RicApiCredName} from "../common/types.js";
+import {httpCall, readResourceLocatorId, toSearchable} from "../common/util.js";
 
 interface ObjectSubModelShape {
     _actions?: CommandsIndexPerModel[],
@@ -25,19 +24,14 @@ export async function listCommands(
         };
     }
     let responseData: ObjectSubModelShape = {};
-
-    const cred = await this.getCredentials<RicApiCred>(RicApiCredName);
-
-    const url = `${cred.ricServer}/api/v1/objects/${objectId}/model?only=model`;
-
+    const url = `/api/v1/objects/${objectId}/model?only=model`;
     const request: IHttpRequestOptions = {
         method: 'GET',
         url,
         json: true,
     };
-
     try {
-        responseData = await this.helpers.httpRequestWithAuthentication.call(this, RicApiCredName, request);
+        responseData = await httpCall(this, request) as ObjectSubModelShape;
     } catch (error) {
         return {
             results: [
@@ -45,7 +39,6 @@ export async function listCommands(
             ], paginationToken: undefined
         };
     }
-
     try {
         const results: INodeListSearchItems[] = (responseData._actions ?? [])
             .filter(i => !filter || toSearchable(i, 'id', 'name').includes(filter))

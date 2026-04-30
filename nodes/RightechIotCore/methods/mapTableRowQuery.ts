@@ -1,6 +1,6 @@
-import {RicApiCred, RicApiCredName, RicApiTableIndex} from "../common/types.js";
+import {RicApiTableIndex} from "../common/types.js";
 import {IHttpRequestOptions, ILoadOptionsFunctions, ResourceMapperFields} from "n8n-workflow";
-import {readResourceLocatorId} from "../common/util.js";
+import {httpCall, readResourceLocatorId} from "../common/util.js";
 
 export async function mapTableRowQuery(this: ILoadOptionsFunctions): Promise<ResourceMapperFields> {
     const tableId = readResourceLocatorId(this, 'tableId');
@@ -10,14 +10,13 @@ export async function mapTableRowQuery(this: ILoadOptionsFunctions): Promise<Res
             emptyFieldsNotice: "Select a table",
         }
     }
-    const cred = await this.getCredentials<RicApiCred>(RicApiCredName);
     const request: IHttpRequestOptions = {
         method: 'GET',
-        url: `${cred.ricServer}/api/v1/tables/${tableId}`,
+        url: `/api/v1/tables/${tableId}`,
         json: true,
     };
     try {
-        const responseData: RicApiTableIndex = await this.helpers.httpRequestWithAuthentication.call(this, RicApiCredName, request);
+        const responseData = await httpCall(this, request) as RicApiTableIndex;
         return {
             fields: responseData.columns.map(c => ({
                 id: `where.data.${c.id}`,

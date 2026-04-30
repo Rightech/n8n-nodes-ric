@@ -1,6 +1,5 @@
 import {IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult} from "n8n-workflow";
-import {readResourceLocatorId} from "../common/util.js";
-import {RicApiCred, RicApiCredName} from "../common/types.js";
+import {httpCall, readResourceLocatorId} from "../common/util.js";
 
 interface RowsIndex {
     _id: string,
@@ -19,14 +18,13 @@ export async function listRows(
         };
     }
     let responseData: RowsIndex[] = [];
-    const cred = await this.getCredentials<RicApiCred>(RicApiCredName);
     const request: IHttpRequestOptions = {
         method: 'GET',
-        url: `${cred.ricServer}/api/v1/tables/${tableId}/rows`,
+        url: `/api/v1/tables/${tableId}/rows`,
         json: true,
     };
     try {
-        responseData = await this.helpers.httpRequestWithAuthentication.call(this, RicApiCredName, request);
+        responseData = await httpCall(this, request) as RowsIndex[];
     } catch (error) {
         return {
             results: [

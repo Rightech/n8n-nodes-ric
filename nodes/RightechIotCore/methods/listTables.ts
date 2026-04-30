@@ -1,20 +1,19 @@
 import {IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult} from "n8n-workflow";
-import {toSearchable} from "../common/util.js";
-import {RicApiCred, RicApiCredName, RicApiTableIndex} from "../common/types.js";
+import {httpCall, toSearchable} from "../common/util.js";
+import {RicApiTableIndex} from "../common/types.js";
 
 export async function listTables(
     this: ILoadOptionsFunctions,
     filter?: string,
 ): Promise<INodeListSearchResult> {
     let responseData: RicApiTableIndex[] = [];
-    const cred = await this.getCredentials<RicApiCred>(RicApiCredName);
     const request: IHttpRequestOptions = {
         method: 'GET',
-        url: `${cred.ricServer}/api/v1/tables`,
+        url: '/api/v1/tables',
         json: true,
     };
     try {
-        responseData = await this.helpers.httpRequestWithAuthentication.call(this, RicApiCredName, request);
+        responseData = await httpCall(this, request) as RicApiTableIndex[];
     } catch (error) {
         return {
             results: [
