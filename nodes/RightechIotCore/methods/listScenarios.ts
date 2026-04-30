@@ -1,4 +1,4 @@
-import {IHttpRequestOptions, ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult} from "n8n-workflow";
+import {ILoadOptionsFunctions, INodeListSearchItems, INodeListSearchResult} from "n8n-workflow";
 import {httpCall, toSearchable} from "../common/util.js";
 
 interface ScenarioIndex {
@@ -19,36 +19,16 @@ export async function listScenarios(
     this: ILoadOptionsFunctions,
     filter?: string,
 ): Promise<INodeListSearchResult> {
-    let responseData: ScenarioIndex[] = [];
-    const request: IHttpRequestOptions = {
+    const responseData = await httpCall(this, {
         method: 'GET',
         url: '/api/v1/automatons',
         json: true,
-    };
-    try {
-        responseData = await httpCall(this, request) as ScenarioIndex[];
-    } catch (error) {
-        return {
-            results: [
-                {name: "⚠️ " + error.toString(), value: 'error!'}
-            ], paginationToken: undefined
-        };
-    }
-
-    try {
-        const results: INodeListSearchItems[] = responseData
-            .filter(i => !filter || toSearchable(i, '_id', 'name').includes(filter))
-            .map((item: ScenarioIndex) => ({
-                name: item.name,
-                value: item._id,
-            }));
-
-        return {results, paginationToken: undefined};
-    } catch (error) {
-        return {
-            results: [
-                {name: "⚠️ " + error.toString(), value: 'error!'}
-            ], paginationToken: undefined
-        };
-    }
+    }) as ScenarioIndex[];
+    const results: INodeListSearchItems[] = responseData
+        .filter(i => !filter || toSearchable(i, '_id', 'name').includes(filter))
+        .map((item: ScenarioIndex) => ({
+            name: item.name,
+            value: item._id,
+        }));
+    return {results, paginationToken: undefined};
 }

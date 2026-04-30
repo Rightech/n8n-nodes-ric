@@ -77,11 +77,10 @@ export class RightechIotCore implements INodeType {
     };
     methods = {
         listSearch: {
-            // todo: look if NodeOperationError / NodeApiError etc. are a good fit for listing errors, and if yes - refactor all lists
-            listScenarios,
             listObjects,
-            listModels,
             listCommands,
+            listModels,
+            listScenarios,
             listTables,
             listRows,
         },
