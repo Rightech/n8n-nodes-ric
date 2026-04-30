@@ -43,3 +43,27 @@ export const objectSelector: INodeProperties = {
         ricUuidPropertyMode,
     ],
 };
+
+export const modelSelector: INodeProperties = {
+    displayName: 'Model ID',
+    name: 'modelId',
+    type: 'resourceLocator',
+    default: {
+        mode: 'list',
+        value: '',
+    },
+    modes: [
+        {
+            displayName: 'From List',
+            name: 'list',
+            type: 'list',
+            placeholder: 'Select a model...',
+            typeOptions: {
+                searchListMethod: 'listModels',
+                searchable: true,
+                searchFilterRequired: false,
+            },
+        },
+        ricUuidPropertyMode,
+    ],
+};

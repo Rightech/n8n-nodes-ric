@@ -1,5 +1,5 @@
 import type {INodeProperties} from 'n8n-workflow';
-import {ricUuidPropertyMode} from "../../common/properties.js";
+import {modelSelector} from "../../common/properties.js";
 import {get} from "./get.js";
 import {handlerFn} from "../../common/types.js";
 
@@ -27,32 +27,12 @@ export const modelApiProperties: INodeProperties[] = [
         default: 'get',
     },
     {
-        displayName: 'Model ID',
-        name: 'modelId',
+        ...modelSelector,
         required: true,
-        type: 'resourceLocator',
-        default: {
-            mode: 'list',
-            value: '',
-        },
         displayOptions: {
             show: {
                 resource: ['model'],
             },
         },
-        modes: [
-            {
-                displayName: 'From List',
-                name: 'list',
-                type: 'list',
-                placeholder: 'Select a model...',
-                typeOptions: {
-                    searchListMethod: 'listModels',
-                    searchable: true,
-                    searchFilterRequired: false,
-                },
-            },
-            ricUuidPropertyMode,
-        ],
     },
 ];

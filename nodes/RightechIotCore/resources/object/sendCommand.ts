@@ -5,7 +5,7 @@ import {httpCall} from "../../common/util.js";
 export async function sendCommand(exec: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
     const objectId = exec.getNodeParameter('objectId', index) as INodeParameterResourceLocator;
     const commandId = exec.getNodeParameter('commandId', index) as INodeParameterResourceLocator;
-    const additionalFields = exec.getNodeParameter('additionalFields', index) as {
+    const commandOptions = exec.getNodeParameter('commandOptions', index) as {
         commandAuxiliaryData?: GenericValue // todo: technically, commands have schemas, but they can be pretty complicated to parse
     };
     const responseData = await httpCall(exec, {
@@ -15,8 +15,8 @@ export async function sendCommand(exec: IExecuteFunctions, index: number): Promi
             Accept: 'application/json',
             'Content-Type': 'application/json',
         },
-        json: additionalFields.commandAuxiliaryData !== undefined,
-        body: additionalFields.commandAuxiliaryData,
+        json: commandOptions.commandAuxiliaryData !== undefined,
+        body: commandOptions.commandAuxiliaryData,
     }) as IDataObject;
     return [
         ...exec.helpers.constructExecutionMetaData(

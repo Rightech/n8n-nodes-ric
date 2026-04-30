@@ -1,10 +1,11 @@
 import type {INodeProperties} from 'n8n-workflow';
-import {objectSelector} from "../../common/properties.js";
+import {modelSelector, objectSelector} from "../../common/properties.js";
 import {get} from "./get.js";
 import {sendCommand} from "./sendCommand.js";
 import {handlerFn} from "../../common/types.js";
+import {getAll} from "./getAll.js";
 
-export const object: Record<string, handlerFn> = {get, sendCommand};
+export const object: Record<string, handlerFn> = {get, getAll, sendCommand};
 
 export const objectApiProperties: INodeProperties[] = [
     {
@@ -25,6 +26,12 @@ export const objectApiProperties: INodeProperties[] = [
                 description: 'Reads an entire object configuration and recorded state params. More at https://rightech.io/en/developers/http/objects#get-one.',
             },
             {
+                name: 'Get Many',
+                value: 'getAll',
+                action: 'Get multiple objects',
+                description: 'Get configuration and state of multiple objects at once. More at https://rightech.io/en/developers/http/objects#get-all.',
+            },
+            {
                 name: 'Send Command',
                 value: 'sendCommand',
                 action: 'Send command to the object',
@@ -38,6 +45,7 @@ export const objectApiProperties: INodeProperties[] = [
         displayOptions: {
             show: {
                 resource: ['object'],
+                operation: ['get', 'sendCommand'],
             },
         },
     },
@@ -88,8 +96,8 @@ export const objectApiProperties: INodeProperties[] = [
         },
     },
     {
-        displayName: 'Additional Fields',
-        name: 'additionalFields',
+        displayName: 'Command Options',
+        name: 'commandOptions',
         type: 'collection',
         placeholder: 'Add Field',
         default: {},
@@ -107,6 +115,22 @@ export const objectApiProperties: INodeProperties[] = [
                 type: 'json',
                 default: {},
             },
+        ],
+    },
+    {
+        displayName: 'Regular Search Options',
+        name: 'searchOptions',
+        type: 'collection',
+        placeholder: 'Add Field',
+        default: {},
+        displayOptions: {
+            show: {
+                resource: ['object'],
+                operation: ['getAll'],
+            },
+        },
+        options: [
+            modelSelector,
         ],
     },
 ];
