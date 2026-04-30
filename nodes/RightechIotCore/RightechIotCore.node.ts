@@ -16,6 +16,8 @@ import {listRows} from "./methods/listRows.js";
 import {mapTableRowQuery} from "./methods/mapTableRowQuery.js";
 import {RicApiCredName} from "./common/types.js";
 import {route} from "./resources/route.js";
+import {modelApiProperties} from "./resources/model/index.js";
+import {listModels} from "./methods/listModels.js";
 
 export class RightechIotCore implements INodeType {
     description: INodeTypeDescription = {
@@ -50,6 +52,11 @@ export class RightechIotCore implements INodeType {
                         description: 'Objects bound to your IoT devices',
                     },
                     {
+                        name: 'Model',
+                        value: 'model',
+                        description: 'Models define your object configuration',
+                    },
+                    {
                         name: 'Scenario',
                         value: 'scenario',
                         description: 'Automation scenarios',
@@ -62,8 +69,9 @@ export class RightechIotCore implements INodeType {
                 ],
                 default: 'object',
             },
-            ...scenarioApiProperties,
             ...objectApiProperties,
+            ...modelApiProperties,
+            ...scenarioApiProperties,
             ...tableApiProperties,
         ],
     };
@@ -72,6 +80,7 @@ export class RightechIotCore implements INodeType {
             // todo: look if NodeOperationError / NodeApiError etc. are a good fit for listing errors, and if yes - refactor all lists
             listScenarios,
             listObjects,
+            listModels,
             listCommands,
             listTables,
             listRows,
