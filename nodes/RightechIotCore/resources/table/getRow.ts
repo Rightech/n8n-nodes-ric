@@ -7,7 +7,7 @@ export async function getRow(exec: IExecuteFunctions, index: number): Promise<IN
     const tableRowId = exec.getNodeParameter('tableRowId', index) as INodeParameterResourceLocator;
     const responseData = await httpCall(exec, {
         method: 'GET',
-        url: `/api/v1/tables/${tableId.value}/rows/${tableRowId}`,
+        url: `/api/v1/tables/${tableId.value}/rows/${tableRowId.value}`,
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
