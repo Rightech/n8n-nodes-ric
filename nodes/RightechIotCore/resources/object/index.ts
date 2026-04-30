@@ -134,7 +134,30 @@ export const objectApiProperties: INodeProperties[] = [
         ],
     },
     {
-        displayName: 'Custom Query Parameters',
+        displayName: 'Model Search Options',
+        name: 'modelSearchOptions',
+        type: 'resourceMapper',
+        hint: 'Select a model to discover available parameters first.',
+        default: {
+            mappingMode: 'defineBelow',
+            value: null,
+        },
+        displayOptions: {
+            show: {
+                resource: ['object'],
+                operation: ['getAll'],
+            },
+        },
+        typeOptions: {
+            resourceMapper: {
+                resourceMapperMethod: "mapObjectQuery",
+                mode: "add",
+                addAllFields: false,
+            }
+        },
+    },
+    {
+        displayName: 'Custom Search Parameters',
         name: 'customQueryParameters',
         placeholder: 'Add Parameter',
         hint: 'For expert users. Since object configurations are highly dynamic you may find it simpler to add arbitrary search parameters.',
@@ -169,5 +192,5 @@ export const objectApiProperties: INodeProperties[] = [
                 ],
             },
         ],
-    }
+    },
 ];
