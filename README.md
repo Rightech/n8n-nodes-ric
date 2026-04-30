@@ -27,19 +27,19 @@ At the start, this node supports a bare minimum of operations you may need to in
 
 ### Objects
 
-- **Get object data and state**: Reads an entire object configuration and recorded state params. Read more at https://rightech.io/en/developers/http/objects#get-one.
-- **Send command to the object**: Sends any assigned command of the object to the device. Read more at https://rightech.io/en/developers/http/objects#send-command.
+- [**Get object data and state**](https://rightech.io/en/developers/http/objects#get-one): Reads an entire object configuration and recorded state params.
+- [**Send command to the object**](https://rightech.io/en/developers/http/objects#send-command): Sends any assigned command of the object to the device.
 
 ### Scenarios
 
-- **Start scenario on an object**: Starts a new scenario execution on the object. Read more at https://rightech.io/en/developers/http/logic#execute-start.
-- **Stop scenario on an object**: Stops a running scenario execution on an object. Read more at https://rightech.io/en/developers/http/logic#execute-stop.
+- [**Start scenario on an object**](https://rightech.io/en/developers/http/logic#execute-start): Starts a new scenario execution on the object.
+- [**Stop scenario on an object**](https://rightech.io/en/developers/http/logic#execute-stop): Stops a running scenario execution on an object.
 
 ### Tables
 
-- **Get data table declaration**: Returns table declaration with column properties. Read more at https://rightech.io/en/developers/objects/table.
-- **Get table row**: Returns a specific table row. More at https://rightech.io/en/developers/objects/table.
-- **Get table rows**: Returns table rows, optionally matching selected conditions. More at https://rightech.io/en/developers/objects/table.
+- [**Get data table declaration**](https://rightech.io/en/developers/objects/table): Returns table declaration with column properties.
+- [**Get table row**](https://rightech.io/en/developers/objects/table): Returns a specific table row by ID.
+- [**Get table rows**](https://rightech.io/en/developers/objects/table): Returns table rows matching selected conditions.
 
 ## Credentials
 
