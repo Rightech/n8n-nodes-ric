@@ -27,16 +27,16 @@ export const objectApiProperties: INodeProperties[] = [
                 description: 'Reads an entire object configuration and recorded state params. More at https://rightech.io/en/developers/http/objects#get-one.',
             },
             {
-                name: 'Update',
-                value: 'update',
-                action: 'Update object configuration',
-                description: 'Updates object configuration. More at https://rightech.io/en/developers/http/objects#edit.',
-            },
-            {
                 name: 'Get Many',
                 value: 'getMany',
                 action: 'Get multiple objects',
                 description: 'Get configuration and state of multiple objects at once. More at https://rightech.io/en/developers/http/objects#get-all.',
+            },
+            {
+                name: 'Update',
+                value: 'update',
+                action: 'Update object configuration',
+                description: 'Updates object configuration parameters based on its model. More at https://rightech.io/en/developers/http/objects#edit.',
             },
             {
                 name: 'Send Command',
