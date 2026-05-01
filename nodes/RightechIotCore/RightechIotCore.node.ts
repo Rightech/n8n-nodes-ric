@@ -2,7 +2,7 @@ import {
     IExecuteFunctions,
     INodeExecutionData,
     type INodeType,
-    type INodeTypeDescription,
+    type INodeTypeDescription, JsonObject, NodeApiError,
     NodeConnectionTypes
 } from 'n8n-workflow';
 import {scenarioApiProperties} from "./resources/scenario/index.js";
@@ -98,14 +98,15 @@ export class RightechIotCore implements INodeType {
                 const results = await route(this, i);
                 returnData.push(...results);
             } catch (error) {
+                error.message = error.message + ` [item ${i}]`;
                 if (this.continueOnFail()) {
                     returnData.push(...(this.helpers.constructExecutionMetaData(
-                        this.helpers.returnJsonArray({error: error.message}),
+                        this.helpers.returnJsonArray({error: new NodeApiError(this.getNode(), error as JsonObject)}),
                         {itemData: {item: i}},
                     )));
                     continue;
                 }
-                throw error;
+                throw new NodeApiError(this.getNode(), error as JsonObject);
             }
         }
         return [returnData];
