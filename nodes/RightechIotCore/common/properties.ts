@@ -12,7 +12,7 @@ export const ricUuidPropertyMode: INodePropertyMode = {
         {
             type: 'regex',
             properties: {
-                regex: '^[a-z0-9]{24}$',
+                regex: '^[a-z0-9]{0,24}$',
                 errorMessage: 'ID must be 24 alphanumeric symbols.',
             },
         },
