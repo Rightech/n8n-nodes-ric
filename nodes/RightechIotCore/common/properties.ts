@@ -67,3 +67,54 @@ export const modelSelector: INodeProperties = {
         ricUuidPropertyMode,
     ],
 };
+
+export interface stdQueryParametersType {
+    from?: string,
+    to?: string,
+    limit?: number,
+    offset?: number,
+}
+
+export const stdQueryParameters: INodeProperties = {
+    displayName: 'Standard Search Parameters',
+    name: 'stdQueryParameters',
+    type: 'collection',
+    placeholder: 'Add Parameter',
+    hint: 'Standard parameters for all searches. More at https://rightech.io/en/developers/http/base#get-all.',
+    default: {},
+    options: [
+        {
+            displayName: 'Created After',
+            name: 'from', // ISO 8601, Unix time
+            hint: 'Select only items created after this time',
+            type: 'dateTime',
+            default: '',
+        },
+        {
+            displayName: 'Created Before',
+            name: 'to',
+            hint: 'Select only items created before this time',
+            type: 'dateTime',
+            default: '',
+        },
+        {
+            displayName: 'Result Limit',
+            name: 'limit',
+            description: 'Max number of results to return',
+            hint: 'Max number of results to return',
+            type: 'number',
+            typeOptions: {
+                minValue: 1,
+                maxValue: 10000,
+            },
+            default: 50,
+        },
+        {
+            displayName: 'Lookup Offset',
+            name: 'offset',
+            hint: 'Specify an offset parameter to get more data',
+            type: 'number',
+            default: '',
+        },
+    ],
+};

@@ -1,15 +1,18 @@
 import {IDataObject, IExecuteFunctions, IHttpRequestOptions, INodeExecutionData, ResourceMapperValue} from "n8n-workflow";
 import {httpCall} from "../../common/util.js";
 import {INodeParameterResourceLocator} from "n8n-workflow/dist/esm/interfaces.js";
+import {stdQueryParametersType} from "../../common/properties.js";
 
 export async function getMany(exec: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
     const modelId = exec.getNodeParameter('modelId', index) as INodeParameterResourceLocator;
+    const stdQueryParameters = exec.getNodeParameter('stdQueryParameters', index) as stdQueryParametersType;
     const customQueryParameters = exec.getNodeParameter('customQueryParameters', index) as {
         parameters?: {query: string, value: string}[],
     };
     const modelOptions = exec.getNodeParameter('modelOptions', index) as ResourceMapperValue;
     const qs: IDataObject = {
         "where.model": modelId?.value || undefined,
+        ...stdQueryParameters,
     };
     if (modelOptions.value) {
         for (const prop in modelOptions.value) {

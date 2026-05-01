@@ -1,10 +1,12 @@
 import {IDataObject, IExecuteFunctions, INodeExecutionData, ResourceMapperValue} from "n8n-workflow";
 import {INodeParameterResourceLocator} from "n8n-workflow/dist/esm/interfaces.js";
 import {httpCall} from "../../common/util.js";
+import {stdQueryParametersType} from "../../common/properties.js";
 
-export async function getRows(exec: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
+export async function getManyRows(exec: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
     const tableId = exec.getNodeParameter('tableId', index) as INodeParameterResourceLocator;
-    const queryColumns = exec.getNodeParameter('queryColumns', index) as ResourceMapperValue;
+    const stdQueryParameters = exec.getNodeParameter('stdQueryParameters', index) as stdQueryParametersType;
+    const tableQueryColumns = exec.getNodeParameter('tableQueryColumns', index) as ResourceMapperValue;
     const responseData = await httpCall(exec, {
         method: 'GET',
         url: `/api/v1/tables/${tableId.value}/rows`,
@@ -13,7 +15,8 @@ export async function getRows(exec: IExecuteFunctions, index: number): Promise<I
             'Content-Type': 'application/json',
         },
         qs: {
-            ...queryColumns.value
+            ...stdQueryParameters,
+            ...tableQueryColumns.value
         }
     }) as IDataObject;
     return [

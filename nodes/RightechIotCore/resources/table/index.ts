@@ -1,11 +1,11 @@
 import type {INodeProperties} from 'n8n-workflow';
-import {ricUuidPropertyMode} from "../../common/properties.js";
+import {ricUuidPropertyMode, stdQueryParameters} from "../../common/properties.js";
 import {get} from "./get.js";
 import {getRow} from "./getRow.js";
-import {getRows} from "./getRows.js";
+import {getManyRows} from "./getManyRows.js";
 import {handlerFn} from "../../common/types.js";
 
-export const table: Record<string, handlerFn> = {get, getRow, getRows};
+export const table: Record<string, handlerFn> = {get, getRow, getManyRows};
 
 export const tableApiProperties: INodeProperties[] = [
     {
@@ -33,7 +33,7 @@ export const tableApiProperties: INodeProperties[] = [
             },
             {
                 name: 'Get Rows',
-                value: 'getRows',
+                value: 'getManyRows',
                 action: 'Get table rows',
                 description: 'Returns table rows, optionally matching selected conditions. More at https://rightech.io/en/developers/objects/table.',
             },
@@ -101,7 +101,7 @@ export const tableApiProperties: INodeProperties[] = [
     },
     {
         displayName: 'Search Columns',
-        name: 'queryColumns',
+        name: 'tableQueryColumns',
         type: 'resourceMapper',
         default: {
             mappingMode: 'defineBelow',
@@ -110,7 +110,7 @@ export const tableApiProperties: INodeProperties[] = [
         displayOptions: {
             show: {
                 resource: ['table'],
-                operation: ['getRows'],
+                operation: ['getManyRows'],
             },
         },
         typeOptions: {
@@ -120,6 +120,15 @@ export const tableApiProperties: INodeProperties[] = [
                 addAllFields: false,
                 supportAutoMap: false,
             }
+        },
+    },
+    {
+        ...stdQueryParameters,
+        displayOptions: {
+            show: {
+                resource: ['table'],
+                operation: ['getManyRows'],
+            },
         },
     },
 ];

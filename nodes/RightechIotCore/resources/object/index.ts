@@ -1,5 +1,5 @@
 import type {INodeProperties} from 'n8n-workflow';
-import {modelSelector, objectSelector} from "../../common/properties.js";
+import {modelSelector, objectSelector, stdQueryParameters} from "../../common/properties.js";
 import {get} from "./get.js";
 import {sendCommand} from "./sendCommand.js";
 import {handlerFn} from "../../common/types.js";
@@ -159,6 +159,15 @@ export const objectApiProperties: INodeProperties[] = [
                 addAllFields: false,
                 supportAutoMap: false,
             }
+        },
+    },
+    {
+        ...stdQueryParameters,
+        displayOptions: {
+            show: {
+                resource: ['object'],
+                operation: ['getMany'],
+            },
         },
     },
     {
