@@ -3,9 +3,10 @@ import {modelSelector, objectSelector} from "../../common/properties.js";
 import {get} from "./get.js";
 import {sendCommand} from "./sendCommand.js";
 import {handlerFn} from "../../common/types.js";
-import {getAll} from "./getAll.js";
+import {getMany} from "./getMany.js";
+import {update} from "./update.js";
 
-export const object: Record<string, handlerFn> = {get, getAll, sendCommand};
+export const object: Record<string, handlerFn> = {get, update, getMany, sendCommand};
 
 export const objectApiProperties: INodeProperties[] = [
     {
@@ -22,12 +23,18 @@ export const objectApiProperties: INodeProperties[] = [
             {
                 name: 'Get',
                 value: 'get',
-                action: 'Get object data and state',
+                action: 'Get object configuration and state',
                 description: 'Reads an entire object configuration and recorded state params. More at https://rightech.io/en/developers/http/objects#get-one.',
             },
             {
+                name: 'Update',
+                value: 'update',
+                action: 'Update object configuration',
+                description: 'Updates object configuration. More at https://rightech.io/en/developers/http/objects#edit.',
+            },
+            {
                 name: 'Get Many',
-                value: 'getAll',
+                value: 'getMany',
                 action: 'Get multiple objects',
                 description: 'Get configuration and state of multiple objects at once. More at https://rightech.io/en/developers/http/objects#get-all.',
             },
@@ -45,7 +52,7 @@ export const objectApiProperties: INodeProperties[] = [
         displayOptions: {
             show: {
                 resource: ['object'],
-                operation: ['get', 'sendCommand'],
+                operation: ['get', 'update', 'sendCommand'],
             },
         },
     },
@@ -118,24 +125,18 @@ export const objectApiProperties: INodeProperties[] = [
         ],
     },
     {
-        displayName: 'Regular Search Options',
-        name: 'searchOptions',
-        type: 'collection',
-        placeholder: 'Add Field',
-        default: {},
+        ...modelSelector,
+        displayName: 'Model ID',
         displayOptions: {
             show: {
                 resource: ['object'],
-                operation: ['getAll'],
+                operation: ['getMany', 'update'],
             },
         },
-        options: [
-            modelSelector,
-        ],
     },
     {
-        displayName: 'Model Search Options',
-        name: 'modelSearchOptions',
+        displayName: 'Model Options',
+        name: 'modelOptions',
         type: 'resourceMapper',
         hint: 'Select a model to discover available parameters first.',
         default: {
@@ -145,14 +146,18 @@ export const objectApiProperties: INodeProperties[] = [
         displayOptions: {
             show: {
                 resource: ['object'],
-                operation: ['getAll'],
+                operation: ['getMany', 'update'],
             },
+            hide: {
+                modelId: [''],
+            }
         },
         typeOptions: {
             resourceMapper: {
-                resourceMapperMethod: "mapObjectQuery",
+                resourceMapperMethod: "mapObjectColumnsFromModel",
                 mode: "add",
                 addAllFields: false,
+                supportAutoMap: false,
             }
         },
     },
@@ -169,7 +174,7 @@ export const objectApiProperties: INodeProperties[] = [
         displayOptions: {
             show: {
                 resource: ['object'],
-                operation: ['getAll'],
+                operation: ['getMany'],
             },
         },
         options: [

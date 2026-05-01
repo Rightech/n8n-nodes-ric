@@ -2,20 +2,20 @@ import {IDataObject, IExecuteFunctions, IHttpRequestOptions, INodeExecutionData,
 import {httpCall} from "../../common/util.js";
 import {INodeParameterResourceLocator} from "n8n-workflow/dist/esm/interfaces.js";
 
-export async function getAll(exec: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
-    const searchOptions = exec.getNodeParameter('searchOptions', index) as {
-        modelId?: INodeParameterResourceLocator,
-    };
+export async function getMany(exec: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
+    const modelId = exec.getNodeParameter('modelId', index) as INodeParameterResourceLocator;
     const customQueryParameters = exec.getNodeParameter('customQueryParameters', index) as {
         parameters?: {query: string, value: string}[],
     };
-    const modelSearchOptions = exec.getNodeParameter('modelSearchOptions', index) as ResourceMapperValue;
-    exec.logger.info(JSON.stringify(customQueryParameters));
-    exec.logger.info(JSON.stringify(modelSearchOptions));
+    const modelOptions = exec.getNodeParameter('modelOptions', index) as ResourceMapperValue;
     const qs: IDataObject = {
-        "where.model": searchOptions.modelId?.value || undefined,
-        ...modelSearchOptions.value,
+        "where.model": modelId?.value || undefined,
     };
+    if (modelOptions.value) {
+        for (const prop in modelOptions.value) {
+            qs["where.config." + prop] = modelOptions.value[prop];
+        }
+    }
     if (customQueryParameters.parameters) {
         for (const parameter of customQueryParameters.parameters) {
             qs[parameter.query] = parameter.value

@@ -18,7 +18,7 @@ import {RicApiCredName} from "./common/types.js";
 import {route} from "./resources/route.js";
 import {modelApiProperties} from "./resources/model/index.js";
 import {listModels} from "./methods/listModels.js";
-import {mapObjectQuery} from "./methods/mapObjectQuery.js";
+import {mapObjectColumnsFromModel} from "./methods/mapObjectColumnsFromModel.js";
 
 export class RightechIotCore implements INodeType {
     description: INodeTypeDescription = {
@@ -87,7 +87,7 @@ export class RightechIotCore implements INodeType {
         },
         resourceMapping: {
             mapTableRowQuery,
-            mapObjectQuery,
+            mapObjectColumnsFromModel,
         },
     };
     async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {

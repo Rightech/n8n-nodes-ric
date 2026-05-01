@@ -118,6 +118,7 @@ export const tableApiProperties: INodeProperties[] = [
                 resourceMapperMethod: "mapTableRowQuery",
                 mode: "add",
                 addAllFields: false,
+                supportAutoMap: false,
             }
         },
     },
