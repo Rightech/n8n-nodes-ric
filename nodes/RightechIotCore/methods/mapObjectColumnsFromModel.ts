@@ -46,7 +46,7 @@ export async function mapObjectColumnsFromModel(this: ILoadOptionsFunctions): Pr
     if (!modelId?.value) {
         return {
             fields: [],
-            emptyFieldsNotice: "ℹ️ Select a model to derive configuration.",
+            emptyFieldsNotice: "Select a model to derive configuration.",
         }
     }
     try {
@@ -69,12 +69,12 @@ export async function mapObjectColumnsFromModel(this: ILoadOptionsFunctions): Pr
                 removed: false,
                 display: true,
             })),
-            emptyFieldsNotice: configs.length === 0 ? "ℹ️ Model does not have any config fields." : undefined,
+            emptyFieldsNotice: configs.length === 0 ? "Model does not have any configuration fields." : undefined,
         }
     } catch (error) {
         return {
             fields: [],
-            emptyFieldsNotice: "⚠️ Failed to load configuration: " + error.toString(),
+            emptyFieldsNotice: "Failed to load configuration: " + error.toString(),
         }
     }
 }

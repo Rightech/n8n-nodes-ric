@@ -7,7 +7,7 @@ export async function mapTableRowQuery(this: ILoadOptionsFunctions): Promise<Res
     if (!tableId) {
         return {
             fields: [],
-            emptyFieldsNotice: "Select a table",
+            emptyFieldsNotice: "Select a table to search by columns.",
         }
     }
     const request: IHttpRequestOptions = {
@@ -28,12 +28,12 @@ export async function mapTableRowQuery(this: ILoadOptionsFunctions): Promise<Res
                 removed: false,
                 display: true,
             })),
-            emptyFieldsNotice: responseData.columns.length === 0 ? "⚠️ Table has no columns!" : undefined,
+            emptyFieldsNotice: responseData.columns.length === 0 ? "Table has no columns!" : undefined,
         }
     } catch (error) {
         return {
             fields: [],
-            emptyFieldsNotice: "⚠️ Failed to load configuration: " + error.toString(),
+            emptyFieldsNotice: "Failed to load configuration: " + error.toString(),
         }
     }
 }
