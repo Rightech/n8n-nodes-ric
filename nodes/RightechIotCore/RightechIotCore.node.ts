@@ -98,7 +98,9 @@ export class RightechIotCore implements INodeType {
                 const results = await route(this, i);
                 returnData.push(...results);
             } catch (error) {
-                error.message = error.message + ` [item ${i}]`;
+                if (error instanceof Error) {
+                    error.message = error.message + ` [item ${i}]`;
+                }
                 if (this.continueOnFail()) {
                     returnData.push(...(this.helpers.constructExecutionMetaData(
                         this.helpers.returnJsonArray({error: new NodeApiError(this.getNode(), error as JsonObject)}),
