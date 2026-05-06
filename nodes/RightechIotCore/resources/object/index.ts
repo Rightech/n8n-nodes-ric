@@ -5,8 +5,9 @@ import {sendCommand} from "./sendCommand.js";
 import {handlerFn} from "../../common/types.js";
 import {getMany} from "./getMany.js";
 import {update} from "./update.js";
+import {getHistory, objectGetHistoryProperties} from "./getHistory.js";
 
-export const object: Record<string, handlerFn> = {get, update, getMany, sendCommand};
+export const object: Record<string, handlerFn> = {get, update, getMany, getHistory, sendCommand};
 
 export const objectApiProperties: INodeProperties[] = [
     {
@@ -27,22 +28,29 @@ export const objectApiProperties: INodeProperties[] = [
                 description: 'Reads an entire object configuration and recorded state params. More at https://rightech.io/en/developers/http/objects#get-one.',
             },
             {
+                name: 'Get History',
+                value: 'getHistory',
+                action: 'Get object telemetry history',
+                // todo: need to publish dedicated topic on telemetry / packets
+                description: 'Get historic telemetry packets for a specific time range. More at https://rightech.io/en/developers/terms.',
+            },
+            {
                 name: 'Get Many',
                 value: 'getMany',
                 action: 'Get multiple objects',
                 description: 'Get configuration and state of multiple objects at once. More at https://rightech.io/en/developers/http/objects#get-all.',
             },
             {
-                name: 'Update',
-                value: 'update',
-                action: 'Update object configuration',
-                description: 'Updates object configuration parameters based on its model. More at https://rightech.io/en/developers/http/objects#edit.',
-            },
-            {
                 name: 'Send Command',
                 value: 'sendCommand',
                 action: 'Send command to the object',
                 description: 'Sends any assigned command of the object to the device. More at https://rightech.io/en/developers/http/objects#send-command.',
+            },
+            {
+                name: 'Update',
+                value: 'update',
+                action: 'Update object configuration',
+                description: 'Updates object configuration parameters based on its model. More at https://rightech.io/en/developers/http/objects#edit.',
             },
         ],
         default: 'get',
@@ -207,4 +215,5 @@ export const objectApiProperties: INodeProperties[] = [
             },
         ],
     },
+    ...objectGetHistoryProperties,
 ];
