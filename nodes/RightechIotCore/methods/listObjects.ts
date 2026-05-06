@@ -3,6 +3,7 @@ import {httpCall, toSearchable} from "../common/util.js";
 
 interface ObjectLookupSubsetFields {
     _id: string,
+    id: string,
     name: string,
 }
 
@@ -12,11 +13,11 @@ export async function listObjects(
 ): Promise<INodeListSearchResult> {
     const responseData = await httpCall(this, {
         method: 'GET',
-        url: '/api/v1/objects?limit=1000&only=_id,name',
+        url: '/api/v1/objects?limit=1000&only=_id,id,name',
         json: true,
     }) as ObjectLookupSubsetFields[];
     const results: INodeListSearchItems[] = responseData
-        .filter(i => !filter || toSearchable(i, '_id', 'name').includes(filter))
+        .filter(i => !filter || toSearchable(i, '_id', 'id', 'name').includes(filter.toLowerCase()))
         .map((item: ObjectLookupSubsetFields) => ({
             name: item.name,
             value: item._id,

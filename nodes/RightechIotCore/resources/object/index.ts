@@ -134,7 +134,6 @@ export const objectApiProperties: INodeProperties[] = [
     },
     {
         ...modelSelector,
-        displayName: 'Model ID',
         displayOptions: {
             show: {
                 resource: ['object'],

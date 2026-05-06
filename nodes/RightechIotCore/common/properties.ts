@@ -7,12 +7,12 @@ export const ricUuidPropertyMode: INodePropertyMode = {
     name: 'id',
     type: 'string',
     placeholder: 'e.g. 5951113beb39561100fd5bbb',
-    hint: 'If you need to manually reference an ID of some thing, you can find it in the browser URL while looking at the thing in RIC web UI.',
+    hint: 'Automatically assigned by RIC - you can find it using e.g. <a href="https://rightech.io/en/developers/intro">Copy RIC ID</a> feature.',
     validation: [
         {
             type: 'regex',
             properties: {
-                regex: '^[a-z0-9]{0,24}$',
+                regex: '^([a-z0-9]{24})?$',
                 errorMessage: 'ID must be 24 alphanumeric symbols.',
             },
         },
@@ -20,7 +20,7 @@ export const ricUuidPropertyMode: INodePropertyMode = {
 };
 
 export const objectSelector: INodeProperties = {
-    displayName: 'Object ID',
+    displayName: 'Object',
     name: 'objectId',
     required: true,
     type: 'resourceLocator',
@@ -40,12 +40,28 @@ export const objectSelector: INodeProperties = {
                 searchFilterRequired: false,
             },
         },
+        {
+            displayName: 'By Device ID',
+            name: 'deviceId',
+            type: 'string',
+            placeholder: 'e.g. wialon:1234567878 or mqtt-project_name-aqv0zb',
+            hint: 'It is set during <a href="https://rightech.io/en/developers/objects/create">device connection</a>',
+            validation: [
+                {
+                    type: 'regex',
+                    properties: {
+                        regex: '^[a-z0-9:_+\\-]*$',
+                        errorMessage: 'May only contain latin letters, numbers and symbols ":", "-", "+", "_".',
+                    },
+                },
+            ],
+        },
         ricUuidPropertyMode,
     ],
 };
 
 export const modelSelector: INodeProperties = {
-    displayName: 'Model ID',
+    displayName: 'Model',
     name: 'modelId',
     type: 'resourceLocator',
     default: {
