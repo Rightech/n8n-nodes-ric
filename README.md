@@ -27,6 +27,7 @@ At the start, this node supports a bare minimum of operations you may need to in
 
 ### Objects
 
+- [**Create object configuration**](https://rightech.io/en/developers/http/objects#create): Creates and configures IoT device connection object.
 - [**Get configuration data and state**](https://rightech.io/en/developers/http/objects#get-one): Reads an entire object configuration and recorded state params.
 - [**Get multiple objects**](https://rightech.io/en/developers/http/objects#get-all): Get configuration and state of multiple objects at once.
 - [**Updates object configuration**](https://rightech.io/en/developers/http/objects#edit): Updates object configuration parameters based on its model.

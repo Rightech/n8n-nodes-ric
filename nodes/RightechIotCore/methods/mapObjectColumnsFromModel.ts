@@ -1,44 +1,17 @@
-import {ILoadOptionsFunctions, ResourceMapperFields} from "n8n-workflow";
-import {httpCall} from "../common/util.js";
+import {ILoadOptionsFunctions, ResourceMapperField, ResourceMapperFields} from "n8n-workflow";
+import {httpCall, ricConfigToResourceMapperField} from "../common/util.js";
 import {INodeParameterResourceLocator} from "n8n-workflow/dist/esm/interfaces.js";
+import {isConfigDescriptor, RicGroupDescriptor, RicModelDataDescriptor, RicModelDescriptor} from "../common/types.js";
 
-interface RootDataDescriptor {
-    id: string;
-    name: string;
-    active: boolean;
-    type: string;
-    dataType: string;
-    children: DataDescriptor[];
-    _isRoot: true;
-}
-
-interface DataDescriptor {
-    id: string;
-    name: string;
-    active: boolean;
-    type: string;
-    dataType: string;
-    children?: DataDescriptor[];
-}
-
-interface ConfigDescriptor {
-    id: string;
-    name: string;
-    active: boolean;
-    type: 'config';
-    dataType: 'string' | 'table';
-}
-
-interface ModelDescriptor {
-    data: RootDataDescriptor;
-}
-
-function unrollDescriptors(data: DataDescriptor, idPrefix: string): DataDescriptor[] {
-    return [{...data, id: `${idPrefix}${data.id}`}, ...(data.children ?? []).flatMap(c => unrollDescriptors(c, `${idPrefix}${data.id}.`))];
-}
-
-function isConfigDescriptor(data: DataDescriptor): data is ConfigDescriptor {
-    return data.type === 'config' && (data.dataType === 'string' || data.dataType === 'table');
+function unrollDescriptors(data: RicModelDataDescriptor, idPrefix: string, namePrefix: string): RicModelDataDescriptor[] {
+    return [
+        {
+            ...data,
+            id: `${idPrefix}${data.id}`,
+            name: `${namePrefix}${data.name}`
+        },
+        ...(data.children ?? []).flatMap(c => unrollDescriptors(c, `${data.id}.`, `${data.name}: `))
+    ];
 }
 
 export async function mapObjectColumnsFromModel(this: ILoadOptionsFunctions): Promise<ResourceMapperFields> {
@@ -50,25 +23,166 @@ export async function mapObjectColumnsFromModel(this: ILoadOptionsFunctions): Pr
         }
     }
     try {
-        const response = await httpCall(this, {
+        const modelData = await httpCall(this, {
             method: 'GET',
             url: `/api/v1/models/${modelId.value}`,
             json: true,
-        }) as ModelDescriptor;
-        const configs = response.data.children
-            .flatMap(c => unrollDescriptors(c, ""))
+        }) as RicModelDescriptor;
+        const groupData = await httpCall(this, {
+            method: 'GET',
+            url: `/api/v1/groups/${modelData.group}`,
+            json: true,
+        }) as RicGroupDescriptor;
+        const configs = modelData.data.children
+            .flatMap(c => unrollDescriptors(c, "", ""))
             .filter(isConfigDescriptor).filter(d => d.active);
-        return {
-            fields: configs.map(c => ({
-                id: c.id,
-                displayName: c.name,
+        const fields: ResourceMapperField[] = [
+            {
+                id: '@tagname',
+                displayName: '@tagname',
                 type: 'string',
+                defaultValue: groupData.tagname,
                 required: false,
                 defaultMatch: false,
-                readOnly: false,
-                removed: false,
+                canBeUsedToMatch: false,
+                readOnly: true,
+                display: false,
+            },
+            {
+                id: '@idPrefix',
+                displayName: '@idPrefix',
+                type: 'string',
+                defaultValue: modelData.props.prefix ?? '',
+                required: false,
+                defaultMatch: false,
+                canBeUsedToMatch: false,
+                readOnly: true,
+                display: false,
+            },
+            {
+                id: 'id',
+                displayName: modelData.props.idInput?.label ?? 'Device ID',
+                type: 'string',
+                defaultValue: modelData.props.idPattern ?? modelData.props.prefix ?? '',
+                required: false,
+                defaultMatch: true,
                 display: true,
-            })),
+            },
+            {
+                id: 'name',
+                displayName: 'Name',
+                type: 'string',
+                defaultValue: modelData.props.namePattern ?? '',
+                required: false,
+                defaultMatch: false,
+                display: true,
+            },
+        ];
+        if (modelData.props.descriptionInput) {
+            fields.push({
+                id: 'description',
+                displayName: 'Description',
+                type: 'string',
+                defaultValue: '',
+                required: false,
+                defaultMatch: true,
+                display: true,
+            });
+        }
+        if (modelData.props.typeInput) {
+            fields.push({
+                id: 'type',
+                displayName: 'Type',
+                type: 'string',
+                defaultValue: '',
+                required: false,
+                defaultMatch: false,
+                display: true,
+            });
+        }
+        if (modelData.props.statusInput) {
+            if (modelData.props.statuses) {
+                fields.push({
+                    id: 'status',
+                    displayName: 'Status',
+                    type: 'options',
+                    defaultValue: '',
+                    required: false,
+                    defaultMatch: false,
+                    display: true,
+                    options: modelData.props.statuses.map(o => ({
+                        name: o.name,
+                        value: o.id,
+                    }))
+                });
+            } else {
+                fields.push({
+                    id: 'status',
+                    displayName: 'Status',
+                    type: 'string',
+                    defaultValue: '',
+                    required: false,
+                    defaultMatch: false,
+                    display: true,
+                });
+            }
+        }
+        if (modelData.props.auth) {
+            fields.push({
+                id: 'config.auth.username',
+                displayName: `${modelData.props.auth.title}: ${modelData.props.auth.fields.username.title}`,
+                type: 'string',
+                defaultValue: '',
+                required: false,
+                defaultMatch: false,
+                display: true,
+            });
+            fields.push({
+                id: 'config.auth.password',
+                displayName: `${modelData.props.auth.title}: ${modelData.props.auth.fields.password.title}`,
+                type: 'string',
+                defaultValue: '',
+                required: false,
+                defaultMatch: false,
+                display: true,
+            });
+        }
+        fields.push({
+            id: 'config.position.display',
+            displayName: `Position: display from`,
+            type: 'options',
+            defaultValue: 'state',
+            required: false,
+            defaultMatch: false,
+            display: true,
+            options: [
+                {name: 'State', value: 'state'},
+                {name: 'Config', value: 'config'},
+            ]
+        });
+        fields.push({
+            id: 'config.position.lat',
+            displayName: `Position: latitude`,
+            type: 'number',
+            defaultValue: null,
+            required: false,
+            defaultMatch: false,
+            display: true,
+        });
+        fields.push({
+            id: 'config.position.lon',
+            displayName: `Position: longitude`,
+            type: 'number',
+            defaultValue: null,
+            required: false,
+            defaultMatch: false,
+            display: true,
+        });
+        return {
+            fields: [
+                ...fields,
+                ...configs.map(ricConfigToResourceMapperField),
+            ],
             emptyFieldsNotice: configs.length === 0 ? "Model does not have any configuration fields." : undefined,
         }
     } catch (error) {

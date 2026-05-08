@@ -4,10 +4,11 @@ import {get} from "./get.js";
 import {sendCommand} from "./sendCommand.js";
 import {handlerFn} from "../../common/types.js";
 import {getMany} from "./getMany.js";
-import {update} from "./update.js";
+import {update, objectUpdateProperties} from "./update.js";
+import {create, objectCreateProperties} from "./create.js";
 import {getHistory, objectGetHistoryProperties} from "./getHistory.js";
 
-export const object: Record<string, handlerFn> = {get, update, getMany, getHistory, sendCommand};
+export const object: Record<string, handlerFn> = {get, create, update, getMany, getHistory, sendCommand};
 
 export const objectApiProperties: INodeProperties[] = [
     {
@@ -21,6 +22,12 @@ export const objectApiProperties: INodeProperties[] = [
             },
         },
         options: [
+            {
+                name: 'Create',
+                value: 'create',
+                action: 'Create object configuration',
+                description: 'Creates and configures IoT device connection object. More at https://rightech.io/en/developers/http/objects#create.',
+            },
             {
                 name: 'Get',
                 value: 'get',
@@ -60,7 +67,7 @@ export const objectApiProperties: INodeProperties[] = [
         displayOptions: {
             show: {
                 resource: ['object'],
-                operation: ['get', 'update', 'sendCommand'],
+                operation: ['get', 'sendCommand'],
             },
         },
     },
@@ -137,7 +144,7 @@ export const objectApiProperties: INodeProperties[] = [
         displayOptions: {
             show: {
                 resource: ['object'],
-                operation: ['getMany', 'update'],
+                operation: ['getMany'],
             },
         },
     },
@@ -153,7 +160,7 @@ export const objectApiProperties: INodeProperties[] = [
         displayOptions: {
             show: {
                 resource: ['object'],
-                operation: ['getMany', 'update'],
+                operation: ['getMany'],
             },
             hide: {
                 modelId: [''],
@@ -215,4 +222,6 @@ export const objectApiProperties: INodeProperties[] = [
         ],
     },
     ...objectGetHistoryProperties,
+    ...objectCreateProperties,
+    ...objectUpdateProperties,
 ];
