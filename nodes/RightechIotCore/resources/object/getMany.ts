@@ -16,7 +16,7 @@ export async function getMany(exec: IExecuteFunctions, index: number): Promise<I
     };
     if (modelOptions.value) {
         for (const prop in modelOptions.value) {
-            qs["where.config." + prop] = modelOptions.value[prop];
+            qs["where." + prop] = modelOptions.value[prop];
         }
     }
     if (customQueryParameters.parameters) {
