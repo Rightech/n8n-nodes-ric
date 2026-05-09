@@ -19,6 +19,8 @@ import {route} from "./resources/route.js";
 import {modelApiProperties} from "./resources/model/index.js";
 import {listModels} from "./methods/listModels.js";
 import {mapObjectColumnsFromModel} from "./methods/mapObjectColumnsFromModel.js";
+import {eventOptions} from "./methods/eventOptions.js";
+import {eventApiProperties} from "./resources/event/index.js";
 
 export class RightechIotCore implements INodeType {
     description: INodeTypeDescription = {
@@ -48,14 +50,19 @@ export class RightechIotCore implements INodeType {
                 noDataExpression: true,
                 options: [
                     {
-                        name: 'Object',
-                        value: 'object',
-                        description: 'Objects bound to your IoT devices',
+                        name: 'Event',
+                        value: 'event',
+                        description: 'Event stream',
                     },
                     {
                         name: 'Model',
                         value: 'model',
                         description: 'Models define your object configuration',
+                    },
+                    {
+                        name: 'Object',
+                        value: 'object',
+                        description: 'Objects bound to your IoT devices',
                     },
                     {
                         name: 'Scenario',
@@ -74,9 +81,13 @@ export class RightechIotCore implements INodeType {
             ...modelApiProperties,
             ...scenarioApiProperties,
             ...tableApiProperties,
+            ...eventApiProperties,
         ],
     };
     methods = {
+        loadOptions: {
+            eventOptions,
+        },
         listSearch: {
             listObjects,
             listCommands,

@@ -49,6 +49,10 @@ At the start, this node supports a bare minimum of operations you may need to in
 - [**Get table row**](https://rightech.io/en/developers/objects/table): Returns a specific table row by ID.
 - [**Get table rows**](https://rightech.io/en/developers/objects/table): Returns table rows matching selected conditions.
 
+### Events
+
+- [**Get multiple events**](https://rightech.io/en/developers/handlers/create#generate-event): Get filtered events from the global event stream.
+
 ## Credentials
 
 This node supports API Bearer auth credentials using [`rightechIotCoreApi`](credentials/RightechIotCoreApi.credentials.ts) credential. Read more about how to get access tokens here:

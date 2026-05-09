@@ -109,3 +109,14 @@ export interface RicGroupDescriptor {
     group: string,
     active: boolean,
 }
+
+export interface RicEventOrgStructure {
+    // All event types to ever occur
+    unique: string[],
+    // Model uuid to event map of types to ever occur on model or its objects
+    byModel: {
+        [key: string]: string[],
+    },
+    // Events that are not bound to any models, system events
+    noModel: string[],
+}
