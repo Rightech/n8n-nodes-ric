@@ -21,26 +21,27 @@ export interface RicApiTableIndex {
     }[],
 }
 
-export interface RicModelRootDataDescriptor {
+export interface RicModelDataDescriptor {
     id: string;
     name: string;
     active: boolean;
-    type: string;
+    type: "subsystem" | "argument" | "config" | "action";
+    dataType: string;
+    children?: RicModelDataDescriptor[];
+    [key: string]: unknown;
+}
+
+export interface RicModelRootDataDescriptor extends RicModelDataDescriptor {
+    id: string;
+    name: string;
+    active: boolean;
+    type: "subsystem";
     dataType: string;
     children: RicModelDataDescriptor[];
     _isRoot: true;
 }
 
-export interface RicModelDataDescriptor {
-    id: string;
-    name: string;
-    active: boolean;
-    type: string;
-    dataType: string;
-    children?: RicModelDataDescriptor[];
-}
-
-export interface RicModelConfigDescriptor {
+export interface RicModelConfigDescriptor extends RicModelDataDescriptor {
     id: string;
     name: string;
     active: boolean;

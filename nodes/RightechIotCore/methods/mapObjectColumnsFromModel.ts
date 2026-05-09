@@ -4,13 +4,16 @@ import {INodeParameterResourceLocator} from "n8n-workflow/dist/esm/interfaces.js
 import {isConfigDescriptor, RicGroupDescriptor, RicModelDataDescriptor, RicModelDescriptor} from "../common/types.js";
 
 function unrollDescriptors(data: RicModelDataDescriptor, idPrefix: string, namePrefix: string): RicModelDataDescriptor[] {
+    const children = data.type === 'subsystem' || data.type === 'argument'
+        ? (data.children ?? []).flatMap(c => unrollDescriptors(c, `${data.id}.`, `${data.name}: `))
+        : [];
     return [
         {
             ...data,
             id: `${idPrefix}${data.id}`,
             name: `${namePrefix}${data.name}`
         },
-        ...(data.children ?? []).flatMap(c => unrollDescriptors(c, `${data.id}.`, `${data.name}: `))
+        ...children
     ];
 }
 
