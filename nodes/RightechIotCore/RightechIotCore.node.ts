@@ -21,6 +21,7 @@ import {listModels} from "./methods/listModels.js";
 import {mapObjectColumnsFromModel} from "./methods/mapObjectColumnsFromModel.js";
 import {eventOptions} from "./methods/eventOptions.js";
 import {eventApiProperties} from "./resources/event/index.js";
+import {eventOptionsOfObjects} from "./methods/eventOptionsOfObjects.js";
 
 export class RightechIotCore implements INodeType {
     description: INodeTypeDescription = {
@@ -52,27 +53,27 @@ export class RightechIotCore implements INodeType {
                     {
                         name: 'Event',
                         value: 'event',
-                        description: 'Event stream',
+                        description: 'Event log stores all occurred events',
                     },
                     {
                         name: 'Model',
                         value: 'model',
-                        description: 'Models define your object configuration',
+                        description: 'Models define your object configuration shapes',
                     },
                     {
                         name: 'Object',
                         value: 'object',
-                        description: 'Objects bound to your IoT devices',
+                        description: 'Objects represent your IoT devices',
                     },
                     {
                         name: 'Scenario',
                         value: 'scenario',
-                        description: 'Automation scenarios',
+                        description: 'Automation scenarios enable stateful automations with visual tools',
                     },
                     {
                         name: 'Table',
                         value: 'table',
-                        description: 'Data tables',
+                        description: 'Data tables define arbitrary data shapes and store data',
                     },
                 ],
                 default: 'object',
@@ -87,6 +88,7 @@ export class RightechIotCore implements INodeType {
     methods = {
         loadOptions: {
             eventOptions,
+            eventOptionsOfObjects,
         },
         listSearch: {
             listObjects,

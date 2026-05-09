@@ -1,4 +1,4 @@
-import {IExecuteFunctions, INodeExecutionData} from "n8n-workflow";
+import {GenericValue, IExecuteFunctions, INodeExecutionData} from "n8n-workflow";
 
 export interface RicApiCred {
     ricServer: string,
@@ -120,3 +120,21 @@ export interface RicEventOrgStructure {
     // Events that are not bound to any models, system events
     noModel: string[],
 }
+
+export interface RicEventShell {
+    event: string,
+    time: number,
+    data: object,
+    [key: string]: GenericValue,
+}
+
+export const RicKnownEvents: Record<string, string> = {
+    'object-online': 'Object: comes online',
+    'object-offline': 'Object: comes offline',
+    'object-insert': 'Object: created',
+    'object-update': 'Object: updated',
+    'object-remove': 'Object: deleted',
+    'object-command-req': 'Command: sent',
+    'object-command-res': 'Command: completed',
+    'object-command-err': 'Command: failed',
+};

@@ -7,8 +7,9 @@ import {getMany} from "./getMany.js";
 import {update, objectUpdateProperties} from "./update.js";
 import {create, objectCreateProperties} from "./create.js";
 import {getHistory, objectGetHistoryProperties} from "./getHistory.js";
+import {getEvents, objectGetEventsProperties} from "./getEvents.js";
 
-export const object: Record<string, handlerFn> = {get, create, update, getMany, getHistory, sendCommand};
+export const object: Record<string, handlerFn> = {get, create, update, getMany, getHistory, getEvents, sendCommand};
 
 export const objectApiProperties: INodeProperties[] = [
     {
@@ -33,6 +34,12 @@ export const objectApiProperties: INodeProperties[] = [
                 value: 'get',
                 action: 'Get object configuration and state',
                 description: 'Reads an entire object configuration and recorded state params. More at https://rightech.io/en/developers/http/objects#get-one.',
+            },
+            {
+                name: 'Get Events',
+                value: 'getEvents',
+                action: 'Get object event log',
+                description: 'Get events related to the object. More at https://rightech.io/en/developers/handlers/create#generate-event.',
             },
             {
                 name: 'Get History',
@@ -224,4 +231,5 @@ export const objectApiProperties: INodeProperties[] = [
     ...objectGetHistoryProperties,
     ...objectCreateProperties,
     ...objectUpdateProperties,
+    ...objectGetEventsProperties,
 ];

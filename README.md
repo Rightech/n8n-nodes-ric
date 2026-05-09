@@ -27,31 +27,42 @@ At the start, this node supports a bare minimum of operations you may need to in
 
 ### Objects
 
+Objects represent your IoT devices
+
 - [**Create object configuration**](https://rightech.io/en/developers/http/objects#create): Creates and configures IoT device connection object.
 - [**Get configuration data and state**](https://rightech.io/en/developers/http/objects#get-one): Reads an entire object configuration and recorded state params.
 - [**Get multiple objects**](https://rightech.io/en/developers/http/objects#get-all): Get configuration and state of multiple objects at once.
 - [**Updates object configuration**](https://rightech.io/en/developers/http/objects#edit): Updates object configuration parameters based on its model.
 - [**Get object telemetry history**](https://rightech.io/en/developers/terms): Get historic telemetry packets for a specific time range.
+- [**Get object event log**](https://rightech.io/en/developers/handlers/create#generate-event): Get events related to the object.
 - [**Send command to the object**](https://rightech.io/en/developers/http/objects#send-command): Sends any assigned command of the object to the device.
 
 ### Models
 
+Models define your object configuration shapes
+
 - [**Get model configuration**](https://rightech.io/en/developers/http/models#get-one): Reads an entire model configuration tree.
 
 ### Scenarios
+
+Automation scenarios enable stateful automations with visual tools
 
 - [**Start scenario on an object**](https://rightech.io/en/developers/http/logic#execute-start): Starts a new scenario execution on the object.
 - [**Stop scenario on an object**](https://rightech.io/en/developers/http/logic#execute-stop): Stops a running scenario execution on an object.
 
 ### Tables
 
+Data tables define arbitrary data shapes and store data
+
 - [**Get data table declaration**](https://rightech.io/en/developers/objects/table): Returns table declaration with column properties.
-- [**Get table row**](https://rightech.io/en/developers/objects/table): Returns a specific table row by ID.
+- [**Get table row**](https://rightech.io/en/developers/objects/table): Returns a specific table row.
 - [**Get table rows**](https://rightech.io/en/developers/objects/table): Returns table rows matching selected conditions.
 
 ### Events
 
-- [**Get multiple events**](https://rightech.io/en/developers/handlers/create#generate-event): Get filtered events from the global event stream.
+Event log stores all occurred events
+
+- [**Get multiple events**](https://rightech.io/en/developers/handlers/create#generate-event): Get filtered events from the global event log.
 
 ## Credentials
 

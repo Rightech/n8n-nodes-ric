@@ -4,7 +4,7 @@ import {RicEventOrgStructure, RicKnownEvents} from "../common/types.js";
 
 const knownEventTypes = Object.keys(RicKnownEvents);
 
-export async function eventOptions(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+export async function eventOptionsOfObjects(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
     const responseData = await httpCall(this, {
         method: 'GET',
         url: `/api/v1/events/org`,
@@ -20,12 +20,6 @@ export async function eventOptions(this: ILoadOptionsFunctions): Promise<INodePr
             .sort()
             .map(e => ({
                 name: `Custom: ${e}`,
-                value: e,
-            })),
-        ...responseData.noModel
-            .sort()
-            .map(e => ({
-                name: `System: ${e}`,
                 value: e,
             })),
     ];
