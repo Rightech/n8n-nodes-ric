@@ -102,6 +102,38 @@ export interface RicModelDescriptor {
     };
 }
 
+export interface RicModelArgument {
+    // Parameters from the base model (the base template)
+    _base?: boolean,
+    _parentId?: string,
+    id: string,
+    name: string,
+    active: boolean,
+    type: 'argument',
+    reference?: string, // online, _ts, time
+    dataType: 'number' | 'boolean' | 'string' | 'object' | 'number[]' | 'boolean[]' | 'string[]',
+    unit?: string,
+}
+
+export interface RicPerObjectModelDeepAndFlat {
+    _id: string,
+    name: string,
+    base: string,
+    owner: string,
+    group: string,
+    time: number,
+    _object: {
+        _id: string,
+        model: string,
+        id: string,
+        name: string,
+        group: string,
+    },
+    _configs: RicModelConfigDescriptor[],
+    _arguments: RicModelArgument[],
+    _actions: unknown[],
+}
+
 export interface RicGroupDescriptor {
     _id: string,
     role: string,

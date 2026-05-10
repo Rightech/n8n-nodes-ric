@@ -8,8 +8,9 @@ import {create, objectCreateProperties} from "./create.js";
 import {getHistory, objectGetHistoryProperties} from "./getHistory.js";
 import {getEvents, objectGetEventsProperties} from "./getEvents.js";
 import {sendCommand, objectSendCommandProperties} from "./sendCommand.js";
+import {sendTelemetry, objectSendTelemetryProperties} from "./sendTelemetry.js";
 
-export const object: Record<string, handlerFn> = {get, create, update, getMany, getHistory, getEvents, sendCommand};
+export const object: Record<string, handlerFn> = {get, create, update, getMany, getHistory, getEvents, sendCommand, sendTelemetry};
 
 export const objectApiProperties: INodeProperties[] = [
     {
@@ -59,6 +60,12 @@ export const objectApiProperties: INodeProperties[] = [
                 value: 'sendCommand',
                 action: 'Send command to the object',
                 description: 'Sends any assigned command of the object to the device. More at https://rightech.io/en/developers/http/objects#send-command.',
+            },
+            {
+                name: 'Send Telemetry',
+                value: 'sendTelemetry',
+                action: 'Send telemetry packet to the object',
+                description: 'Sends a customizable telemetry packet to the object, simulating device data. More at https://rightech.io/en/developers/models/protocols.',
             },
             {
                 name: 'Update',
@@ -165,4 +172,5 @@ export const objectApiProperties: INodeProperties[] = [
     ...objectUpdateProperties,
     ...objectGetEventsProperties,
     ...objectSendCommandProperties,
+    ...objectSendTelemetryProperties,
 ];

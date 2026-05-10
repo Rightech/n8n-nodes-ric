@@ -36,6 +36,7 @@ Objects represent your IoT devices
 - [**Get object telemetry history**](https://rightech.io/en/developers/terms): Get historic telemetry packets for a specific time range.
 - [**Get object event log**](https://rightech.io/en/developers/handlers/create#generate-event): Get events related to the object.
 - [**Send command to the object**](https://rightech.io/en/developers/http/objects#send-command): Sends any assigned command of the object to the device.
+- [**Send telemetry packet to the object**](https://rightech.io/en/developers/models/protocols): Sends a customizable telemetry packet to the object, simulating device data.
 
 ### Models
 

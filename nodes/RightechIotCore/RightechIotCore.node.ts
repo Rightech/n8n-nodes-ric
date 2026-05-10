@@ -22,6 +22,7 @@ import {mapObjectColumnsFromModel} from "./methods/mapObjectColumnsFromModel.js"
 import {eventOptions} from "./methods/eventOptions.js";
 import {eventApiProperties} from "./resources/event/index.js";
 import {eventOptionsOfObjects} from "./methods/eventOptionsOfObjects.js";
+import {mapTelemetryParams} from "./methods/mapTelemetryParams.js";
 
 export class RightechIotCore implements INodeType {
     description: INodeTypeDescription = {
@@ -101,6 +102,7 @@ export class RightechIotCore implements INodeType {
         resourceMapping: {
             mapTableRowQuery,
             mapObjectColumnsFromModel,
+            mapTelemetryParams,
         },
     };
     async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {

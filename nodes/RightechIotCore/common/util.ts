@@ -1,4 +1,5 @@
-import {IExecuteFunctions, IHttpRequestOptions, ILoadOptionsFunctions, NodeParameterValueType, ResourceMapperField,
+import {
+    IExecuteFunctions, IHttpRequestOptions, ILoadOptionsFunctions, NodeParameterValueType, ResourceMapperField,
     WorkflowConfigurationError
 } from "n8n-workflow";
 import {RicApiCred, RicApiCredName, RicModelConfigDescriptor} from "./types.js";
@@ -27,7 +28,7 @@ export function readResourceLocatorId(node: ILoadOptionsFunctions, option: strin
     return undefined;
 }
 
-export async function httpCall(exec: ILoadOptionsFunctions|IExecuteFunctions, request: IHttpRequestOptions): Promise<unknown> {
+export async function httpCall(exec: ILoadOptionsFunctions | IExecuteFunctions, request: IHttpRequestOptions): Promise<unknown> {
     const cred = await exec.getCredentials<RicApiCred>(RicApiCredName);
     if (!request.url) {
         throw new WorkflowConfigurationError(exec.getNode(), "Service URL was not set up, but workflow was executed.");
@@ -80,4 +81,8 @@ export function ricConfigToResourceMapperField(config: RicModelConfigDescriptor)
         display: true,
         options: config.ctrl === 'Select' && config.opts ? config.opts.items : undefined,
     }
+}
+
+export function capitalise(some: string): string {
+    return some.charAt(0).toUpperCase() + some.slice(1);
 }
