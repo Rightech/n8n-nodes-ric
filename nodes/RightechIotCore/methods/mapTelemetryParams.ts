@@ -1,11 +1,11 @@
 import {ILoadOptionsFunctions, ResourceMapperFields} from "n8n-workflow";
 import {capitalise, httpCall} from "../common/util.js";
 import {FieldType, INodeParameterResourceLocator} from "n8n-workflow/dist/esm/interfaces.js";
-import {RicPerObjectModelDeepAndFlat} from "../common/types.js";
+import {RicPerObjectModelDeepAndFlat, RicTelemetryDataTypes} from "../common/types.js";
 
-type SupportedFieldType = FieldType & 'number' | 'boolean' | 'string' | 'object' | 'array';
+type SupportedFieldType = FieldType & ('number' | 'boolean' | 'string' | 'object' | 'array');
 
-const RicToN8nDataTypeMap: Record<string, SupportedFieldType> = {
+const RicToN8nDataTypeMap: Record<RicTelemetryDataTypes, SupportedFieldType> = {
     'number': 'number',
     'boolean': 'boolean',
     'string': 'string',

@@ -5,6 +5,9 @@ export interface RicApiCred {
     ricAccessToken: string,
 }
 
+export const N8N_RESOURCE_MAPPING_MODE_AUTO = 'autoMapInputData';
+export const N8N_RESOURCE_MAPPING_MODE_MANUAL = 'defineBelow';
+
 export type handlerFn = (exec: IExecuteFunctions, index: number) => Promise<INodeExecutionData[]>;
 
 export const RicApiCredName = 'rightechIotCoreApi';
@@ -102,6 +105,8 @@ export interface RicModelDescriptor {
     };
 }
 
+export type RicTelemetryDataTypes = 'number' | 'boolean' | 'string' | 'object' | 'number[]' | 'boolean[]' | 'string[]';
+
 export interface RicModelArgument {
     // Parameters from the base model (the base template)
     _base?: boolean,
@@ -111,7 +116,7 @@ export interface RicModelArgument {
     active: boolean,
     type: 'argument',
     reference?: string, // online, _ts, time
-    dataType: 'number' | 'boolean' | 'string' | 'object' | 'number[]' | 'boolean[]' | 'string[]',
+    dataType: RicTelemetryDataTypes,
     unit?: string,
 }
 
