@@ -78,8 +78,8 @@ By default, credentials point to the public development and demonstration server
 This node is developed on and tested to work with the following configuration:
 
 - **n8n**: Version 2.15.0 and higher
-- **Node.js**: 24.x or higher
-- **npm**: 11.6.2 or higher
+- **Node.js**: 24.25.0 or higher
+- **npm**: 11.12.1 or higher
 
 ## Resources
 
