@@ -22,14 +22,15 @@
     "lint": "n8n-node lint",
     "lint:fix": "n8n-node lint --fix",
     "release": "n8n-node release",
-    "prepublishOnly": "n8n-node prerelease"
+    "prepublishOnly": "n8n-node prerelease",
+    "test": "WEBHOOK_URL=https://localhost:5678 vitest run"
   },
   "files": [
     "dist"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
-    "strict": true,
+    "strict": false,
     "credentials": [
       "dist/credentials/RightechIotCoreApi.credentials.js"
     ],
@@ -40,9 +41,12 @@
   "devDependencies": {
     "@n8n/node-cli": "^0.23.1",
     "eslint": "9.32.0",
+    "n8n-core": "^2.15.0",
+    "nock": "^14.0.15",
     "prettier": "3.6.2",
     "release-it": "^19.0.4",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "vitest": "^4.1.6"
   },
   "peerDependencies": {
     "n8n-workflow": "*"

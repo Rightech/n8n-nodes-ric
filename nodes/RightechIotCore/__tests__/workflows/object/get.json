@@ -1,0 +1,55 @@
+{
+  "name": "Test node workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "objectId": {
+          "__rl": true,
+          "value": "69ffff033463098bf7d49699",
+          "mode": "list",
+          "cachedResultName": "n8n-test-model-object-1"
+        }
+      },
+      "type": "CUSTOM.rightechIotCore",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        -16
+      ],
+      "id": "fc6b513e-992d-4ef8-a83a-025ad6543e27",
+      "name": "Get object configuration and state",
+      "credentials": {
+        "rightechIotCoreApi": {
+          "id": "Gl4395rs85y4BbdU",
+          "name": "sandbox demo 001"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get object configuration and state",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "087e64c2-32c6-4539-89af-2d274b7ad7a9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6529141020368fa1fbca96461299f338a2b92db189547affb007361f7fc9a2b9"
+  },
+  "id": "voK5CDEpQBOLXZb2",
+  "tags": []
+}
