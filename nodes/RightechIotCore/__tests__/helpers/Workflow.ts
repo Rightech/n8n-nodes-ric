@@ -1,5 +1,12 @@
-import {IRun, IWorkflowBase, IWorkflowExecuteAdditionalData, Workflow, WorkflowParameters} from "n8n-workflow";
-import {ExecutionLifecycleHooks, WorkflowExecute} from "n8n-core";
+import {
+    ILoadOptionsFunctions,
+    IRun,
+    IWorkflowBase,
+    IWorkflowExecuteAdditionalData,
+    Workflow,
+    WorkflowParameters
+} from "n8n-workflow";
+import {ExecutionLifecycleHooks, LoadOptionsContext, WorkflowExecute} from "n8n-core";
 import {CredentialsHelper} from "./CredentialsHelper.js";
 import {nodeTypes} from "./NodeTypes.js";
 import {expect} from "vitest";
@@ -11,7 +18,23 @@ const credentialsHelper = new CredentialsHelper({
     },
 });
 
-export const runWorkflowParameters = async (workflowParameters: WorkflowParameters): Promise<IRun> => {
+export const loadOptions = (workflowParameters: Partial<WorkflowParameters>): ILoadOptionsFunctions => {
+    const mode = 'manual';
+    const id = 'execution-id';
+    const workflow = new Workflow({...workflowParameters, nodeTypes});
+    const hooks = new ExecutionLifecycleHooks(mode, id, workflowParameters);
+    return new LoadOptionsContext(workflow, workflow.getStartNode(), {
+        hooks,
+        credentialsHelper,
+        webhookBaseUrl: 'http://example.com',
+        webhookWaitingBaseUrl: 'http://example.com',
+        webhookTestBaseUrl: 'http://example.com',
+        formWaitingBaseUrl: 'http://example.com',
+        currentNodeParameters: workflow.getStartNode().parameters,
+    } as IWorkflowExecuteAdditionalData, '');
+}
+
+export const runWorkflowParameters = async (workflowParameters: Partial<WorkflowParameters>): Promise<IRun> => {
     const mode = 'manual';
     const id = 'execution-id';
     const workflow = new Workflow({...workflowParameters, nodeTypes});

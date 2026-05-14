@@ -87,7 +87,7 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm run test
+        run: npx vitest run --reporter=github-actions
 
       - name: Release
         # Publishes to npm with a provenance attestation (requires id-token: write above).

@@ -1,0 +1,38 @@
+{
+  "name": "Test node workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "event"
+      },
+      "type": "CUSTOM.rightechIotCore",
+      "typeVersion": 1,
+      "position": [
+        16,
+        16
+      ],
+      "id": "4498f15c-e5a7-43ca-afeb-fb59dca6d3c8",
+      "name": "Get multiple events",
+      "credentials": {
+        "rightechIotCoreApi": {
+          "id": "Gl4395rs85y4BbdU",
+          "name": "sandbox demo 001"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {},
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "9b1414b6-4236-4341-b908-a2701973e01a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6529141020368fa1fbca96461299f338a2b92db189547affb007361f7fc9a2b9"
+  },
+  "id": "Bvr0wnVBHPkHDIZd",
+  "tags": []
+}

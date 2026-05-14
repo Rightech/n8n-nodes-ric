@@ -1,0 +1,309 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`eventOptions keeps defaults on empty options 1`] = `
+[
+  {
+    "name": "Object: comes online",
+    "value": "object-online",
+  },
+  {
+    "name": "Object: comes offline",
+    "value": "object-offline",
+  },
+  {
+    "name": "Object: created",
+    "value": "object-insert",
+  },
+  {
+    "name": "Object: updated",
+    "value": "object-update",
+  },
+  {
+    "name": "Object: deleted",
+    "value": "object-remove",
+  },
+  {
+    "name": "Command: sent",
+    "value": "object-command-req",
+  },
+  {
+    "name": "Command: completed",
+    "value": "object-command-res",
+  },
+  {
+    "name": "Command: failed",
+    "value": "object-command-err",
+  },
+]
+`;
+
+exports[`eventOptions returns options for various option types 1`] = `
+[
+  {
+    "name": "Object: comes online",
+    "value": "object-online",
+  },
+  {
+    "name": "Object: comes offline",
+    "value": "object-offline",
+  },
+  {
+    "name": "Object: created",
+    "value": "object-insert",
+  },
+  {
+    "name": "Object: updated",
+    "value": "object-update",
+  },
+  {
+    "name": "Object: deleted",
+    "value": "object-remove",
+  },
+  {
+    "name": "Command: sent",
+    "value": "object-command-req",
+  },
+  {
+    "name": "Command: completed",
+    "value": "object-command-res",
+  },
+  {
+    "name": "Command: failed",
+    "value": "object-command-err",
+  },
+  {
+    "name": "Custom: 239hs",
+    "value": "239hs",
+  },
+  {
+    "name": "Custom: 239hs-ygoqy",
+    "value": "239hs-ygoqy",
+  },
+  {
+    "name": "Custom: limit-exceeded",
+    "value": "limit-exceeded",
+  },
+  {
+    "name": "Custom: n8n-test-event-manual",
+    "value": "n8n-test-event-manual",
+  },
+  {
+    "name": "Custom: n8n-test-transit-a",
+    "value": "n8n-test-transit-a",
+  },
+  {
+    "name": "Custom: n8n-test-transit-b",
+    "value": "n8n-test-transit-b",
+  },
+  {
+    "name": "Custom: object-bot-geostate",
+    "value": "object-bot-geostate",
+  },
+  {
+    "name": "Custom: object-state-reset",
+    "value": "object-state-reset",
+  },
+  {
+    "name": "Custom: push-message",
+    "value": "push-message",
+  },
+  {
+    "name": "System: dashboard-insert",
+    "value": "dashboard-insert",
+  },
+  {
+    "name": "System: dashboard-remove",
+    "value": "dashboard-remove",
+  },
+  {
+    "name": "System: dashboard-update",
+    "value": "dashboard-update",
+  },
+  {
+    "name": "System: group-update",
+    "value": "group-update",
+  },
+  {
+    "name": "System: logic-automaton-start",
+    "value": "logic-automaton-start",
+  },
+  {
+    "name": "System: model-insert",
+    "value": "model-insert",
+  },
+  {
+    "name": "System: model-remove",
+    "value": "model-remove",
+  },
+  {
+    "name": "System: model-update",
+    "value": "model-update",
+  },
+  {
+    "name": "System: notification",
+    "value": "notification",
+  },
+  {
+    "name": "System: report-insert",
+    "value": "report-insert",
+  },
+  {
+    "name": "System: report-remove",
+    "value": "report-remove",
+  },
+  {
+    "name": "System: report-update",
+    "value": "report-update",
+  },
+  {
+    "name": "System: role-insert",
+    "value": "role-insert",
+  },
+  {
+    "name": "System: role-remove",
+    "value": "role-remove",
+  },
+  {
+    "name": "System: task-expired",
+    "value": "task-expired",
+  },
+  {
+    "name": "System: task-insert",
+    "value": "task-insert",
+  },
+  {
+    "name": "System: task-remove",
+    "value": "task-remove",
+  },
+  {
+    "name": "System: token-insert",
+    "value": "token-insert",
+  },
+  {
+    "name": "System: token-remove",
+    "value": "token-remove",
+  },
+  {
+    "name": "System: token-update",
+    "value": "token-update",
+  },
+  {
+    "name": "System: user-signin",
+    "value": "user-signin",
+  },
+  {
+    "name": "System: user-update",
+    "value": "user-update",
+  },
+]
+`;
+
+exports[`eventOptionsOfObjects keeps defaults on empty options 1`] = `
+[
+  {
+    "name": "Object: comes online",
+    "value": "object-online",
+  },
+  {
+    "name": "Object: comes offline",
+    "value": "object-offline",
+  },
+  {
+    "name": "Object: created",
+    "value": "object-insert",
+  },
+  {
+    "name": "Object: updated",
+    "value": "object-update",
+  },
+  {
+    "name": "Object: deleted",
+    "value": "object-remove",
+  },
+  {
+    "name": "Command: sent",
+    "value": "object-command-req",
+  },
+  {
+    "name": "Command: completed",
+    "value": "object-command-res",
+  },
+  {
+    "name": "Command: failed",
+    "value": "object-command-err",
+  },
+]
+`;
+
+exports[`eventOptionsOfObjects returns options for various option types 1`] = `
+[
+  {
+    "name": "Object: comes online",
+    "value": "object-online",
+  },
+  {
+    "name": "Object: comes offline",
+    "value": "object-offline",
+  },
+  {
+    "name": "Object: created",
+    "value": "object-insert",
+  },
+  {
+    "name": "Object: updated",
+    "value": "object-update",
+  },
+  {
+    "name": "Object: deleted",
+    "value": "object-remove",
+  },
+  {
+    "name": "Command: sent",
+    "value": "object-command-req",
+  },
+  {
+    "name": "Command: completed",
+    "value": "object-command-res",
+  },
+  {
+    "name": "Command: failed",
+    "value": "object-command-err",
+  },
+  {
+    "name": "Custom: 239hs",
+    "value": "239hs",
+  },
+  {
+    "name": "Custom: 239hs-ygoqy",
+    "value": "239hs-ygoqy",
+  },
+  {
+    "name": "Custom: limit-exceeded",
+    "value": "limit-exceeded",
+  },
+  {
+    "name": "Custom: n8n-test-event-manual",
+    "value": "n8n-test-event-manual",
+  },
+  {
+    "name": "Custom: n8n-test-transit-a",
+    "value": "n8n-test-transit-a",
+  },
+  {
+    "name": "Custom: n8n-test-transit-b",
+    "value": "n8n-test-transit-b",
+  },
+  {
+    "name": "Custom: object-bot-geostate",
+    "value": "object-bot-geostate",
+  },
+  {
+    "name": "Custom: object-state-reset",
+    "value": "object-state-reset",
+  },
+  {
+    "name": "Custom: push-message",
+    "value": "push-message",
+  },
+]
+`;
