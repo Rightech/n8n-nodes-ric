@@ -1,0 +1,457 @@
+{
+  "unique": [
+    "239hs",
+    "239hs-ygoqy",
+    "dashboard-insert",
+    "dashboard-remove",
+    "dashboard-update",
+    "group-update",
+    "limit-exceeded",
+    "logic-automaton-start",
+    "model-insert",
+    "model-remove",
+    "model-update",
+    "n8n-test-event-manual",
+    "n8n-test-transit-a",
+    "n8n-test-transit-b",
+    "notification",
+    "object-bot-geostate",
+    "object-command-err",
+    "object-command-req",
+    "object-command-res",
+    "object-insert",
+    "object-offline",
+    "object-online",
+    "object-remove",
+    "object-state-reset",
+    "object-update",
+    "push-message",
+    "report-insert",
+    "report-remove",
+    "report-update",
+    "role-insert",
+    "role-remove",
+    "task-expired",
+    "task-insert",
+    "task-remove",
+    "token-insert",
+    "token-remove",
+    "token-update",
+    "user-signin",
+    "user-update"
+  ],
+  "byModel": {
+    "680765332e8739131407709b": [
+      "object-offline",
+      "object-update",
+      "object-online"
+    ],
+    "69f1ca7562c70f5e7252624d": [
+      "239hs",
+      "object-offline",
+      "object-online",
+      "object-command-res",
+      "object-update",
+      "239hs-ygoqy",
+      "object-command-req"
+    ],
+    "628e2401ce987600119c94bd": [
+      "object-offline",
+      "object-online",
+      "object-update",
+      "push-message",
+      "object-command-res",
+      "object-command-req",
+      "object-command-err"
+    ],
+    "63bd3f987c06640011e75cd1": [
+      "object-update"
+    ],
+    "656edc055f7cfa57a40cf8ef": [
+      "object-update",
+      "object-online",
+      "object-offline"
+    ],
+    "676abedca5914ce10d0f2eaa": [
+      "object-online",
+      "object-offline",
+      "object-update"
+    ],
+    "67c9cc9ab2e8f5f971a26a7b": [
+      "object-update",
+      "object-online",
+      "object-offline"
+    ],
+    "66ddf801a9e203b6d4c2c425": [
+      "object-update"
+    ],
+    "62679c90daacc00012017083": [
+      "object-update"
+    ],
+    "6720a917b0d2a751641dfa50": [
+      "object-update"
+    ],
+    "6809e4422e8739131407711c": [
+      "object-update",
+      "object-offline",
+      "object-online"
+    ],
+    "6703b75b5ef39f6f46ff8d7a": [
+      "object-update",
+      "object-offline"
+    ],
+    "6708e9dcfdc4d7a9ce671c6a": [
+      "object-update"
+    ],
+    "682465c7c5616e2143caf9c4": [
+      "object-update"
+    ],
+    "6267ac31daacc000120170cf": [
+      "object-update"
+    ],
+    "688c9103dd28ee2c5c00f618": [
+      "object-online",
+      "object-command-req",
+      "object-command-err",
+      "object-offline",
+      "object-update",
+      "object-insert",
+      "object-remove"
+    ],
+    "69f1e0b062c70f5e72526257": [
+      "object-insert",
+      "n8n-test-transit-a",
+      "object-state-reset",
+      "object-update",
+      "n8n-test-transit-b",
+      "object-remove",
+      "n8n-test-event-manual",
+      "object-command-err",
+      "push-message",
+      "object-command-req"
+    ],
+    "6358ec42f7a1da0012d6c739": [
+      "object-remove",
+      "object-command-req",
+      "object-insert",
+      "object-command-err",
+      "object-update"
+    ],
+    "66f13fdad0dea42108a85e5d": [
+      "object-update"
+    ],
+    "6841255a3b34cb448105b71c": [
+      "object-bot-geostate",
+      "object-update",
+      "object-online",
+      "object-offline",
+      "object-command-res",
+      "object-command-req"
+    ],
+    "67dd4bc730dbe3928bcaa068": [
+      "object-update"
+    ],
+    "647f28aa31fcb07b0748da1f": [
+      "object-update"
+    ],
+    "649ea231d50e53907b17286c": [
+      "object-update"
+    ],
+    "626679b5daacc00012016e93": [
+      "object-command-req",
+      "object-offline",
+      "object-online",
+      "object-update",
+      "push-message",
+      "object-command-res"
+    ],
+    "6929b1178c7b110ac891d213": [
+      "object-command-err",
+      "object-update",
+      "object-command-req",
+      "object-offline",
+      "object-online",
+      "object-insert",
+      "object-command-res"
+    ],
+    "623063a9cc81220011c25596": [
+      "object-update"
+    ],
+    "673b34ac120bac47beb5c26b": [
+      "object-update"
+    ],
+    "66d1d3bb25e8200c9d4697a7": [
+      "object-update"
+    ],
+    "65785fdd3c475b3ae5fa986e": [
+      "object-update"
+    ],
+    "6267d4fddaacc00012017176": [
+      "object-command-req",
+      "object-command-err",
+      "object-online",
+      "push-message",
+      "object-command-res",
+      "object-offline",
+      "object-update"
+    ],
+    "699d6ecab600afa518f3dc2a": [
+      "object-update",
+      "push-message",
+      "object-command-res",
+      "object-command-err",
+      "object-online",
+      "object-remove",
+      "object-command-req",
+      "object-offline",
+      "object-insert"
+    ],
+    "69fa1b53dc536fdbd136cc65": [
+      "object-update",
+      "object-offline",
+      "object-remove",
+      "object-command-err",
+      "object-command-req",
+      "object-online",
+      "object-insert"
+    ],
+    "689ad65abdbac7c3ba509efb": [
+      "object-update"
+    ],
+    "650964418b31da5c45890d30": [
+      "object-update"
+    ],
+    "67a3547b4e7c80c8ff881d54": [
+      "object-offline",
+      "object-online",
+      "object-update"
+    ],
+    "6929b0808c7b110ac891d211": [
+      "object-offline",
+      "object-update",
+      "object-online"
+    ],
+    "653817f903cb35959b3644f1": [
+      "object-update"
+    ],
+    "66720437bb9fc91c7c22329a": [
+      "object-update"
+    ],
+    "697a12e84a15b37112b6d98d": [
+      "object-update",
+      "object-insert",
+      "object-remove",
+      "object-command-req",
+      "object-command-err"
+    ],
+    "6347c7e3e8563d00111b8d9f": [
+      "object-update",
+      "object-offline",
+      "object-online"
+    ],
+    "66f10278d0dea42108a85e1e": [
+      "object-update"
+    ],
+    "697a45b6d1caff26ab1c4bfb": [
+      "object-insert",
+      "object-command-err",
+      "object-update",
+      "object-command-req"
+    ],
+    "6267ab6adaacc000120170c8": [
+      "object-update"
+    ],
+    "62d10c5e10cc6e0011a91c28": [
+      "object-update"
+    ],
+    "64cbb4d5c004a7e10a7e2cc3": [
+      "object-update"
+    ],
+    "66e80fb05985b64a944cacb5": [
+      "object-update"
+    ],
+    "6267ac48daacc000120170d1": [
+      "object-update"
+    ],
+    "67e3e9f874d85648c3e93d83": [
+      "object-offline",
+      "object-update",
+      "object-online"
+    ],
+    "682233255971a584395eeac1": [
+      "object-online",
+      "object-offline",
+      "object-update"
+    ],
+    "67dd4b3830dbe3928bcaa05c": [
+      "object-update"
+    ],
+    "66c4b9a0d951d27351077e7d": [
+      "object-online",
+      "notification",
+      "object-update",
+      "object-offline",
+      "limit-exceeded"
+    ],
+    "691f408917d8475b6f9f2896": [
+      "object-update"
+    ],
+    "626a59fc4123ac0011fdea9c": [
+      "object-update"
+    ],
+    "65fdc167ed6c54c1e069ee65": [
+      "object-update"
+    ],
+    "6267ab21daacc000120170c6": [
+      "object-update"
+    ],
+    "67c976fbb2e8f5f971a26a75": [
+      "object-update"
+    ],
+    "637c6f4e90f4a90011f61e19": [
+      "object-online",
+      "object-offline",
+      "object-update"
+    ],
+    "6267ac57daacc000120170d2": [
+      "object-update"
+    ],
+    "67dd4b6230dbe3928bcaa05f": [
+      "object-update"
+    ],
+    "67fcbc912a2074c465e9977f": [
+      "object-update"
+    ],
+    "633d4265c39dc1001139bf42": [
+      "object-update"
+    ],
+    "66dc7e66a9e203b6d4c2c40f": [
+      "object-update"
+    ],
+    "67e3eb5c74d85648c3e93d88": [
+      "object-update"
+    ],
+    "66163f36a85d0c83cd355d2d": [
+      "object-update"
+    ],
+    "670689135ef39f6f46ff8f1d": [
+      "object-offline",
+      "object-update",
+      "object-online"
+    ],
+    "67dd4b1e30dbe3928bcaa05a": [
+      "object-update"
+    ],
+    "628dfa7ace987600119c9472": [
+      "object-update"
+    ],
+    "67fcbb4a2a2074c465e99774": [
+      "object-offline",
+      "object-online",
+      "object-update"
+    ],
+    "6703a7fb5ef39f6f46ff8d6e": [
+      "object-update"
+    ],
+    "635fccd20671e7001234f10a": [
+      "object-offline",
+      "object-update"
+    ],
+    "66e950fc5985b64a944cace5": [
+      "object-update"
+    ],
+    "665ecde45e38ec4d27e4778f": [
+      "object-update"
+    ],
+    "6730e0a9b6bb10805deead4d": [
+      "object-update"
+    ],
+    "66f04c38d0dea42108a85de8": [
+      "object-update"
+    ],
+    "67309ecab6bb10805deead43": [
+      "object-update"
+    ],
+    "66e7e64b5985b64a944cac4b": [
+      "object-update"
+    ],
+    "66f107e2d0dea42108a85e22": [
+      "object-update"
+    ],
+    "634d5c30c647e70012b34ae7": [
+      "object-update"
+    ],
+    "646349dd511dc542125504dc": [
+      "object-update"
+    ],
+    "684166cc3b34cb448105b730": [
+      "object-update"
+    ],
+    "67dd4ba630dbe3928bcaa065": [
+      "object-update"
+    ],
+    "670f8ea4819ce7bb2b70c17e": [
+      "object-update"
+    ],
+    "672d25f8aeb1a5373695e808": [
+      "object-update"
+    ],
+    "689ad4e6bdbac7c3ba509ee9": [
+      "object-update",
+      "object-online"
+    ],
+    "69f1ca6362c70f5e7252624b": [
+      "object-insert",
+      "object-update"
+    ],
+    "6714dfdcd75a2ebddaca7e23": [
+      "object-update"
+    ],
+    "67dd4b8630dbe3928bcaa062": [
+      "object-update"
+    ],
+    "66a64d7e6ac639d84d4b8061": [
+      "object-update"
+    ],
+    "62679d84daacc00012017086": [
+      "object-update"
+    ],
+    "668ed1463a21c986bbedb411": [
+      "object-update"
+    ],
+    "67092567fdc4d7a9ce671d09": [
+      "object-update"
+    ],
+    "66fd047dd4513093ed5d0ca7": [
+      "object-update"
+    ],
+    "6437a86b5c2c86dec32379bf": [
+      "object-update"
+    ]
+  },
+  "noModel": [
+    "token-remove",
+    "role-insert",
+    "token-update",
+    "model-update",
+    "logic-automaton-start",
+    "role-remove",
+    "report-insert",
+    "model-remove",
+    "report-update",
+    "dashboard-remove",
+    "token-insert",
+    "report-remove",
+    "task-insert",
+    "user-signin",
+    "dashboard-update",
+    "task-expired",
+    "group-update",
+    "task-remove",
+    "user-update",
+    "notification",
+    "dashboard-insert",
+    "model-insert"
+  ],
+  "success": true
+}

@@ -1,0 +1,366 @@
+{
+  "_id": "69fa1b53dc536fdbd136cc65",
+  "name": "n8n test barebone MQTT  model",
+  "base": "mqtt",
+  "owner": "682dd754b0738b9392dffd7e",
+  "group": "62667930daacc00012016e92",
+  "time": 1777998675584,
+  "_configs": [
+    {
+      "id": "string",
+      "name": "String",
+      "active": true,
+      "type": "config",
+      "dataType": "string",
+      "ctrl": ""
+    },
+    {
+      "id": "string-dropdown",
+      "name": "String dropdown",
+      "active": true,
+      "type": "config",
+      "dataType": "string",
+      "ctrl": "Select",
+      "opts": {
+        "itemKey": "value",
+        "items": [
+          {
+            "value": "on",
+            "name": "Value of \"on\""
+          },
+          {
+            "value": "off",
+            "name": "Value of \"off\""
+          }
+        ]
+      }
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "active": true,
+      "type": "config",
+      "dataType": "table",
+      "ctrl": "",
+      "table": "66d3296025e8200c9d46981d",
+      "defaultValue": "66d3296625e8200c9d46981e"
+    },
+    {
+      "id": "number",
+      "name": "Number",
+      "active": true,
+      "type": "config",
+      "dataType": "number",
+      "ctrl": "",
+      "defaultValue": 3
+    },
+    {
+      "id": "number-range",
+      "name": "Number range",
+      "active": true,
+      "type": "config",
+      "dataType": "number",
+      "ctrl": "Numeric",
+      "opts": {
+        "max": 5,
+        "min": -5
+      }
+    },
+    {
+      "id": "number-slider",
+      "name": "Number slider",
+      "active": true,
+      "type": "config",
+      "dataType": "number",
+      "ctrl": "Slider",
+      "opts": {
+        "max": 5,
+        "min": -5,
+        "step": 0.1
+      }
+    },
+    {
+      "id": "number-dropdown",
+      "name": "Number dropdown",
+      "active": true,
+      "type": "config",
+      "dataType": "number",
+      "ctrl": "Select",
+      "opts": {
+        "max": null,
+        "min": null,
+        "itemKey": "value",
+        "items": [
+          {
+            "value": 1,
+            "name": "Value of 1"
+          },
+          {
+            "value": 2,
+            "name": "Value of 2"
+          },
+          {
+            "value": 3,
+            "name": "Value of 3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "flag",
+      "name": "Flag",
+      "active": true,
+      "type": "config",
+      "dataType": "boolean",
+      "ctrl": ""
+    }
+  ],
+  "_actions": [],
+  "_arguments": [
+    {
+      "id": "arg-number",
+      "name": "Number",
+      "active": true,
+      "type": "argument",
+      "dataType": "number",
+      "linear": true,
+      "reference": "base/imaginary/arg-number",
+      "_value": 123,
+      "_time": 1778572978342,
+      "_ts": 1778572978342846
+    },
+    {
+      "id": "arg-number-unit",
+      "name": "Numeric - Gbit",
+      "active": true,
+      "type": "argument",
+      "dataType": "number",
+      "unit": "digital-gigabit",
+      "reference": "base/imaginary/arg-number-unit"
+    },
+    {
+      "id": "arg-boolean",
+      "name": "Boolean",
+      "active": true,
+      "type": "argument",
+      "dataType": "boolean",
+      "levels": {
+        "type": null
+      }
+    },
+    {
+      "id": "arg-string",
+      "name": "Stringy",
+      "active": true,
+      "type": "argument",
+      "dataType": "string",
+      "levels": {
+        "type": null
+      }
+    },
+    {
+      "id": "arg-object",
+      "name": "Object",
+      "active": true,
+      "type": "argument",
+      "dataType": "object",
+      "levels": {
+        "type": null
+      },
+      "_value": {
+        "lon": 2,
+        "lat": 1
+      },
+      "_time": 1778572978342,
+      "_ts": 1778572978342846
+    },
+    {
+      "id": "sub-a",
+      "name": "Sub - A",
+      "active": true,
+      "type": "argument",
+      "dataType": "number",
+      "reference": "arg-object.sub-a",
+      "unit": "acceleration-g-force",
+      "_value": 3,
+      "_time": 1778572978342,
+      "_ts": 1778572978342846
+    },
+    {
+      "id": "sub-b",
+      "name": "Sub - B",
+      "active": true,
+      "type": "argument",
+      "dataType": "boolean",
+      "levels": {
+        "type": null
+      },
+      "reference": "arg-object.sub-b",
+      "_value": true,
+      "_time": 1778572978342,
+      "_ts": 1778572978342846
+    },
+    {
+      "id": "arg-list-number",
+      "name": "Of numbers",
+      "active": true,
+      "type": "argument",
+      "dataType": "number[]",
+      "levels": {
+        "type": null
+      },
+      "_value": [
+        1,
+        2,
+        3
+      ],
+      "_time": 1778572978342,
+      "_ts": 1778572978342846
+    },
+    {
+      "id": "arg-list-bool",
+      "name": "Of booleans",
+      "active": true,
+      "type": "argument",
+      "dataType": "boolean[]",
+      "levels": {
+        "type": null
+      },
+      "_value": [
+        true,
+        false,
+        true
+      ],
+      "_time": 1778572978342,
+      "_ts": 1778572978342846
+    },
+    {
+      "id": "arg-list-string",
+      "name": "Of strings",
+      "active": true,
+      "type": "argument",
+      "dataType": "string[]",
+      "levels": {
+        "type": null
+      },
+      "_value": [
+        "c",
+        "d",
+        "c"
+      ],
+      "_time": 1778572978342,
+      "_ts": 1778572978342846
+    },
+    {
+      "_base": true,
+      "id": "online",
+      "name": "online",
+      "usage": "online",
+      "type": "argument",
+      "active": true,
+      "dataType": "boolean",
+      "reference": "online",
+      "_value": true,
+      "_time": 1778572978342,
+      "_ts": 1778572978342846
+    },
+    {
+      "_base": true,
+      "id": "time",
+      "name": "time",
+      "usage": "time",
+      "type": "argument",
+      "active": true,
+      "dataType": "number",
+      "reference": "time",
+      "unit": "duration-millisecond",
+      "_value": 1778572978342,
+      "_time": 1778572978342,
+      "_ts": 1778572978342846
+    },
+    {
+      "_base": true,
+      "id": "_ts",
+      "name": "server_time",
+      "usage": "_ts",
+      "type": "argument",
+      "active": true,
+      "dataType": "number",
+      "reference": "_ts",
+      "unit": "duration-microsecond",
+      "_value": 1778572978342846,
+      "_time": 1778572978342,
+      "_ts": 1778572978342846
+    }
+  ],
+  "_object": {
+    "_id": "69ffff033463098bf7d49699",
+    "model": "69fa1b53dc536fdbd136cc65",
+    "id": "n8n-test-model-object-1",
+    "name": "n8n-test-model-object-1",
+    "status": "status_a",
+    "config": {
+      "auth": {},
+      "x509": {},
+      "levels": {},
+      "position": {},
+      "configs": {
+        "string": "123123"
+      },
+      "params": {
+        "flag": true
+      },
+      "settings": {
+        "number": 1
+      }
+    },
+    "active": true,
+    "links": {
+      "automatons": [
+        {
+          "session": "UDZ5-RCb4UM",
+          "time": 1778573007059,
+          "id": "69f826529f5e85b5c3ea7223",
+          "name": "n8n-test-scenario"
+        }
+      ]
+    },
+    "group": "62667930daacc00012016e92",
+    "_storageSize": 100,
+    "state": {
+      "arg-number": 123,
+      "_mid": "69fa1b53dc536fdbd136cc65",
+      "arg-list-bool": [
+        true,
+        false,
+        true
+      ],
+      "arg-object": {
+        "lon": 2,
+        "lat": 1
+      },
+      "id": "n8n-test-model-object-1",
+      "_ts": 1778572978342846,
+      "sub-a": 3,
+      "_oid": "69ffff033463098bf7d49699",
+      "arg-list-number": [
+        1,
+        2,
+        3
+      ],
+      "online": true,
+      "time": 1778572978342,
+      "sub-b": true,
+      "_web": true,
+      "_gid": "62667930daacc00012016e92",
+      "_psd": 1,
+      "arg-list-string": [
+        "c",
+        "d",
+        "c"
+      ],
+      "_id": "6a02deb29fa3582945bd89eb"
+    }
+  },
+  "success": true
+}
