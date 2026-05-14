@@ -1,7 +1,113 @@
-import {IDataObject, IExecuteFunctions, IHttpRequestOptions, INodeExecutionData, ResourceMapperValue} from "n8n-workflow";
+import {
+    IDataObject, IExecuteFunctions, IHttpRequestOptions, INodeExecutionData,
+    type INodeProperties, ResourceMapperValue
+} from "n8n-workflow";
 import {httpCall} from "../../common/util.js";
-import {INodeParameterResourceLocator} from "n8n-workflow/dist/esm/interfaces.js";
-import {stdQueryParametersType} from "../../common/properties.js";
+import {INodeParameterResourceLocator, ResourceMapperField} from "n8n-workflow/dist/esm/interfaces.js";
+import {modelSelector, stdQueryParameters, stdQueryParametersType} from "../../common/properties.js";
+
+export const objectGetManyProperties: INodeProperties[] = [
+    {
+        ...modelSelector,
+        displayOptions: {
+            show: {
+                resource: ['object'],
+                operation: ['getMany'],
+            },
+        },
+    },
+    {
+        displayName: 'Model Options',
+        name: 'modelOptions',
+        type: 'resourceMapper',
+        hint: 'Select a model to discover available parameters first.',
+        default: {
+            mappingMode: 'defineBelow',
+            value: null,
+        },
+        displayOptions: {
+            show: {
+                resource: ['object'],
+                operation: ['getMany'],
+            },
+        },
+        typeOptions: {
+            resourceMapper: {
+                resourceMapperMethod: "mapObjectQueryFromModel",
+                mode: "add",
+                addAllFields: false,
+                supportAutoMap: false,
+            }
+        },
+    },
+    {
+        ...stdQueryParameters,
+        options: [
+            {
+                displayName: 'Device ID',
+                name: 'where_id', // todo: underscore notation can be used instead of dot notation in queries, but it is rather circumstantial
+                type: 'string',
+                default: '',
+            },
+            {
+                displayName: 'Name',
+                name: 'where_name',
+                type: 'string',
+                default: '',
+            },
+            {
+                displayName: 'Type',
+                name: 'where_type',
+                type: 'string',
+                default: '',
+            },
+            ...(stdQueryParameters.options ?? []),
+        ],
+        displayOptions: {
+            show: {
+                resource: ['object'],
+                operation: ['getMany'],
+            },
+        },
+    },
+    {
+        displayName: 'Custom Search Parameters',
+        name: 'customQueryParameters',
+        placeholder: 'Add Parameter',
+        hint: 'For expert users. Since object configurations are highly dynamic you may find it simpler to add arbitrary search parameters.',
+        type: 'fixedCollection',
+        default: {},
+        typeOptions: {
+            multipleValues: true,
+        },
+        displayOptions: {
+            show: {
+                resource: ['object'],
+                operation: ['getMany'],
+            },
+        },
+        options: [
+            {
+                name: 'parameters',
+                displayName: 'Parameters',
+                values: [
+                    {
+                        displayName: 'Query',
+                        name: 'query',
+                        type: 'string',
+                        default: '',
+                    },
+                    {
+                        displayName: 'Value',
+                        name: 'value',
+                        type: 'string',
+                        default: '',
+                    },
+                ],
+            },
+        ],
+    },
+];
 
 export async function getMany(exec: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
     const modelId = exec.getNodeParameter('modelId', index) as INodeParameterResourceLocator;
@@ -15,8 +121,17 @@ export async function getMany(exec: IExecuteFunctions, index: number): Promise<I
         ...stdQueryParameters,
     };
     if (modelOptions.value) {
+        const schemaMap: Record<string, ResourceMapperField> = {};
+        for (const param of modelOptions.schema) {
+            schemaMap[param.id] = param;
+        }
         for (const prop in modelOptions.value) {
-            qs["where." + prop] = modelOptions.value[prop];
+            const propValue = modelOptions.value[prop];
+            if (schemaMap[prop].type === "string" && !isNaN(Number(propValue))) {
+                qs["where." + prop] = `"${propValue}"`;
+            } else {
+                qs["where." + prop] = propValue;
+            }
         }
     }
     if (customQueryParameters.parameters) {

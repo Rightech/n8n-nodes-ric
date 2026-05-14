@@ -1,8 +1,8 @@
 import type {INodeProperties} from 'n8n-workflow';
-import {modelSelector, objectSelector, stdQueryParameters} from "../../common/properties.js";
+import {objectSelector} from "../../common/properties.js";
 import {get} from "./get.js";
 import {handlerFn} from "../../common/types.js";
-import {getMany} from "./getMany.js";
+import {getMany, objectGetManyProperties} from "./getMany.js";
 import {update, objectUpdateProperties} from "./update.js";
 import {create, objectCreateProperties} from "./create.js";
 import {getHistory, objectGetHistoryProperties} from "./getHistory.js";
@@ -85,88 +85,7 @@ export const objectApiProperties: INodeProperties[] = [
             },
         },
     },
-    {
-        ...modelSelector,
-        displayOptions: {
-            show: {
-                resource: ['object'],
-                operation: ['getMany'],
-            },
-        },
-    },
-    {
-        displayName: 'Model Options',
-        name: 'modelOptions',
-        type: 'resourceMapper',
-        hint: 'Select a model to discover available parameters first.',
-        default: {
-            mappingMode: 'defineBelow',
-            value: null,
-        },
-        displayOptions: {
-            show: {
-                resource: ['object'],
-                operation: ['getMany'],
-            },
-            hide: {
-                modelId: [''],
-            }
-        },
-        typeOptions: {
-            resourceMapper: {
-                resourceMapperMethod: "mapObjectColumnsFromModel",
-                mode: "add",
-                addAllFields: false,
-                supportAutoMap: false,
-            }
-        },
-    },
-    {
-        ...stdQueryParameters,
-        displayOptions: {
-            show: {
-                resource: ['object'],
-                operation: ['getMany'],
-            },
-        },
-    },
-    {
-        displayName: 'Custom Search Parameters',
-        name: 'customQueryParameters',
-        placeholder: 'Add Parameter',
-        hint: 'For expert users. Since object configurations are highly dynamic you may find it simpler to add arbitrary search parameters.',
-        type: 'fixedCollection',
-        default: {},
-        typeOptions: {
-            multipleValues: true,
-        },
-        displayOptions: {
-            show: {
-                resource: ['object'],
-                operation: ['getMany'],
-            },
-        },
-        options: [
-            {
-                name: 'parameters',
-                displayName: 'Parameters',
-                values: [
-                    {
-                        displayName: 'Query',
-                        name: 'query',
-                        type: 'string',
-                        default: '',
-                    },
-                    {
-                        displayName: 'Value',
-                        name: 'value',
-                        type: 'string',
-                        default: '',
-                    },
-                ],
-            },
-        ],
-    },
+    ...objectGetManyProperties,
     ...objectGetHistoryProperties,
     ...objectCreateProperties,
     ...objectUpdateProperties,

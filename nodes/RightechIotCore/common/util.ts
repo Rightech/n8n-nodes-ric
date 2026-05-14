@@ -2,7 +2,7 @@ import {
     IExecuteFunctions, IHttpRequestOptions, ILoadOptionsFunctions, NodeParameterValueType, ResourceMapperField,
     WorkflowConfigurationError
 } from "n8n-workflow";
-import {RicApiCred, RicApiCredName, RicModelConfigDescriptor} from "./types.js";
+import {RicApiCred, RicApiCredName, RicModelConfigDescriptor, RicModelDataDescriptor} from "./types.js";
 
 /**
  * Cast selected keys to lowercase for CI substring search
@@ -86,3 +86,18 @@ export function ricConfigToResourceMapperField(config: RicModelConfigDescriptor)
 export function capitalise(some: string): string {
     return some.charAt(0).toUpperCase() + some.slice(1);
 }
+
+export function unrollModelDescriptors(data: RicModelDataDescriptor, idPrefix: string, namePrefix: string): RicModelDataDescriptor[] {
+    const children = data.type === 'subsystem' || data.type === 'argument'
+        ? (data.children ?? []).flatMap(c => unrollModelDescriptors(c, `${data.id}.`, `${data.name}: `))
+        : [];
+    return [
+        {
+            ...data,
+            id: `${idPrefix}${data.id}`,
+            name: `${namePrefix}${data.name}`
+        },
+        ...children
+    ];
+}
+

@@ -55,7 +55,7 @@ export interface RicModelConfigDescriptor extends RicModelDataDescriptor {
     opts?: { // when ctrl === Select
         itemKey: "value",
         items: {
-            value: string,
+            value: string | number,
             name: string
         }[]
     }

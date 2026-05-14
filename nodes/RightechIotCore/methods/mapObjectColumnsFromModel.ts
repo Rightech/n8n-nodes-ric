@@ -1,21 +1,7 @@
 import {ILoadOptionsFunctions, ResourceMapperField, ResourceMapperFields} from "n8n-workflow";
-import {httpCall, ricConfigToResourceMapperField} from "../common/util.js";
+import {httpCall, ricConfigToResourceMapperField, unrollModelDescriptors} from "../common/util.js";
 import {INodeParameterResourceLocator} from "n8n-workflow/dist/esm/interfaces.js";
-import {isConfigDescriptor, RicGroupDescriptor, RicModelDataDescriptor, RicModelDescriptor} from "../common/types.js";
-
-function unrollDescriptors(data: RicModelDataDescriptor, idPrefix: string, namePrefix: string): RicModelDataDescriptor[] {
-    const children = data.type === 'subsystem' || data.type === 'argument'
-        ? (data.children ?? []).flatMap(c => unrollDescriptors(c, `${data.id}.`, `${data.name}: `))
-        : [];
-    return [
-        {
-            ...data,
-            id: `${idPrefix}${data.id}`,
-            name: `${namePrefix}${data.name}`
-        },
-        ...children
-    ];
-}
+import {isConfigDescriptor, RicGroupDescriptor, RicModelDescriptor} from "../common/types.js";
 
 export async function mapObjectColumnsFromModel(this: ILoadOptionsFunctions): Promise<ResourceMapperFields> {
     const modelId = this.getCurrentNodeParameter('modelId') as INodeParameterResourceLocator;
@@ -37,7 +23,7 @@ export async function mapObjectColumnsFromModel(this: ILoadOptionsFunctions): Pr
             json: true,
         }) as RicGroupDescriptor;
         const configs = modelData.data.children
-            .flatMap(c => unrollDescriptors(c, "", ""))
+            .flatMap(c => unrollModelDescriptors(c, "", ""))
             .filter(isConfigDescriptor).filter(d => d.active);
         const fields: ResourceMapperField[] = [
             {
