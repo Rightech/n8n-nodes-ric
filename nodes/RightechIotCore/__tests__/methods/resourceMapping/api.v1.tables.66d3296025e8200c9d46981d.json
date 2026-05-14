@@ -1,0 +1,46 @@
+{
+  "_id": "66d3296025e8200c9d46981d",
+  "name": "Список сотрудников",
+  "description": "Личные данные сотрудников ООО Самокатный двор | \nОтветственный Боровой Игорь1",
+  "columns": [
+    {
+      "id": "name",
+      "name": "Имя",
+      "dataType": "string"
+    },
+    {
+      "dataType": "boolean",
+      "name": "На работе",
+      "id": "working"
+    },
+    {
+      "dataType": "date",
+      "name": "Дата рождения",
+      "id": "date_of_birth"
+    },
+    {
+      "dataType": "number",
+      "name": "Номер шкафчика",
+      "id": "locker_No"
+    },
+    {
+      "dataType": "string",
+      "name": "Дополнительная информация",
+      "id": "info"
+    },
+    {
+      "id": "time",
+      "name": "Дата создания",
+      "dataType": "date",
+      "deletable": false
+    },
+    {
+      "id": "_id",
+      "name": "Идентификатор",
+      "dataType": "string",
+      "deletable": false
+    }
+  ],
+  "displayColumn": "name",
+  "success": true
+}

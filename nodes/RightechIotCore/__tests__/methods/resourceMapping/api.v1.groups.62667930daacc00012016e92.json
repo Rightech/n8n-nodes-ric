@@ -1,0 +1,62 @@
+{
+  "_id": "62667930daacc00012016e92",
+  "role": "615c5a1cc8c3d6001115ad68",
+  "name": "Demo_project_#001",
+  "tagname": "demo_project_01",
+  "group": "62667930daacc00012016e92",
+  "active": true,
+  "access": [
+    "624560b5d982e10011075811",
+    "5d51e3ed4576cc4b8a822cc8",
+    "62d8e2a7ce20cb001187b87b",
+    "62d8ead5ce20cb001187b8c2",
+    "62d9558339ec0c0011757295",
+    "62d9561239ec0c001175729b",
+    "62debce06480e9001198047d",
+    "5acbb837fa07af23c7c0f2a5",
+    "635fcb980671e7001234f0f0",
+    "59b64fadbb646b1e00552db7",
+    "62c2f6ccfade610011a88555",
+    "640ae4fbbcd47c0012c9e137",
+    "633c0203245f1c0011a7e932",
+    "646dc0f96ab54beb9586b592",
+    "64197d1be36a9f00119cab92",
+    "6453485f45bbabd7e75b9285",
+    "64e6f45d337f93302def0d68",
+    "64edd4d8d2c2379b08cfab38",
+    "64f034fb96777825a6c575c1",
+    "64f0377d96777825a6c575c7",
+    "651412b14227b57adecbe1d7",
+    "52a02243da423f2014000001",
+    "5b9663cf98bf60579add07d3",
+    "5b3c895ad4100417007d22b7",
+    "665993ac9c530f6190835ebd",
+    "66d0144e6de82aaddc1079c0",
+    "66e1256214e6a786432c4084",
+    "64ca0763c004a7e10a7e27ab",
+    "615c5afdc8c3d6001115ad6c",
+    "6581a1c125a3b88ab6138731",
+    "5698e243a6bce77b441b1be8",
+    "684034d83b34cb448105b70d",
+    "631080de727bd900124d1491",
+    "6888d3d6add7aa8811a6e371",
+    "682dd754b0738b9392dffd7e"
+  ],
+  "code": "SJ_EKe4r9",
+  "time": 1650882864483,
+  "_at": 1773132745204,
+  "filters": "{\"objects\":{\"Активные\":{\"rule\":{\"and\":[{\"==\":[{\"varObjectState\":[{\"var\":\"item\"},\"online\"]},null]}]},\"name\":\"Активные\",\"removable\":true},\"За пределами геозоны\":{\"rule\":{\"and\":[{\"==\":[{\"varObjectState\":[{\"var\":\"item\"},\"online\"]},null]}]},\"name\":\"За пределами геозоны\",\"removable\":true},\">50\":{\"rule\":{\"and\":[{\">\":[{\"varObjectState\":[{\"var\":\"item\"},\"lsrap\"]},50]}]},\"name\":\">50\",\"removable\":true},\"My setting\":{\"rule\":{\"and\":[{\"==\":[{\"varObjectState\":[{\"var\":\"item\"},\"online\"]},true]},{\"==\":[{\"var\":\"item.config.@data.@data.vehicleModel\"},\"Toyota Camri\"]}]},\"name\":\"My setting\",\"removable\":true},\"Online=False\":{\"rule\":{\"and\":[{\"==\":[{\"varObjectState\":[{\"var\":\"item\"},\"online\"]},false]}]},\"name\":\"Online=False\",\"removable\":true}},\"logic-v2\":{\"Мой фильтр\":{\"rule\":{\"in\":[\"626679b5daacc00012016e93\",{\"var\":\"item.models\"}]},\"name\":\"Мой фильтр\",\"removable\":true}},\"models-v3\":{}}",
+  "parent": "63a013ddced6190011a77c0b",
+  "dataplan": {
+    "5d3b5ff00a0a7f30b695afe3": {
+      "groups": 6,
+      "dashboards": 29,
+      "automatons": 61
+    }
+  },
+  "links": {
+    "files": []
+  },
+  "description": "Подсказка",
+  "success": true
+}

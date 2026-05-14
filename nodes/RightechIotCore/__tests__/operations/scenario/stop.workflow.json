@@ -1,0 +1,51 @@
+{
+  "name": "test.workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "scenario",
+        "operation": "stop",
+        "objectId": {
+          "__rl": true,
+          "value": "69ffff033463098bf7d49699",
+          "mode": "list",
+          "cachedResultName": "n8n-test-model-object-1"
+        },
+        "scenarioId": {
+          "__rl": true,
+          "value": "69f826529f5e85b5c3ea7223",
+          "mode": "list",
+          "cachedResultName": "n8n-test-scenario"
+        }
+      },
+      "type": "CUSTOM.rightechIotCore",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        0
+      ],
+      "id": "bf4078d9-f26b-4768-a817-647f2fc74f20",
+      "name": "Stop scenario on an object",
+      "credentials": {
+        "rightechIotCoreApi": {
+          "id": "Gl4395rs85y4BbdU",
+          "name": "sandbox demo 001"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {},
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "a03ad8f4-857c-4487-9f5d-1288f1a533e5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6529141020368fa1fbca96461299f338a2b92db189547affb007361f7fc9a2b9"
+  },
+  "id": "Bvr0wnVBHPkHDIZd",
+  "tags": []
+}

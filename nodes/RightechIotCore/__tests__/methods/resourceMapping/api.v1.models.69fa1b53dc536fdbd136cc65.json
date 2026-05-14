@@ -1,0 +1,390 @@
+{
+  "_id": "69fa1b53dc536fdbd136cc65",
+  "name": "n8n test barebone MQTT  model",
+  "base": "mqtt",
+  "data": {
+    "id": "root",
+    "name": "n8n test barebone MQTT  model",
+    "active": true,
+    "type": "subsystem",
+    "children": [
+      {
+        "id": "external-software-modules",
+        "active": true,
+        "copy": true,
+        "type": "subsystem",
+        "children": [],
+        "name": "External software modules",
+        "description": "порт 1883 или 8883(TLS)",
+        "_inactive": false,
+        "_parentId": "root"
+      },
+      {
+        "id": "telem",
+        "name": "Telem",
+        "active": true,
+        "type": "subsystem",
+        "children": [
+          {
+            "id": "arg-number",
+            "name": "Number",
+            "active": true,
+            "type": "argument",
+            "dataType": "number",
+            "children": [],
+            "linear": true,
+            "reference": "base/imaginary/arg-number",
+            "display": {
+              "indicator": true
+            }
+          },
+          {
+            "id": "arg-number-unit",
+            "name": "Numeric - Gbit",
+            "active": true,
+            "type": "argument",
+            "dataType": "number",
+            "children": [],
+            "unit": "digital-gigabit",
+            "reference": "base/imaginary/arg-number-unit"
+          },
+          {
+            "id": "arg-boolean",
+            "name": "Boolean",
+            "active": true,
+            "type": "argument",
+            "dataType": "boolean",
+            "levels": {
+              "type": null
+            }
+          },
+          {
+            "id": "arg-string",
+            "name": "Stringy",
+            "active": true,
+            "type": "argument",
+            "dataType": "string",
+            "levels": {
+              "type": null
+            }
+          },
+          {
+            "id": "arg-object",
+            "name": "Object",
+            "active": true,
+            "type": "argument",
+            "dataType": "object",
+            "levels": {
+              "type": null
+            },
+            "children": [
+              {
+                "id": "sub-a",
+                "name": "Sub - A",
+                "active": true,
+                "type": "argument",
+                "dataType": "number",
+                "reference": "arg-object.sub-a",
+                "unit": "acceleration-g-force"
+              },
+              {
+                "id": "sub-b",
+                "name": "Sub - B",
+                "active": true,
+                "type": "argument",
+                "dataType": "boolean",
+                "levels": {
+                  "type": null
+                },
+                "reference": "arg-object.sub-b"
+              }
+            ]
+          },
+          {
+            "id": "lists",
+            "name": "Lists",
+            "active": true,
+            "type": "subsystem",
+            "children": [
+              {
+                "id": "arg-list-number",
+                "name": "Of numbers",
+                "active": true,
+                "type": "argument",
+                "dataType": "number[]",
+                "levels": {
+                  "type": null
+                },
+                "children": []
+              },
+              {
+                "id": "arg-list-bool",
+                "name": "Of booleans",
+                "active": true,
+                "type": "argument",
+                "dataType": "boolean[]",
+                "levels": {
+                  "type": null
+                },
+                "children": []
+              },
+              {
+                "id": "arg-list-string",
+                "name": "Of strings",
+                "active": true,
+                "type": "argument",
+                "dataType": "string[]",
+                "levels": {
+                  "type": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "params",
+        "name": "Params",
+        "active": true,
+        "type": "subsystem",
+        "children": [
+          {
+            "id": "settings",
+            "name": "Settings",
+            "active": true,
+            "type": "subsystem",
+            "children": [
+              {
+                "id": "configs",
+                "name": "Configs",
+                "active": true,
+                "type": "subsystem",
+                "children": [
+                  {
+                    "id": "string",
+                    "name": "String",
+                    "active": true,
+                    "type": "config",
+                    "dataType": "string",
+                    "ctrl": ""
+                  },
+                  {
+                    "id": "string-dropdown",
+                    "name": "String dropdown",
+                    "active": true,
+                    "type": "config",
+                    "dataType": "string",
+                    "ctrl": "Select",
+                    "children": [],
+                    "opts": {
+                      "itemKey": "value",
+                      "items": [
+                        {
+                          "value": "on",
+                          "name": "Value of \"on\""
+                        },
+                        {
+                          "value": "off",
+                          "name": "Value of \"off\""
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "table",
+                    "name": "Table",
+                    "active": true,
+                    "type": "config",
+                    "dataType": "table",
+                    "ctrl": "",
+                    "table": "66d3296025e8200c9d46981d",
+                    "defaultValue": "66d3296625e8200c9d46981e"
+                  }
+                ]
+              },
+              {
+                "id": "number",
+                "name": "Number",
+                "active": true,
+                "type": "config",
+                "dataType": "number",
+                "ctrl": "",
+                "defaultValue": 3
+              },
+              {
+                "id": "number-range",
+                "name": "Number range",
+                "active": true,
+                "type": "config",
+                "dataType": "number",
+                "ctrl": "Numeric",
+                "children": [],
+                "opts": {
+                  "max": 5,
+                  "min": -5
+                }
+              },
+              {
+                "id": "number-slider",
+                "name": "Number slider",
+                "active": true,
+                "type": "config",
+                "dataType": "number",
+                "ctrl": "Slider",
+                "children": [],
+                "opts": {
+                  "max": 5,
+                  "min": -5,
+                  "step": 0.1
+                }
+              },
+              {
+                "id": "number-dropdown",
+                "name": "Number dropdown",
+                "active": true,
+                "type": "config",
+                "dataType": "number",
+                "ctrl": "Select",
+                "children": [],
+                "opts": {
+                  "max": null,
+                  "min": null,
+                  "itemKey": "value",
+                  "items": [
+                    {
+                      "value": 1,
+                      "name": "Value of 1"
+                    },
+                    {
+                      "value": 2,
+                      "name": "Value of 2"
+                    },
+                    {
+                      "value": 3,
+                      "name": "Value of 3"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "flag",
+            "name": "Flag",
+            "active": true,
+            "type": "config",
+            "dataType": "boolean",
+            "ctrl": ""
+          }
+        ]
+      },
+      {
+        "id": "events",
+        "name": "Events",
+        "active": true,
+        "type": "subsystem",
+        "children": [
+          {
+            "id": "object-online",
+            "name": "object-online",
+            "active": true,
+            "type": "event-logic"
+          },
+          {
+            "id": "object-offline",
+            "name": "object-offline",
+            "active": true,
+            "type": "event-logic"
+          }
+        ]
+      }
+    ],
+    "_isRoot": true,
+    "_inactive": false
+  },
+  "props": {
+    "bots": true,
+    "hardwareEvents": false,
+    "helper": {
+      "nostate": "@ric-docs/docs/helpers/mqtt.md"
+    },
+    "prefix": "",
+    "order": 1,
+    "typeInput": {
+      "hidden": false
+    },
+    "statusInput": {
+      "hidden": false
+    },
+    "descriptionInput": {
+      "hidden": false
+    },
+    "defaultNode": "temperature",
+    "protocol": "mqtt",
+    "idPattern": "mqtt-$tagname-$nanoid",
+    "namePattern": "mqtt-$tagname-$nanoid",
+    "defaultGateCommandTimeout": 45,
+    "idInput": {
+      "label": "ClientId"
+    },
+    "auth": {
+      "title": "mqtt_auth",
+      "fields": {
+        "username": {
+          "title": "mqtt_username"
+        },
+        "password": {
+          "secret": true,
+          "title": "mqtt_password"
+        }
+      }
+    },
+    "x509": {
+      "enabled": true
+    },
+    "parserParams": {
+      "saveBinaryAs": {
+        "ctrl": "Select",
+        "opts": {
+          "options": [
+            {
+              "value": "",
+              "label": "Text"
+            },
+            {
+              "value": "base64",
+              "label": "Base64"
+            },
+            {
+              "value": "hex",
+              "label": "HEX"
+            }
+          ]
+        },
+        "defaultValue": "",
+        "when": {
+          "==": [
+            {
+              "var": "node.dataType"
+            },
+            "string"
+          ]
+        }
+      }
+    },
+    "statuses": [
+      {
+        "id": "status_a",
+        "name": "status_a",
+        "color": "#5D7CE5"
+      },
+      {
+        "id": "status_b",
+        "name": "status_b",
+        "color": "#5D7CE5"
+      }
+    ]
+  },
+  "group": "62667930daacc00012016e92",
+  "success": true
+}

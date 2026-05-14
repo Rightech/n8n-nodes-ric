@@ -1,0 +1,43 @@
+[
+  {"_id":"626679b5daacc00012016e96","models":["626679b5daacc00012016e93"],"name":"Work in geofence","description":"Moscow","processId":"cow477w5","model":"626679b5daacc00012016e93"}
+,
+  {"_id":"6267b187daacc00012017103","models":["6267ac31daacc000120170cf"],"name":"Вход в зону проведения работ","description":"Олимпиада IoT 2021","processId":"pky2f8iv","model":"6267ac31daacc000120170cf"}
+,
+  {"_id":"6267b274daacc0001201710d","models":["6267ac31daacc000120170cf","6267ac48daacc000120170d1","6267ac57daacc000120170d2"],"name":"Экстремальная ситуация","description":"Олимпиада IoT 2021","processId":"kxz9ymaz","model":"6267ac31daacc000120170cf"}
+,
+  {"_id":"6267b386daacc00012017128","models":["6267ab6adaacc000120170c8"],"name":"Control of stops over 1 minute","description":"Control of stops over 1 minute","processId":"9og7z72a","model":"6267ab6adaacc000120170c8"}
+,
+  {"_id":"6267b5eadaacc00012017137","models":["6267ab6adaacc000120170c8"],"name":"Нагрузка на ось","description":"","processId":"me4crx3u","model":"6267ab6adaacc000120170c8"}
+,
+  {"_id":"6267d4fddaacc0001201717a","models":["6267d4fddaacc00012017176"],"name":"Temperature Contol","description":"entry level automaton","processId":"w7i7ll0c","model":"6267d4fddaacc00012017176"}
+,
+  {"_id":"628e2402ce987600119c94c1","models":["628e2401ce987600119c94bd"],"name":"Control of Machine","description":"Automatic control of object behavior depending on temperature","processId":"w7i7ll0c","model":"628e2401ce987600119c94bd"}
+,
+  {"_id":"62baad4fd9a2e70011158193","name":"Автомат для дочерней группы","description":"","processId":"acbghmwn","models":["62679c90daacc00012017083"],"model":"62679c90daacc00012017083"}
+,
+  {"_id":"62d10c5f10cc6e0011a91c2c","models":["62d10c5e10cc6e0011a91c28"],"name":"[starter-kit] mqtt-user-init-automaton-01","description":"entry level automaton","processId":"w7i7ll0c","model":"62d10c5e10cc6e0011a91c28"}
+,
+  {"_id":"62e10d131ff48e0011282f33","name":"Автомат 12","description":"","processId":"rrwqzx5r","models":["626679b5daacc00012016e93","6720cfa1b0d2a751641dfa5f","6720a917b0d2a751641dfa50","671b57d6e0236b699a85dcfe"],"model":"626679b5daacc00012016e93"}
+,
+  {"_id":"630f582d727bd900124d061f","name":"Автомат 13","description":"","processId":"dm106w6h","models":["626679b5daacc00012016e93"],"model":"626679b5daacc00012016e93"}
+,
+  {"_id":"632c57666673930011dbe295","name":"Автомат 14","description":"ыы","processId":"mrhpt0vc","models":["63172386f301f000116efc40"],"model":"63172386f301f000116efc40"}
+,
+  {"_id":"633aafdc9035320012f1e63c","name":"Тестовый обработчик топлива","description":"","processId":"jqkn0sc2","models":["63172386f301f000116efc40","6720a917b0d2a751641dfa50","671b57d6e0236b699a85dcfe"],"model":"63172386f301f000116efc40"}
+,
+  {"_id":"633d426cc39dc1001139bf44","name":"Контроль выхода из геозоны","description":"Автомат контроля пересечения объектом геозоны отправляет уведомления:\n- оператору на e-mail,\n-Push-уведомление по объекту в RiC,\n-Push-уведомлениe клиенту сервиса в backend","processId":"2mzlwxqe","models":["633d4265c39dc1001139bf42"],"model":"633d4265c39dc1001139bf42"}
+,
+  {"_id":"634e61fbc647e70012b354f2","name":"Автоматизация сбора показаний","description":"","processId":"j43xpona","models":["626679b5daacc00012016e93","6267d4fddaacc00012017176"],"model":"626679b5daacc00012016e93"}
+,
+  {"_id":"635948c4f7a1da0012d6cb7c","name":"Проверка показаний","description":"Создание задания при возникновенни спорных ситуаций","processId":"tzgq1a7q","models":["6347c7e3e8563d00111b8d9f"],"model":"6347c7e3e8563d00111b8d9f"}
+,
+  {"_id":"63594e20f7a1da0012d6cbb7","name":"ТО №1","description":"","processId":"tzgq1a7q","models":["6347c7e3e8563d00111b8d9f"],"model":"6347c7e3e8563d00111b8d9f"}
+,
+  {"_id":"635fcfe30671e7001234f136","name":"DEMO LADA Уведомления о ТО","description":"Уведомления о ТО:\n1. По пробегу\n2. По установленной дате\n\nВектор","processId":"tzgq1a7q","models":["635fccd20671e7001234f10a"],"model":"635fccd20671e7001234f10a"}
+,
+  {"_id":"6373378cee137f001182deed","name":"Автомат 22","description":"Тест","processId":"88ecwsjd","models":["635fccd20671e7001234f10a"],"model":"635fccd20671e7001234f10a"}
+,
+  {"_id":"63eb920e004948001262f6c0","name":"Контроль данных","description":"","processId":"pc0s86it","models":["6267ac31daacc000120170cf"],"model":"6267ac31daacc000120170cf"}
+,
+  {"_id":"6406fe8c93e0d700124379a1","name":"DEMO LADA Уведомления о ТО","description":"Уведомления о ТО:\n1. По пробегу\n2. По установленной дате\n\nВектор","processId":"tzgq1a7q","models":["635fccd20671e7001234f10a"],"model":"635fccd20671e7001234f10a"}
+]

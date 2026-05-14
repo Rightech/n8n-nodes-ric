@@ -1,0 +1,188 @@
+{
+  "name": "test.workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "getMany",
+        "modelId": {
+          "__rl": true,
+          "value": "69fa1b53dc536fdbd136cc65",
+          "mode": "list",
+          "cachedResultName": "n8n test barebone MQTT  model"
+        },
+        "modelOptions": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "status_a",
+            "config.settings.number": 1,
+            "config.params.flag": true,
+            "config.configs.string": "1234",
+            "config.auth.username": "null"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "status",
+              "displayName": "Status",
+              "type": "options",
+              "defaultValue": "",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "options": [
+                {
+                  "name": "status_a",
+                  "value": "status_a"
+                },
+                {
+                  "name": "status_b",
+                  "value": "status_b"
+                }
+              ],
+              "removed": false
+            },
+            {
+              "id": "config.auth.username",
+              "displayName": "mqtt_auth: mqtt_username",
+              "type": "string",
+              "defaultValue": "",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": false
+            },
+            {
+              "id": "config.configs.string",
+              "displayName": "Configs: String",
+              "type": "string",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": false
+            },
+            {
+              "id": "config.configs.string-dropdown",
+              "displayName": "Configs: String dropdown",
+              "type": "options",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "options": [
+                {
+                  "value": "on",
+                  "name": "Value of \"on\""
+                },
+                {
+                  "value": "off",
+                  "name": "Value of \"off\""
+                }
+              ],
+              "removed": true
+            },
+            {
+              "id": "config.configs.table",
+              "displayName": "Configs: Table",
+              "type": "string",
+              "required": false,
+              "defaultValue": "66d3296625e8200c9d46981e",
+              "defaultMatch": false,
+              "display": true,
+              "removed": true
+            },
+            {
+              "id": "config.settings.number",
+              "displayName": "Settings: Number",
+              "type": "number",
+              "required": false,
+              "defaultValue": 3,
+              "defaultMatch": false,
+              "display": true,
+              "removed": false
+            },
+            {
+              "id": "config.settings.number-range",
+              "displayName": "Settings: Number range",
+              "type": "number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": true
+            },
+            {
+              "id": "config.settings.number-slider",
+              "displayName": "Settings: Number slider",
+              "type": "number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": true
+            },
+            {
+              "id": "config.settings.number-dropdown",
+              "displayName": "Settings: Number dropdown",
+              "type": "options",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "options": [
+                {
+                  "value": 1,
+                  "name": "Value of 1"
+                },
+                {
+                  "value": 2,
+                  "name": "Value of 2"
+                },
+                {
+                  "value": 3,
+                  "name": "Value of 3"
+                }
+              ],
+              "removed": true
+            },
+            {
+              "id": "config.params.flag",
+              "displayName": "Params: Flag",
+              "type": "boolean",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "stdQueryParameters": {}
+      },
+      "type": "CUSTOM.rightechIotCore",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        0
+      ],
+      "id": "bf4078d9-f26b-4768-a817-647f2fc74f20",
+      "name": "Get multiple objects",
+      "credentials": {
+        "rightechIotCoreApi": {
+          "id": "Gl4395rs85y4BbdU",
+          "name": "sandbox demo 001"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {},
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "838a5ab4-f732-4810-85bd-c7d09607c146",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6529141020368fa1fbca96461299f338a2b92db189547affb007361f7fc9a2b9"
+  },
+  "id": "Bvr0wnVBHPkHDIZd",
+  "tags": []
+}

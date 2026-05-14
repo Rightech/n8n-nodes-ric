@@ -1,0 +1,21 @@
+[
+  {"_id":"60d5db392b370f0011cb2987","name":"[xdevice] lock","base":"wialon-ips"}
+,
+  {"_id":"6163dda4099a810011957be8","name":"[xdevice] ebike Omnilock","base":"omnilock"}
+,
+  {"_id":"626679b5daacc00012016e93","name":"Auto Kamaz 01","base":"wialon-ips"}
+,
+  {"_id":"62679c87daacc00012017082","name":"Electricity meter","base":"mqtt"}
+,
+  {"_id":"62679c90daacc00012017083","name":"Digital staff #1","base":"mqtt"}
+,
+  {"_id":"62679d84daacc00012017086","name":"Kickscooter","base":"mqtt"}
+,
+  {"_id":"62679ea5daacc00012017089","name":"Bus station","base":"mqtt"}
+,
+  {"_id":"62679ff1daacc00012017091","name":"Auto Kamaz-02","base":"navtelecom"}
+,
+  {"_id":"6267ab21daacc000120170c6","name":"Bus station #2","base":"mqtt"}
+,
+  {"_id":"6267ab6adaacc000120170c8","name":"Kamaz cleaner (counter, water)","base":"mqtt"}
+]

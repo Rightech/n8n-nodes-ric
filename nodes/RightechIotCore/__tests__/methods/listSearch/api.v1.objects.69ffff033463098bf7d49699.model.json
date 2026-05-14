@@ -1,0 +1,256 @@
+{
+  "_id": "69fa1b53dc536fdbd136cc65",
+  "name": "n8n test barebone MQTT  model",
+  "base": "mqtt",
+  "owner": "682dd754b0738b9392dffd7e",
+  "group": "62667930daacc00012016e92",
+  "time": 1777998675584,
+  "_configs": [
+    {
+      "id": "string",
+      "name": "String",
+      "active": true,
+      "type": "config",
+      "dataType": "string",
+      "ctrl": ""
+    },
+    {
+      "id": "string-dropdown",
+      "name": "String dropdown",
+      "active": true,
+      "type": "config",
+      "dataType": "string",
+      "ctrl": "Select",
+      "opts": {
+        "itemKey": "value",
+        "items": [
+          {
+            "value": "on",
+            "name": "Value of \"on\""
+          },
+          {
+            "value": "off",
+            "name": "Value of \"off\""
+          }
+        ]
+      }
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "active": true,
+      "type": "config",
+      "dataType": "table",
+      "ctrl": "",
+      "table": "66d3296025e8200c9d46981d",
+      "defaultValue": "66d3296625e8200c9d46981e"
+    },
+    {
+      "id": "number",
+      "name": "Number",
+      "active": true,
+      "type": "config",
+      "dataType": "number",
+      "ctrl": "",
+      "defaultValue": 3
+    },
+    {
+      "id": "number-range",
+      "name": "Number range",
+      "active": true,
+      "type": "config",
+      "dataType": "number",
+      "ctrl": "Numeric",
+      "opts": {
+        "max": 5,
+        "min": -5
+      }
+    },
+    {
+      "id": "number-slider",
+      "name": "Number slider",
+      "active": true,
+      "type": "config",
+      "dataType": "number",
+      "ctrl": "Slider",
+      "opts": {
+        "max": 5,
+        "min": -5,
+        "step": 0.1
+      }
+    },
+    {
+      "id": "number-dropdown",
+      "name": "Number dropdown",
+      "active": true,
+      "type": "config",
+      "dataType": "number",
+      "ctrl": "Select",
+      "opts": {
+        "max": null,
+        "min": null,
+        "itemKey": "value",
+        "items": [
+          {
+            "value": 1,
+            "name": "Value of 1"
+          },
+          {
+            "value": 2,
+            "name": "Value of 2"
+          },
+          {
+            "value": 3,
+            "name": "Value of 3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "flag",
+      "name": "Flag",
+      "active": true,
+      "type": "config",
+      "dataType": "boolean",
+      "ctrl": ""
+    }
+  ],
+  "_actions": [],
+  "_arguments": [
+    {
+      "id": "arg-number",
+      "name": "Number",
+      "active": true,
+      "type": "argument",
+      "dataType": "number",
+      "linear": true,
+      "reference": "base/imaginary/arg-number"
+    },
+    {
+      "id": "arg-number-unit",
+      "name": "Numeric - Gbit",
+      "active": true,
+      "type": "argument",
+      "dataType": "number",
+      "unit": "digital-gigabit",
+      "reference": "base/imaginary/arg-number-unit"
+    },
+    {
+      "id": "arg-boolean",
+      "name": "Boolean",
+      "active": true,
+      "type": "argument",
+      "dataType": "boolean",
+      "levels": {
+        "type": null
+      }
+    },
+    {
+      "id": "arg-string",
+      "name": "Stringy",
+      "active": true,
+      "type": "argument",
+      "dataType": "string",
+      "levels": {
+        "type": null
+      }
+    },
+    {
+      "id": "arg-object",
+      "name": "Object",
+      "active": true,
+      "type": "argument",
+      "dataType": "object",
+      "levels": {
+        "type": null
+      }
+    },
+    {
+      "id": "sub-a",
+      "name": "Sub - A",
+      "active": true,
+      "type": "argument",
+      "dataType": "number",
+      "reference": "arg-object.sub-a",
+      "unit": "acceleration-g-force"
+    },
+    {
+      "id": "sub-b",
+      "name": "Sub - B",
+      "active": true,
+      "type": "argument",
+      "dataType": "boolean",
+      "levels": {
+        "type": null
+      },
+      "reference": "arg-object.sub-b"
+    },
+    {
+      "id": "arg-list-number",
+      "name": "Of numbers",
+      "active": true,
+      "type": "argument",
+      "dataType": "number[]",
+      "levels": {
+        "type": null
+      }
+    },
+    {
+      "id": "arg-list-bool",
+      "name": "Of booleans",
+      "active": true,
+      "type": "argument",
+      "dataType": "boolean[]",
+      "levels": {
+        "type": null
+      }
+    },
+    {
+      "id": "arg-list-string",
+      "name": "Of strings",
+      "active": true,
+      "type": "argument",
+      "dataType": "string[]",
+      "levels": {
+        "type": null
+      }
+    },
+    {
+      "_base": true,
+      "id": "online",
+      "name": "online",
+      "usage": "online",
+      "type": "argument",
+      "active": true,
+      "dataType": "boolean",
+      "reference": "online"
+    },
+    {
+      "_base": true,
+      "id": "time",
+      "name": "time",
+      "usage": "time",
+      "type": "argument",
+      "active": true,
+      "dataType": "number",
+      "reference": "time",
+      "unit": "duration-millisecond"
+    },
+    {
+      "_base": true,
+      "id": "_ts",
+      "name": "server_time",
+      "usage": "_ts",
+      "type": "argument",
+      "active": true,
+      "dataType": "number",
+      "reference": "_ts",
+      "unit": "duration-microsecond"
+    }
+  ],
+  "_object": {
+    "_id": "69ffff033463098bf7d49699",
+    "model": "69fa1b53dc536fdbd136cc65"
+  },
+  "success": true
+}

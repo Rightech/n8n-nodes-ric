@@ -1,0 +1,19 @@
+[
+  {"_id":"66d1d5e925e8200c9d4697b3","description":"","columns":[{"id":"name","name":"Имя","dataType":"string"},{"dataType":"number","name":"int","id":"int"},{"id":"_id","name":"Идентификатор","dataType":"string","deletable":false},{"id":"time","name":"Дата создания","dataType":"date","deletable":false},{"dataType":"boolean","name":"log","id":"log"},{"dataType":"date","name":"data","id":"data"},{"dataType":"string","name":"str","id":"str"}],"displayColumn":"_id","name":"Поставщики кофе"}
+,
+  {"_id":"66d3296025e8200c9d46981d","name":"Список сотрудников","description":"Личные данные сотрудников ООО Самокатный двор | \nОтветственный Боровой Игорь1","columns":[{"id":"name","name":"Имя","dataType":"string"},{"dataType":"boolean","name":"На работе","id":"working"},{"dataType":"date","name":"Дата рождения","id":"date_of_birth"},{"dataType":"number","name":"Номер шкафчика","id":"locker_No"},{"dataType":"string","name":"Дополнительная информация","id":"info"},{"id":"time","name":"Дата создания","dataType":"date","deletable":false},{"id":"_id","name":"Идентификатор","dataType":"string","deletable":false}],"displayColumn":"name"}
+,
+  {"_id":"6729fe866fe3b0f3a95560e4","name":"Таблица данных 03","columns":[{"id":"_id","name":"ID","dataType":"string","deletable":false},{"id":"name","name":"Имя","dataType":"string"},{"id":"time","name":"Дата создания","dataType":"date","deletable":false},{"dataType":"boolean","name":"NEW_boolean","id":"bool"},{"dataType":"number","name":"NEW число","id":"number"}],"displayColumn":"name","description":"тест"}
+,
+  {"_id":"6735d4b2098ea513c33d4870","name":"Таблица данных 04","description":"","columns":[{"id":"name","name":"Имя","dataType":"string"},{"id":"_id","name":"Идентификатор","dataType":"string","deletable":false},{"id":"time","name":"Дата создания","dataType":"date","deletable":false},{"dataType":"number","name":"Рост","id":"ff"}],"displayColumn":"name"}
+,
+  {"_id":"689ad5f6bdbac7c3ba509ef2","name":"Таблица данных 05","description":"","columns":[{"id":"name","name":"Имя","dataType":"string"},{"id":"_id","name":"Идентификатор","dataType":"string","deletable":false},{"id":"time","name":"Дата создания","dataType":"date","deletable":false}],"displayColumn":"name"}
+,
+  {"_id":"689ad612bdbac7c3ba509ef5","name":"Таблица данных 06","description":"","columns":[{"id":"name","name":"Имя","dataType":"string"},{"id":"_id","name":"Идентификатор","dataType":"string","deletable":false},{"id":"time","name":"Дата создания","dataType":"date","deletable":false}],"displayColumn":"name"}
+,
+  {"_id":"689ad631bdbac7c3ba509ef7","name":"Таблица данных 07","description":"","columns":[{"id":"name","name":"Имя","dataType":"string"},{"id":"_id","name":"Идентификатор","dataType":"string","deletable":false},{"id":"time","name":"Дата создания","dataType":"date","deletable":false}],"displayColumn":"name"}
+,
+  {"_id":"689ad64bbdbac7c3ba509ef9","name":"Таблица данных 08","description":"","columns":[{"id":"name","name":"Имя","dataType":"string"},{"id":"_id","name":"Идентификатор","dataType":"string","deletable":false},{"id":"time","name":"Дата создания","dataType":"date","deletable":false}],"displayColumn":"name"}
+,
+  {"_id":"697a1a364a15b37112b6d997","name":"таблица ответственных","description":"","columns":[{"id":"name","name":"Имя","dataType":"string"},{"id":"_id","name":"Идентификатор","dataType":"string","deletable":false},{"id":"time","name":"Дата создания","dataType":"date","deletable":false}],"displayColumn":"name"}
+]

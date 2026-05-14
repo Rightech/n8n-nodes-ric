@@ -1,0 +1,130 @@
+{
+  "name": "test.workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "table",
+        "operation": "getManyRows",
+        "tableId": {
+          "__rl": true,
+          "value": "66d3296025e8200c9d46981d",
+          "mode": "list",
+          "cachedResultName": "Список сотрудников"
+        },
+        "tableQueryColumns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "where.data.name": "Иван Иванов",
+            "where.data.working": false
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "where.data.name",
+              "displayName": "Имя",
+              "type": "string",
+              "required": false,
+              "defaultMatch": false,
+              "readOnly": false,
+              "removed": false,
+              "display": true
+            },
+            {
+              "id": "where.data.working",
+              "displayName": "На работе",
+              "type": "boolean",
+              "required": false,
+              "defaultMatch": false,
+              "readOnly": false,
+              "removed": false,
+              "display": true
+            },
+            {
+              "id": "where.data.date_of_birth",
+              "displayName": "Дата рождения",
+              "type": "dateTime",
+              "required": false,
+              "defaultMatch": false,
+              "readOnly": false,
+              "removed": true,
+              "display": true
+            },
+            {
+              "id": "where.data.locker_No",
+              "displayName": "Номер шкафчика",
+              "type": "number",
+              "required": false,
+              "defaultMatch": false,
+              "readOnly": false,
+              "removed": true,
+              "display": true
+            },
+            {
+              "id": "where.data.info",
+              "displayName": "Дополнительная информация",
+              "type": "string",
+              "required": false,
+              "defaultMatch": false,
+              "readOnly": false,
+              "removed": true,
+              "display": true
+            },
+            {
+              "id": "where.data.time",
+              "displayName": "Дата создания",
+              "type": "dateTime",
+              "required": false,
+              "defaultMatch": false,
+              "readOnly": false,
+              "removed": true,
+              "display": true
+            },
+            {
+              "id": "where.data._id",
+              "displayName": "Идентификатор",
+              "type": "string",
+              "required": false,
+              "defaultMatch": false,
+              "readOnly": false,
+              "removed": true,
+              "display": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "stdQueryParameters": {
+          "from": "2022-05-01T00:00:00"
+        }
+      },
+      "type": "CUSTOM.rightechIotCore",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        0
+      ],
+      "id": "bf4078d9-f26b-4768-a817-647f2fc74f20",
+      "name": "Get table rows",
+      "credentials": {
+        "rightechIotCoreApi": {
+          "id": "Gl4395rs85y4BbdU",
+          "name": "sandbox demo 001"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {},
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "98bd98ad-07e7-49e9-8a7b-8fcb401c3c44",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6529141020368fa1fbca96461299f338a2b92db189547affb007361f7fc9a2b9"
+  },
+  "id": "Bvr0wnVBHPkHDIZd",
+  "tags": []
+}

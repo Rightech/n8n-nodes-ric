@@ -1,0 +1,51 @@
+{
+  "name": "test.workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "table",
+        "operation": "getRow",
+        "tableId": {
+          "__rl": true,
+          "value": "66d3296025e8200c9d46981d",
+          "mode": "list",
+          "cachedResultName": "Список сотрудников"
+        },
+        "tableRowId": {
+          "__rl": true,
+          "value": "66d3296625e8200c9d46981e",
+          "mode": "list",
+          "cachedResultName": "Иван Иванов | false | Что-нибудь умное  | -6064258097000 | 1999"
+        }
+      },
+      "type": "CUSTOM.rightechIotCore",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        0
+      ],
+      "id": "bf4078d9-f26b-4768-a817-647f2fc74f20",
+      "name": "Get table row",
+      "credentials": {
+        "rightechIotCoreApi": {
+          "id": "Gl4395rs85y4BbdU",
+          "name": "sandbox demo 001"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {},
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "69e81091-0fb6-46d5-ac07-57f4137ba02d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6529141020368fa1fbca96461299f338a2b92db189547affb007361f7fc9a2b9"
+  },
+  "id": "Bvr0wnVBHPkHDIZd",
+  "tags": []
+}
