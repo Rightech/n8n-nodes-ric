@@ -1,0 +1,292 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`listCommands 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [],
+}
+`;
+
+exports[`listModels 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [
+    {
+      "name": "[xdevice] lock",
+      "value": "60d5db392b370f0011cb2987",
+    },
+    {
+      "name": "[xdevice] ebike Omnilock",
+      "value": "6163dda4099a810011957be8",
+    },
+    {
+      "name": "Auto Kamaz 01",
+      "value": "626679b5daacc00012016e93",
+    },
+    {
+      "name": "Electricity meter",
+      "value": "62679c87daacc00012017082",
+    },
+    {
+      "name": "Digital staff #1",
+      "value": "62679c90daacc00012017083",
+    },
+    {
+      "name": "Kickscooter",
+      "value": "62679d84daacc00012017086",
+    },
+    {
+      "name": "Bus station",
+      "value": "62679ea5daacc00012017089",
+    },
+    {
+      "name": "Auto Kamaz-02",
+      "value": "62679ff1daacc00012017091",
+    },
+    {
+      "name": "Bus station #2",
+      "value": "6267ab21daacc000120170c6",
+    },
+    {
+      "name": "Kamaz cleaner (counter, water)",
+      "value": "6267ab6adaacc000120170c8",
+    },
+  ],
+}
+`;
+
+exports[`listObjects 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [
+    {
+      "name": "A001AA157",
+      "value": "626679b5daacc00012016e94",
+    },
+    {
+      "name": "Employee 01 (отчеты)",
+      "value": "6267a296daacc000120170a2",
+    },
+    {
+      "name": "Employee 02",
+      "value": "6267a42edaacc000120170a8",
+    },
+    {
+      "name": "Employee 03",
+      "value": "6267a43ddaacc000120170ab",
+    },
+    {
+      "name": "A003AA157",
+      "value": "6267aa94daacc000120170c3",
+    },
+    {
+      "name": "Kamaz-cleaner 02",
+      "value": "6267ab7ddaacc000120170c9",
+    },
+    {
+      "name": "Камаз-Уборщик 02",
+      "value": "6267ab9ddaacc000120170cc",
+    },
+    {
+      "name": "Защитный костюм №001",
+      "value": "6267acbfdaacc000120170df",
+    },
+    {
+      "name": "Вертолет B001X2D",
+      "value": "6267ae16daacc000120170e7",
+    },
+    {
+      "name": "Остановка №01",
+      "value": "6267afafdaacc000120170f3",
+    },
+  ],
+}
+`;
+
+exports[`listRows 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [
+    {
+      "name": "Иван Иванов | false | Что-нибудь умное  | -6064258097000 | 1999",
+      "value": "66d3296625e8200c9d46981e",
+    },
+    {
+      "name": "Петр Петров | true | доп информация  | 86400000 | 1998",
+      "value": "66dc25c12e6b925970d01565",
+    },
+    {
+      "name": "Роман Сидоров | false | 1 | 1725555600000 | 111",
+      "value": "66dc296ea9e203b6d4c2c404",
+    },
+    {
+      "name": " | false | ",
+      "value": "6735d54e098ea513c33d4871",
+    },
+    {
+      "name": " | false | ",
+      "value": "6735d5ba098ea513c33d4872",
+    },
+    {
+      "name": " | false | ",
+      "value": "6744a4c4474ec34beeffeaea",
+    },
+    {
+      "name": " | false | ",
+      "value": "6784c8049893d7e79cf5d8e7",
+    },
+    {
+      "name": " | false | ",
+      "value": "6784c8679893d7e79cf5d8e8",
+    },
+    {
+      "name": " | false | ",
+      "value": "6784c8c49893d7e79cf5d8ea",
+    },
+    {
+      "name": " | false | ",
+      "value": "6784c8c59893d7e79cf5d8eb",
+    },
+    {
+      "name": " | false | ",
+      "value": "6784c8c69893d7e79cf5d8ec",
+    },
+  ],
+}
+`;
+
+exports[`listScenarios 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [
+    {
+      "name": "Work in geofence",
+      "value": "626679b5daacc00012016e96",
+    },
+    {
+      "name": "Вход в зону проведения работ",
+      "value": "6267b187daacc00012017103",
+    },
+    {
+      "name": "Экстремальная ситуация",
+      "value": "6267b274daacc0001201710d",
+    },
+    {
+      "name": "Control of stops over 1 minute",
+      "value": "6267b386daacc00012017128",
+    },
+    {
+      "name": "Нагрузка на ось",
+      "value": "6267b5eadaacc00012017137",
+    },
+    {
+      "name": "Temperature Contol",
+      "value": "6267d4fddaacc0001201717a",
+    },
+    {
+      "name": "Control of Machine",
+      "value": "628e2402ce987600119c94c1",
+    },
+    {
+      "name": "Автомат для дочерней группы",
+      "value": "62baad4fd9a2e70011158193",
+    },
+    {
+      "name": "[starter-kit] mqtt-user-init-automaton-01",
+      "value": "62d10c5f10cc6e0011a91c2c",
+    },
+    {
+      "name": "Автомат 12",
+      "value": "62e10d131ff48e0011282f33",
+    },
+    {
+      "name": "Автомат 13",
+      "value": "630f582d727bd900124d061f",
+    },
+    {
+      "name": "Автомат 14",
+      "value": "632c57666673930011dbe295",
+    },
+    {
+      "name": "Тестовый обработчик топлива",
+      "value": "633aafdc9035320012f1e63c",
+    },
+    {
+      "name": "Контроль выхода из геозоны",
+      "value": "633d426cc39dc1001139bf44",
+    },
+    {
+      "name": "Автоматизация сбора показаний",
+      "value": "634e61fbc647e70012b354f2",
+    },
+    {
+      "name": "Проверка показаний",
+      "value": "635948c4f7a1da0012d6cb7c",
+    },
+    {
+      "name": "ТО №1",
+      "value": "63594e20f7a1da0012d6cbb7",
+    },
+    {
+      "name": "DEMO LADA Уведомления о ТО",
+      "value": "635fcfe30671e7001234f136",
+    },
+    {
+      "name": "Автомат 22",
+      "value": "6373378cee137f001182deed",
+    },
+    {
+      "name": "Контроль данных",
+      "value": "63eb920e004948001262f6c0",
+    },
+    {
+      "name": "DEMO LADA Уведомления о ТО",
+      "value": "6406fe8c93e0d700124379a1",
+    },
+  ],
+}
+`;
+
+exports[`listTables 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [
+    {
+      "name": "Поставщики кофе",
+      "value": "66d1d5e925e8200c9d4697b3",
+    },
+    {
+      "name": "Список сотрудников",
+      "value": "66d3296025e8200c9d46981d",
+    },
+    {
+      "name": "Таблица данных 03",
+      "value": "6729fe866fe3b0f3a95560e4",
+    },
+    {
+      "name": "Таблица данных 04",
+      "value": "6735d4b2098ea513c33d4870",
+    },
+    {
+      "name": "Таблица данных 05",
+      "value": "689ad5f6bdbac7c3ba509ef2",
+    },
+    {
+      "name": "Таблица данных 06",
+      "value": "689ad612bdbac7c3ba509ef5",
+    },
+    {
+      "name": "Таблица данных 07",
+      "value": "689ad631bdbac7c3ba509ef7",
+    },
+    {
+      "name": "Таблица данных 08",
+      "value": "689ad64bbdbac7c3ba509ef9",
+    },
+    {
+      "name": "таблица ответственных",
+      "value": "697a1a364a15b37112b6d997",
+    },
+  ],
+}
+`;

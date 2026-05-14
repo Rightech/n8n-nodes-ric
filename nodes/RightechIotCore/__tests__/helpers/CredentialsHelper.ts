@@ -1,11 +1,10 @@
 import {
-    ICredentialDataDecryptedObject, ICredentialsExpressionResolveValues,
+    ICredentialDataDecryptedObject, ICredentials, ICredentialsExpressionResolveValues,
     ICredentialsHelper, ICredentialType, ICredentialTypes, IExecuteData, IHttpRequestHelper,
     IHttpRequestOptions, INode, INodeCredentialsDetails, INodeProperties,
     IRequestOptionsSimplified, isExpression,
     IWorkflowDataProxyAdditionalKeys, IWorkflowExecuteAdditionalData, Workflow, WorkflowExecuteMode
 } from "n8n-workflow";
-import {Credentials} from "n8n-core";
 import {RightechIotCoreApi} from "../../../../credentials/RightechIotCoreApi.credentials.js";
 
 export class CredentialTypes implements ICredentialTypes {
@@ -122,10 +121,15 @@ export class CredentialsHelper extends ICredentialsHelper {
     /**
      * Returns the credentials instance
      */
-    async getCredentials(
-        nodeCredential: INodeCredentialsDetails,
-        type: string,
-    ): Promise<Credentials> {
+    async getCredentials(nodeCredential: INodeCredentialsDetails, type: string): Promise<ICredentials> {
+        throw new Error("Not implemented");
+    }
+
+    runPreAuthentication(helpers: IHttpRequestHelper, credentials: ICredentialDataDecryptedObject, typeName: string): Promise<ICredentialDataDecryptedObject | undefined> {
+        throw new Error("Not implemented");
+    }
+
+    updateCredentialsOauthTokenData(nodeCredentials: INodeCredentialsDetails, type: string, data: ICredentialDataDecryptedObject, additionalData: IWorkflowExecuteAdditionalData): Promise<void> {
         throw new Error("Not implemented");
     }
 

@@ -1,8 +1,7 @@
 import {expect, it} from "vitest";
 import {loadOptions} from "../../helpers/Workflow.js";
-import {expectScopeDone} from "../../helpers/expect.js";
 import {eventOptions} from "../../../methods/eventOptions.js";
-import {setupNock} from "../../helpers/nock.js";
+import {setupNock, expectScopeDone} from "../../helpers/nock.js";
 import {eventOptionsOfObjects} from "../../../methods/eventOptionsOfObjects.js";
 
 it('eventOptions keeps defaults on empty options', async () => {

@@ -1,0 +1,165 @@
+{
+  "name": "test.workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "sendTelemetry",
+        "objectId": {
+          "__rl": true,
+          "value": "69ffff033463098bf7d49699",
+          "mode": "list",
+          "cachedResultName": "n8n-test-model-object-1"
+        },
+        "telemetry": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "online": true,
+            "arg-string": "zxc",
+            "arg-list-number": "[1, 2, 3]"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "online",
+              "displayName": "Basic: online",
+              "type": "boolean",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": false
+            },
+            {
+              "id": "time",
+              "displayName": "Basic: time",
+              "type": "number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": true
+            },
+            {
+              "id": "arg-number",
+              "displayName": "Number",
+              "type": "number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": true
+            },
+            {
+              "id": "arg-number-unit",
+              "displayName": "Numeric - Gbit",
+              "type": "number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": true
+            },
+            {
+              "id": "arg-boolean",
+              "displayName": "Boolean",
+              "type": "boolean",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": true
+            },
+            {
+              "id": "arg-string",
+              "displayName": "Stringy",
+              "type": "string",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": false
+            },
+            {
+              "id": "arg-object",
+              "displayName": "Object",
+              "type": "object",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": true
+            },
+            {
+              "id": "sub-a",
+              "displayName": "Sub - A",
+              "type": "number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": true
+            },
+            {
+              "id": "sub-b",
+              "displayName": "Sub - B",
+              "type": "boolean",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": true
+            },
+            {
+              "id": "arg-list-number",
+              "displayName": "Of numbers",
+              "type": "array",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": false
+            },
+            {
+              "id": "arg-list-bool",
+              "displayName": "Of booleans",
+              "type": "array",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": true
+            },
+            {
+              "id": "arg-list-string",
+              "displayName": "Of strings",
+              "type": "array",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "CUSTOM.rightechIotCore",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        0
+      ],
+      "id": "bf4078d9-f26b-4768-a817-647f2fc74f20",
+      "name": "Send telemetry packet to the object",
+      "credentials": {
+        "rightechIotCoreApi": {
+          "id": "Gl4395rs85y4BbdU",
+          "name": "sandbox demo 001"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {},
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "6ebea966-4619-41e5-b769-daffdc12ea48",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6529141020368fa1fbca96461299f338a2b92db189547affb007361f7fc9a2b9"
+  },
+  "id": "Bvr0wnVBHPkHDIZd",
+  "tags": []
+}

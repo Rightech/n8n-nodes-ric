@@ -1,0 +1,63 @@
+import {expect, it} from "vitest";
+import {expectScopeDone, setupNock} from "../../helpers/nock.js";
+import {loadOptions} from "../../helpers/Workflow.js";
+import {listCommands} from "../../../methods/listCommands.js";
+import {listModels} from "../../../methods/listModels.js";
+import {listObjects} from "../../../methods/listObjects.js";
+import {listRows} from "../../../methods/listRows.js";
+import {listTables} from "../../../methods/listTables.js";
+import {listScenarios} from "../../../methods/listScenarios.js";
+
+it('listCommands', async () => {
+    const scope = setupNock()
+        .get(`/api/v1/objects/69ffff033463098bf7d49699/model?only=model`)
+        .reply(200, await import('./api.v1.objects.69ffff033463098bf7d49699.model.json'));
+    const options = await listCommands.call(loadOptions(await import('./listCommands.workflow.json')));
+    expectScopeDone(scope);
+    expect(options).toMatchSnapshot();
+});
+
+it('listModels', async () => {
+    const scope = setupNock()
+        .get(`/api/v1/models?limit=1000&only=_id,name,base`)
+        .reply(200, (await import('./api.v1.models.subset.json')).default);
+    const options = await listModels.call(loadOptions(await import('./listModels.workflow.json')));
+    expectScopeDone(scope);
+    expect(options).toMatchSnapshot();
+});
+
+it('listObjects', async () => {
+    const scope = setupNock()
+        .get(`/api/v1/objects?limit=1000&only=_id,id,name`)
+        .reply(200, (await import('./api.v1.objects.subset.json')).default);
+    const options = await listObjects.call(loadOptions(await import('./listObjects.workflow.json')));
+    expectScopeDone(scope);
+    expect(options).toMatchSnapshot();
+});
+
+it('listRows', async () => {
+    const scope = setupNock()
+        .get(`/api/v1/tables/66d3296025e8200c9d46981d/rows`)
+        .reply(200, (await import('./api.v1.tables.66d3296025e8200c9d46981d.rows.json')).default);
+    const options = await listRows.call(loadOptions(await import('./listRows.workflow.json')));
+    expectScopeDone(scope);
+    expect(options).toMatchSnapshot();
+});
+
+it('listScenarios', async () => {
+    const scope = setupNock()
+        .get(`/api/v1/automatons`)
+        .reply(200, (await import('./api.v1.automatons.json')).default);
+    const options = await listScenarios.call(loadOptions(await import('./listScenarios.workflow.json')));
+    expectScopeDone(scope);
+    expect(options).toMatchSnapshot();
+});
+
+it('listTables', async () => {
+    const scope = setupNock()
+        .get(`/api/v1/tables`)
+        .reply(200, (await import('./api.v1.tables.json')).default);
+    const options = await listTables.call(loadOptions(await import('./listModels.workflow.json')));
+    expectScopeDone(scope);
+    expect(options).toMatchSnapshot();
+});
