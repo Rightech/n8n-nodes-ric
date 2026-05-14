@@ -166,3 +166,20 @@ it('sendTelemetry - manual mapping', async () => {
     expectScopeDone(scope);
     expectRunData(run, [{success: true}]);
 });
+
+it('sendTelemetry - automapping', async () => {
+    const scope = setupNock()
+        .get(`/api/v1/objects/69ffff033463098bf7d49699/model`)
+        .reply(200, await import("./api.v1.objects.69ffff033463098bf7d49699.model.json"))
+        .post(`/api/v1/objects/69ffff033463098bf7d49699/packets`, {
+            online: true,
+            "arg-number": 123,
+            "arg-string": "123",
+        })
+        .matchHeader('Content-Type', 'application/json')
+        .reply(200, {success: true});
+    const run = await runWorkflowParameters(await import('./sendTelemetry.automap.workflow.json'));
+    expectRunSuccess(run);
+    expectScopeDone(scope);
+    expectRunData(run, [{success: true}]);
+});
