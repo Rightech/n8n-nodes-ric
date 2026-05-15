@@ -24,7 +24,7 @@
     "release": "n8n-node release",
     "prepublishOnly": "n8n-node prerelease",
     "test": "vitest run",
-    "checks": "n8n-node lint && n8n-node build && vitest run"
+    "checks": "n8n-node lint && n8n-node build && vitest run && biome check"
   },
   "files": [
     "dist"
@@ -40,11 +40,11 @@
     ]
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.15",
     "@n8n/node-cli": "^0.23.1",
     "eslint": "9.32.0",
     "n8n-core": "^2.15.0",
     "nock": "^14.0.15",
-    "prettier": "3.6.2",
     "release-it": "^19.0.4",
     "typescript": "5.9.2",
     "vitest": "^4.1.6"
