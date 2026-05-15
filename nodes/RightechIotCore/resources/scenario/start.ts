@@ -1,6 +1,46 @@
-import {IDataObject, IExecuteFunctions, INodeExecutionData} from "n8n-workflow";
+import {IDataObject, IExecuteFunctions, INodeExecutionData, type INodeProperties} from "n8n-workflow";
 import {INodeParameterResourceLocator} from "n8n-workflow/dist/esm/interfaces.js";
 import {httpCall} from "../../common/util.js";
+import {objectSelector, ricUuidPropertyMode} from "../../common/properties.js";
+
+const displayOptions = {
+    show: {
+        resource: ['scenario'],
+        operation: ['start'],
+    },
+};
+
+export const scenarioStartProperties: INodeProperties[] = [
+    {
+        ...objectSelector,
+        displayOptions,
+    },
+    {
+        displayName: 'Scenario',
+        name: 'scenarioId',
+        required: true,
+        type: 'resourceLocator',
+        default: {
+            mode: 'list',
+            value: '',
+        },
+        displayOptions,
+        modes: [
+            {
+                displayName: 'From List',
+                name: 'list',
+                type: 'list',
+                placeholder: 'Select a scenario...',
+                typeOptions: {
+                    searchListMethod: 'listScenarios',
+                    searchable: true,
+                    searchFilterRequired: false,
+                },
+            },
+            ricUuidPropertyMode,
+        ],
+    },
+];
 
 export async function start(exec: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
     const objectId = exec.getNodeParameter('objectId', index) as INodeParameterResourceLocator;

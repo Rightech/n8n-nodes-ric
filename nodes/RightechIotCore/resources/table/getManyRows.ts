@@ -1,7 +1,47 @@
-import {IDataObject, IExecuteFunctions, INodeExecutionData, ResourceMapperValue} from "n8n-workflow";
+import {IDataObject, IExecuteFunctions, INodeExecutionData, type INodeProperties, ResourceMapperValue} from "n8n-workflow";
 import {INodeParameterResourceLocator} from "n8n-workflow/dist/esm/interfaces.js";
 import {httpCall} from "../../common/util.js";
-import {stdQueryParametersType} from "../../common/properties.js";
+import {
+    stdQueryParameters,
+    stdQueryParametersType,
+    tableSelector
+} from "../../common/properties.js";
+
+const displayOptions = {
+    show: {
+        resource: ['table'],
+        operation: ['getManyRows'],
+    },
+};
+
+export const tableGetManyProperties: INodeProperties[] = [
+    {
+        ...tableSelector,
+        displayOptions,
+    },
+    {
+        displayName: 'Search Columns',
+        name: 'tableQueryColumns',
+        type: 'resourceMapper',
+        default: {
+            mappingMode: 'defineBelow',
+            value: null,
+        },
+        displayOptions,
+        typeOptions: {
+            resourceMapper: {
+                resourceMapperMethod: "mapTableRowQuery",
+                mode: "add",
+                addAllFields: false,
+                supportAutoMap: false,
+            }
+        },
+    },
+    {
+        ...stdQueryParameters,
+        displayOptions,
+    },
+];
 
 export async function getManyRows(exec: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
     const tableId = exec.getNodeParameter('tableId', index) as INodeParameterResourceLocator;

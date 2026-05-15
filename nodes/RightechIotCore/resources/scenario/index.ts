@@ -1,7 +1,6 @@
 import type {INodeProperties} from 'n8n-workflow';
-import {objectSelector, ricUuidPropertyMode} from "../../common/properties.js";
-import {start} from "./start.js";
-import {stop} from "./stop.js";
+import {scenarioStartProperties, start} from "./start.js";
+import {scenarioStopProperties, stop} from "./stop.js";
 import {handlerFn} from "../../common/types.js";
 
 export const scenario: Record<string, handlerFn> = {start, stop};
@@ -33,41 +32,6 @@ export const scenarioApiProperties: INodeProperties[] = [
         ],
         default: 'start',
     },
-    {
-        ...objectSelector,
-        displayOptions: {
-            show: {
-                resource: ['scenario'],
-            },
-        },
-    },
-    {
-        displayName: 'Scenario ID',
-        name: 'scenarioId',
-        required: true,
-        type: 'resourceLocator',
-        default: {
-            mode: 'list',
-            value: '',
-        },
-        displayOptions: {
-            show: {
-                resource: ['scenario'],
-            },
-        },
-        modes: [
-            {
-                displayName: 'From List',
-                name: 'list',
-                type: 'list',
-                placeholder: 'Select a scenario...',
-                typeOptions: {
-                    searchListMethod: 'listScenarios',
-                    searchable: true,
-                    searchFilterRequired: false,
-                },
-            },
-            ricUuidPropertyMode,
-        ],
-    },
+    ...scenarioStartProperties,
+    ...scenarioStopProperties,
 ];

@@ -1,6 +1,20 @@
-import {IDataObject, IExecuteFunctions, INodeExecutionData} from "n8n-workflow";
+import {IDataObject, IExecuteFunctions, INodeExecutionData, type INodeProperties} from "n8n-workflow";
 import {httpCall} from "../../common/util.js";
 import {INodeParameterResourceLocator} from "n8n-workflow/dist/esm/interfaces.js";
+import {modelSelector} from "../../common/properties.js";
+
+export const modelGetProperties: INodeProperties[] = [
+    {
+        ...modelSelector,
+        required: true,
+        displayOptions: {
+            show: {
+                resource: ['model'],
+                operation: ['get'],
+            },
+        },
+    },
+];
 
 export async function get(exec: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
     const modelId = exec.getNodeParameter('modelId', index) as INodeParameterResourceLocator;

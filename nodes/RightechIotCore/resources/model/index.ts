@@ -1,6 +1,5 @@
 import type {INodeProperties} from 'n8n-workflow';
-import {modelSelector} from "../../common/properties.js";
-import {get} from "./get.js";
+import {get, modelGetProperties} from "./get.js";
 import {handlerFn} from "../../common/types.js";
 
 export const model: Record<string, handlerFn> = {get};
@@ -26,13 +25,5 @@ export const modelApiProperties: INodeProperties[] = [
         ],
         default: 'get',
     },
-    {
-        ...modelSelector,
-        required: true,
-        displayOptions: {
-            show: {
-                resource: ['model'],
-            },
-        },
-    },
+    ...modelGetProperties,
 ];

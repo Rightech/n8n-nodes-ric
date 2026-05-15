@@ -85,6 +85,31 @@ export const modelSelector: INodeProperties = {
     ],
 };
 
+export const tableSelector: INodeProperties = {
+    displayName: 'Table ID',
+    name: 'tableId',
+    required: true,
+    type: 'resourceLocator',
+    default: {
+        mode: 'list',
+        value: '',
+    },
+    modes: [
+        {
+            displayName: 'From List',
+            name: 'list',
+            type: 'list',
+            placeholder: 'Select a table...',
+            typeOptions: {
+                searchListMethod: 'listTables',
+                searchable: true,
+                searchFilterRequired: false,
+            },
+        },
+        ricUuidPropertyMode,
+    ],
+};
+
 export interface stdQueryParametersType {
     from?: string,
     to?: string,
