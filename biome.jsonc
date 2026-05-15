@@ -26,7 +26,7 @@
 		"attributePosition": "auto"
 	},
 	"linter": {
-		"enabled": false
+		"enabled": true
 	},
 	"javascript": {
 		"parser": {

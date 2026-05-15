@@ -190,7 +190,7 @@ export async function mapObjectColumnsFromModel(
 	} catch (error) {
 		return {
 			fields: [],
-			emptyFieldsNotice: 'Failed to load configuration: ' + error.toString(),
+			emptyFieldsNotice: `Failed to load configuration: ${error.toString()}`,
 		};
 	}
 }

@@ -37,7 +37,7 @@ export async function mapTableRowQuery(this: ILoadOptionsFunctions): Promise<Res
 	} catch (error) {
 		return {
 			fields: [],
-			emptyFieldsNotice: 'Failed to load configuration: ' + error.toString(),
+			emptyFieldsNotice: `Failed to load configuration: ${error.toString()}`,
 		};
 	}
 }

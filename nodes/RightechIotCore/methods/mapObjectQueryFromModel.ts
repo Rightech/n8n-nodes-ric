@@ -78,7 +78,7 @@ export async function mapObjectQueryFromModel(
 	} catch (error) {
 		return {
 			fields: [],
-			emptyFieldsNotice: 'Failed to load configuration: ' + error.toString(),
+			emptyFieldsNotice: `Failed to load configuration: ${error.toString()}`,
 		};
 	}
 }

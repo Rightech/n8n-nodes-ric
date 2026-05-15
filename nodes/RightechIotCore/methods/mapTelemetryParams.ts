@@ -61,7 +61,7 @@ export async function mapTelemetryParams(
 	} catch (error) {
 		return {
 			fields: [],
-			emptyFieldsNotice: 'Failed to load configuration: ' + error.toString(),
+			emptyFieldsNotice: `Failed to load configuration: ${error.toString()}`,
 		};
 	}
 }

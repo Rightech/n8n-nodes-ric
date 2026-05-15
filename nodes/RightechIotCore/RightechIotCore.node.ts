@@ -125,7 +125,7 @@ export class RightechIotCore implements INodeType {
 				returnData.push(...results);
 			} catch (error) {
 				if (error instanceof Error) {
-					error.message = error.message + ` [item ${i}]`;
+					error.message = `${error.message} [item ${i}]`;
 				}
 				if (this.continueOnFail()) {
 					returnData.push(

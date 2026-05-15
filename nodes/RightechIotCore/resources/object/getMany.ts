@@ -144,10 +144,10 @@ export async function getMany(
 		}
 		for (const prop in modelOptions.value) {
 			const propValue = modelOptions.value[prop];
-			if (schemaMap[prop].type === 'string' && !isNaN(Number(propValue))) {
-				qs['where.' + prop] = `"${propValue}"`;
+			if (schemaMap[prop].type === 'string' && !Number.isNaN(Number(propValue))) {
+				qs[`where.${prop}`] = `"${propValue}"`;
 			} else {
-				qs['where.' + prop] = propValue;
+				qs[`where.${prop}`] = propValue;
 			}
 		}
 	}
