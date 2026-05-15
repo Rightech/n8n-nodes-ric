@@ -10,6 +10,7 @@ export function setupNock(): Scope {
         allowUnmocked: false,
         reqheaders: {
             Authorization: "Bearer test-token",
+            Accept: 'application/json',
         }
     });
 }

@@ -290,3 +290,51 @@ exports[`listTables 1`] = `
   ],
 }
 `;
+
+exports[`listUsers - by text 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [
+    {
+      "name": "test_rightech",
+      "value": "646dc0f96ab54beb9586b592",
+    },
+    {
+      "name": "2+accounttest@rightech.io",
+      "value": "64edd4d8d2c2379b08cfab38",
+    },
+    {
+      "name": "T",
+      "value": "66d0144e6de82aaddc1079c0",
+    },
+    {
+      "name": "l.e.tarasov",
+      "value": "682dd754b0738b9392dffd7e",
+    },
+  ],
+}
+`;
+
+exports[`listUsers - default state 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [
+    {
+      "name": "test_rightech",
+      "value": "646dc0f96ab54beb9586b592",
+    },
+    {
+      "name": "2+accounttest@rightech.io",
+      "value": "64edd4d8d2c2379b08cfab38",
+    },
+    {
+      "name": "T",
+      "value": "66d0144e6de82aaddc1079c0",
+    },
+    {
+      "name": "l.e.tarasov",
+      "value": "682dd754b0738b9392dffd7e",
+    },
+  ],
+}
+`;

@@ -7,6 +7,7 @@ import {listObjects} from "../../../methods/listObjects.js";
 import {listRows} from "../../../methods/listRows.js";
 import {listTables} from "../../../methods/listTables.js";
 import {listScenarios} from "../../../methods/listScenarios.js";
+import {listUsers} from "../../../methods/listUsers.js";
 
 it('listCommands', async () => {
     const scope = setupNock()
@@ -58,6 +59,24 @@ it('listTables', async () => {
         .get(`/api/v1/tables`)
         .reply(200, (await import('./api.v1.tables.json')).default);
     const options = await listTables.call(loadOptions(await import('./listModels.workflow.json')));
+    expectScopeDone(scope);
+    expect(options).toMatchSnapshot();
+});
+
+it('listUsers - default state', async () => {
+    const scope = setupNock()
+        .get(`/api/v1/users?limit=1000&only=_id,name`)
+        .reply(200, (await import('./api.v1.users.search.json')).default);
+    const options = await listUsers.call(loadOptions(await import('./listUsers.workflow.json')));
+    expectScopeDone(scope);
+    expect(options).toMatchSnapshot();
+});
+
+it('listUsers - by text', async () => {
+    const scope = setupNock()
+        .get(`/api/v1/users?limit=1000&only=_id,name&search=rightech`)
+        .reply(200, (await import('./api.v1.users.search.json')).default);
+    const options = await listUsers.call(loadOptions(await import('./listUsers.workflow.json')), 'rightech');
     expectScopeDone(scope);
     expect(options).toMatchSnapshot();
 });

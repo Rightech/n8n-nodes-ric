@@ -1,4 +1,5 @@
 import {INodeProperties, INodePropertyMode} from "n8n-workflow";
+import {INodePropertyCollection, INodePropertyOptions} from "n8n-workflow/dist/esm/interfaces.js";
 
 // because INodePropertyMode does not have defaults
 // eslint-disable-next-line n8n-nodes-base/node-param-default-missing
@@ -91,12 +92,34 @@ export interface stdQueryParametersType {
     offset?: number,
 }
 
+export const pagingParameters: Array<INodePropertyOptions | INodeProperties | INodePropertyCollection> = [
+    {
+        displayName: 'Result Limit',
+        name: 'limit',
+        description: 'Max number of results to return',
+        hint: 'Max number of results to return',
+        type: 'number',
+        typeOptions: {
+            minValue: 1,
+            maxValue: 10000,
+        },
+        default: 50,
+    },
+    {
+        displayName: 'Lookup Offset',
+        name: 'offset',
+        hint: 'Specify an offset parameter to get more data',
+        type: 'number',
+        default: '',
+    },
+];
+
 export const stdQueryParameters: INodeProperties = {
     displayName: 'Standard Search Parameters',
     name: 'stdQueryParameters',
     type: 'collection',
     placeholder: 'Add Parameter',
-    hint: 'Standard parameters for all searches. More at https://rightech.io/en/developers/http/base#get-all.',
+    hint: 'Standard parameters for most <a href="https://rightech.io/en/developers/http/base#get-all">searches</a>.',
     default: {},
     options: [
         {
@@ -113,24 +136,6 @@ export const stdQueryParameters: INodeProperties = {
             type: 'dateTime',
             default: '',
         },
-        {
-            displayName: 'Result Limit',
-            name: 'limit',
-            description: 'Max number of results to return',
-            hint: 'Max number of results to return',
-            type: 'number',
-            typeOptions: {
-                minValue: 1,
-                maxValue: 10000,
-            },
-            default: 50,
-        },
-        {
-            displayName: 'Lookup Offset',
-            name: 'offset',
-            hint: 'Specify an offset parameter to get more data',
-            type: 'number',
-            default: '',
-        },
+        ...pagingParameters,
     ],
 };

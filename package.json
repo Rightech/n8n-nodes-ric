@@ -23,7 +23,8 @@
     "lint:fix": "n8n-node lint --fix",
     "release": "n8n-node release",
     "prepublishOnly": "n8n-node prerelease",
-    "test": "WEBHOOK_URL=https://localhost:5678 vitest run"
+    "test": "vitest run",
+    "checks": "n8n-node lint && n8n-node build && vitest run"
   },
   "files": [
     "dist"

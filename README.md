@@ -23,7 +23,7 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ## Operations
 
-At the start, this node supports a bare minimum of operations you may need to interact with your IoT devices.
+Supported operations organized by resource type:
 
 ### Objects
 
@@ -64,6 +64,14 @@ Data tables define arbitrary data shapes and store data
 Event log stores all occurred events
 
 - [**Get multiple events**](https://rightech.io/en/developers/handlers/create#generate-event): Get filtered events from the global event log.
+
+### Users
+
+Users of the platform instance
+
+- [**Get a user**](https://rightech.io/en/developers/projects/admin): Loads general user information
+- [**Get multiple users**](https://rightech.io/en/developers/projects/admin): Loads general information for multiple users at once
+
 
 ## Credentials
 

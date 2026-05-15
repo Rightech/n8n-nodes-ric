@@ -2,7 +2,7 @@ import {IDataObject, IExecuteFunctions, IHttpRequestOptions, INodeExecutionData,
     INodeProperties, WorkflowConfigurationError} from "n8n-workflow";
 import {httpCall} from "../../common/util.js";
 import {INodeParameterResourceLocator, NodeParameterValue} from "n8n-workflow/dist/esm/interfaces.js";
-import {objectSelector} from "../../common/properties.js";
+import {objectSelector, pagingParameters, stdQueryParameters} from "../../common/properties.js";
 
 export interface historyQueryParameters {
     limit?: number,
@@ -59,33 +59,9 @@ export const objectGetHistoryProperties: INodeProperties[] = [
         }
     },
     {
-        displayName: 'Standard Search Parameters',
+        ...stdQueryParameters,
         name: 'historyQueryParameters',
-        type: 'collection',
-        placeholder: 'Add Parameter',
-        hint: 'Standard parameters for all <a href="https://rightech.io/en/developers/http/base#get-all">searches</a>.',
-        default: {},
-        options: [
-            {
-                displayName: 'Result Limit',
-                name: 'limit',
-                description: 'Max number of results to return',
-                hint: 'Max number of results to return',
-                type: 'number',
-                typeOptions: {
-                    minValue: 1,
-                    maxValue: 10000,
-                },
-                default: 50,
-            },
-            {
-                displayName: 'Lookup Offset',
-                name: 'offset',
-                hint: 'Specify an offset parameter to get more data',
-                type: 'number',
-                default: '',
-            },
-        ],
+        options: pagingParameters,
         displayOptions: {
             show: {
                 resource: ['object'],

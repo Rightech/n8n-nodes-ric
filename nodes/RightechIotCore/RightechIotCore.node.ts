@@ -24,6 +24,8 @@ import {eventApiProperties} from "./resources/event/index.js";
 import {eventOptionsOfObjects} from "./methods/eventOptionsOfObjects.js";
 import {mapTelemetryParams} from "./methods/mapTelemetryParams.js";
 import {mapObjectQueryFromModel} from "./methods/mapObjectQueryFromModel.js";
+import {userApiProperties} from "./resources/user/index.js";
+import {listUsers} from "./methods/listUsers.js";
 
 export class RightechIotCore implements INodeType {
     description: INodeTypeDescription = {
@@ -77,6 +79,11 @@ export class RightechIotCore implements INodeType {
                         value: 'table',
                         description: 'Data tables define arbitrary data shapes and store data',
                     },
+                    {
+                        name: 'User',
+                        value: 'user',
+                        description: 'Users of the platform instance',
+                    },
                 ],
                 default: 'object',
             },
@@ -85,6 +92,7 @@ export class RightechIotCore implements INodeType {
             ...scenarioApiProperties,
             ...tableApiProperties,
             ...eventApiProperties,
+            ...userApiProperties,
         ],
     };
     methods = {
@@ -99,6 +107,7 @@ export class RightechIotCore implements INodeType {
             listScenarios,
             listTables,
             listRows,
+            listUsers,
         },
         resourceMapping: {
             mapTableRowQuery,
