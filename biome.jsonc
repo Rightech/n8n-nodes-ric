@@ -13,7 +13,7 @@
 		}
 	},
 	"files": {
-		"includes": ["**/*.ts", "!**/__tests__"],
+		"includes": ["**/*.ts", "!**/__tests__/n8n-stubs"],
 		"ignoreUnknown": true
 	},
 	"formatter": {
