@@ -53,7 +53,7 @@ export const objectSendCommandProperties: INodeProperties[] = [
 					{
 						type: 'regex',
 						properties: {
-							regex: '^[a-z0-9-_]$',
+							regex: '^[a-z0-9-_]+$',
 							errorMessage: 'Command ID is an alphanumeric string.',
 						},
 					},

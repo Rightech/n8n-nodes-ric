@@ -152,6 +152,17 @@ it('sendCommand', async () => {
     expectRunData(run, [{success: true}]);
 });
 
+it('sendCommand by id', async () => {
+    const scope = setupNock()
+        .post(`/api/v1/objects/626679b5daacc00012016e94/commands/3jtai-2vp9w`, "")
+        .matchHeader('Content-Type', 'application/json')
+        .reply(200, {success: true});
+    const run = await runWorkflowParameters(await import('./sendCommand.ById.workflow.json'));
+    expectRunSuccess(run);
+    expectScopeDone(scope);
+    expectRunData(run, [{success: true}]);
+});
+
 it('sendTelemetry - manual mapping', async () => {
     const scope = setupNock()
         .post(`/api/v1/objects/69ffff033463098bf7d49699/packets`, {
