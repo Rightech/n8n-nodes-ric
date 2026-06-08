@@ -48,3 +48,32 @@ it('All parameters correspond to defined operations', () => {
         }
     }
 })
+
+it('resourceLocator modes refer to included method names', () => {
+	const methods = Object.keys((new RightechIotCore).methods.listSearch);
+	const modes = (new RightechIotCore).description.properties
+		.filter((n) => n.type === 'resourceLocator')
+		.flatMap((n) => n.modes ?? [])
+		.filter((m) => m.type === 'list');
+	for (const mode of modes) {
+		expect(methods).toContain(mode.typeOptions?.searchListMethod)
+	}
+})
+
+it('resourceMapper modes refer to included method names', () => {
+	const methods = Object.keys((new RightechIotCore).methods.resourceMapping);
+	const nodes = (new RightechIotCore).description.properties
+		.filter((n) => n.type === 'resourceMapper');
+	for (const node of nodes) {
+		expect(methods).toContain(node.typeOptions?.resourceMapper?.resourceMapperMethod)
+	}
+})
+
+it('multiOptions modes refer to included method names', () => {
+	const methods = Object.keys((new RightechIotCore).methods.loadOptions);
+	const nodes = (new RightechIotCore).description.properties
+		.filter(n => n.type === 'multiOptions');
+	for (const node of nodes) {
+		expect(methods).toContain(node.typeOptions?.loadOptionsMethod)
+	}
+})
