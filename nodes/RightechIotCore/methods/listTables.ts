@@ -4,7 +4,7 @@ import type {
 	INodeListSearchResult,
 } from 'n8n-workflow';
 import type { RicApiTableIndex } from '../common/types.js';
-import { httpCall, toSearchable } from '../common/util.js';
+import { httpCall, isCiStringInProps } from '../common/util.js';
 
 export async function listTables(
 	this: ILoadOptionsFunctions,
@@ -16,7 +16,7 @@ export async function listTables(
 		json: true,
 	})) as RicApiTableIndex[];
 	const results: INodeListSearchItems[] = responseData
-		.filter((i) => !filter || toSearchable(i, '_id', 'name').includes(filter))
+		.filter((i) => !filter || isCiStringInProps(filter, i, '_id', 'name'))
 		.map((item: RicApiTableIndex) => ({
 			name: item.name,
 			value: item._id,

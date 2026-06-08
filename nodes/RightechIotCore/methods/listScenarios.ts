@@ -3,7 +3,7 @@ import type {
 	INodeListSearchItems,
 	INodeListSearchResult,
 } from 'n8n-workflow';
-import { httpCall, toSearchable } from '../common/util.js';
+import { httpCall, isCiStringInProps } from '../common/util.js';
 
 interface ScenarioIndex {
 	_id: string;
@@ -29,7 +29,7 @@ export async function listScenarios(
 		json: true,
 	})) as ScenarioIndex[];
 	const results: INodeListSearchItems[] = responseData
-		.filter((i) => !filter || toSearchable(i, '_id', 'name').includes(filter))
+		.filter((i) => !filter || isCiStringInProps(filter, i, '_id', 'name'))
 		.map((item: ScenarioIndex) => ({
 			name: item.name,
 			value: item._id,

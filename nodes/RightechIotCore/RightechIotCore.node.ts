@@ -16,6 +16,7 @@ import { listObjects } from './methods/listObjects.js';
 import { listRows } from './methods/listRows.js';
 import { listScenarios } from './methods/listScenarios.js';
 import { listTables } from './methods/listTables.js';
+import { listTaskKinds } from './methods/listTaskKinds.js';
 import { listUsers } from './methods/listUsers.js';
 import { mapObjectColumnsFromModel } from './methods/mapObjectColumnsFromModel.js';
 import { mapObjectQueryFromModel } from './methods/mapObjectQueryFromModel.js';
@@ -108,6 +109,7 @@ export class RightechIotCore implements INodeType {
 			listTables,
 			listRows,
 			listUsers,
+			listTaskKinds,
 		},
 		resourceMapping: {
 			mapTableRowQuery,
@@ -116,6 +118,7 @@ export class RightechIotCore implements INodeType {
 			mapTelemetryParams,
 		},
 	};
+
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 		const items = this.getInputData();
 		const returnData: INodeExecutionData[] = [];

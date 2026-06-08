@@ -3,7 +3,7 @@ import type {
 	INodeListSearchItems,
 	INodeListSearchResult,
 } from 'n8n-workflow';
-import { httpCall, readResourceLocatorId, toSearchable } from '../common/util.js';
+import { httpCall, isCiStringInProps, readResourceLocatorId } from '../common/util.js';
 
 interface ObjectSubModelShape {
 	_actions?: CommandsIndexPerModel[];
@@ -32,7 +32,7 @@ export async function listCommands(
 		json: true,
 	})) as ObjectSubModelShape;
 	const results: INodeListSearchItems[] = (responseData._actions ?? [])
-		.filter((i) => !filter || toSearchable(i, 'id', 'name').includes(filter))
+		.filter((i) => !filter || isCiStringInProps(filter, i, 'id', 'name'))
 		.map((item: CommandsIndexPerModel) => ({
 			name: item.name,
 			value: item.id,

@@ -3,7 +3,7 @@ import type {
 	INodeListSearchItems,
 	INodeListSearchResult,
 } from 'n8n-workflow';
-import { httpCall, toSearchable } from '../common/util.js';
+import { httpCall, isCiStringInProps } from '../common/util.js';
 
 interface ObjectLookupSubsetFields {
 	_id: string;
@@ -21,7 +21,7 @@ export async function listObjects(
 		json: true,
 	})) as ObjectLookupSubsetFields[];
 	const results: INodeListSearchItems[] = responseData
-		.filter((i) => !filter || toSearchable(i, '_id', 'id', 'name').includes(filter.toLowerCase()))
+		.filter((i) => !filter || isCiStringInProps(filter, i, '_id', 'id', 'name'))
 		.map((item: ObjectLookupSubsetFields) => ({
 			name: item.name,
 			value: item._id,

@@ -24,6 +24,14 @@ export function toSearchable<T extends object>(item: T, ...fields: (keyof T)[]):
 		.join(' ');
 }
 
+export function isCiStringInProps<T extends object>(
+	lookup: string,
+	item: T,
+	...fields: (keyof T)[]
+): boolean {
+	return toSearchable(item, ...fields).includes(lookup.toLowerCase());
+}
+
 export function readResourceLocatorId(
 	node: ILoadOptionsFunctions,
 	option: string,

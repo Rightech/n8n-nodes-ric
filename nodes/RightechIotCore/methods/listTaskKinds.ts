@@ -5,24 +5,24 @@ import type {
 } from 'n8n-workflow';
 import { httpCall, isCiStringInProps } from '../common/util.js';
 
-interface ModelLookupSubsetFields {
+interface TaskSubsetFields {
 	_id: string;
-	name: string;
-	base: string;
+	name?: string;
 }
 
-export async function listModels(
+export async function listTaskKinds(
 	this: ILoadOptionsFunctions,
 	filter?: string,
 ): Promise<INodeListSearchResult> {
 	const responseData = (await httpCall(this, {
 		method: 'GET',
-		url: '/api/v1/models?limit=1000&only=_id,name,base',
+		url: '/api/v1/tasks/kinds?only=_id,name',
 		json: true,
-	})) as ModelLookupSubsetFields[];
+	})) as TaskSubsetFields[];
 	const results: INodeListSearchItems[] = responseData
-		.filter((i) => !filter || isCiStringInProps(filter, i, '_id', 'name', 'base'))
-		.map((item: ModelLookupSubsetFields) => ({
+		.filter((i): i is { _id: string; name: string } => !!i.name)
+		.filter((i) => !filter || isCiStringInProps(filter, i, '_id', 'name'))
+		.map((item) => ({
 			name: item.name,
 			value: item._id,
 		}));
