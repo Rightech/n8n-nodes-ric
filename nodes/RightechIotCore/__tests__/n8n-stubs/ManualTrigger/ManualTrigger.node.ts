@@ -10,6 +10,7 @@ export class ManualTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Manual Trigger',
 		name: 'manualTrigger',
+		// @ts-ignore
 		icon: 'node:manual-trigger',
 		iconColor: 'black',
 		group: ['trigger'],

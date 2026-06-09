@@ -28,10 +28,13 @@ jobs:
       - name: Check code style
         run: npx biome check
 
-      - name: Run lint
+      - name: Type-check all code
+        run: npm run typecheck
+
+      - name: Run n8n own lint
         run: npm run lint
 
-      - name: Run build
+      - name: Run n8n plugin build
         run: npm run build
 
       - name: Run tests

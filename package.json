@@ -24,7 +24,8 @@
     "release": "n8n-node release",
     "prepublishOnly": "n8n-node prerelease",
     "test": "vitest run",
-    "checks": "n8n-node lint && n8n-node build && vitest run && biome check"
+    "typecheck": "tsc -p tsconfig.test.json --noEmit",
+    "checks": "npm run typecheck && n8n-node lint && n8n-node build && vitest run && biome check"
   },
   "files": [
     "dist"
@@ -42,8 +43,10 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.15",
     "@n8n/node-cli": "^0.23.1",
+    "@types/lodash": "^4.17.24",
     "eslint": "9.32.0",
-    "n8n-core": "^2.15.0",
+    "n8n-core": "2.15.0",
+    "n8n-workflow": "2.15.0",
     "nock": "^14.0.15",
     "release-it": "^19.0.4",
     "typescript": "5.9.2",

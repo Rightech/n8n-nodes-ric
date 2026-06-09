@@ -1,6 +1,7 @@
 import { ExecutionLifecycleHooks, LoadOptionsContext, WorkflowExecute } from 'n8n-core';
 import {
 	type ILoadOptionsFunctions,
+	type INode,
 	type IRun,
 	type IWorkflowBase,
 	type IWorkflowExecuteAdditionalData,
@@ -18,16 +19,14 @@ const credentialsHelper = new CredentialsHelper({
 	},
 });
 
-export const loadOptions = (
-	workflowParameters: Partial<WorkflowParameters>,
-): ILoadOptionsFunctions => {
+export const loadOptions = (workflowParameters: object): ILoadOptionsFunctions => {
 	const mode = 'manual';
 	const id = 'execution-id';
-	const workflow = new Workflow({ ...workflowParameters, nodeTypes });
-	const hooks = new ExecutionLifecycleHooks(mode, id, workflowParameters);
+	const workflow = new Workflow({ ...(workflowParameters as WorkflowParameters), nodeTypes });
+	const hooks = new ExecutionLifecycleHooks(mode, id, workflow as unknown as IWorkflowBase);
 	return new LoadOptionsContext(
 		workflow,
-		workflow.getStartNode(),
+		workflow.getStartNode() as INode,
 		{
 			hooks,
 			credentialsHelper,
@@ -35,19 +34,17 @@ export const loadOptions = (
 			webhookWaitingBaseUrl: 'http://example.com',
 			webhookTestBaseUrl: 'http://example.com',
 			formWaitingBaseUrl: 'http://example.com',
-			currentNodeParameters: workflow.getStartNode().parameters,
-		} as IWorkflowExecuteAdditionalData,
+			currentNodeParameters: workflow.getStartNode()?.parameters,
+		} as unknown as IWorkflowExecuteAdditionalData,
 		'',
 	);
 };
 
-export const runWorkflowParameters = async (
-	workflowParameters: Partial<WorkflowParameters>,
-): Promise<IRun> => {
+export const runWorkflowParameters = async (workflowParameters: object): Promise<IRun> => {
 	const mode = 'manual';
 	const id = 'execution-id';
-	const workflow = new Workflow({ ...workflowParameters, nodeTypes });
-	const hooks = new ExecutionLifecycleHooks(mode, id, workflow as IWorkflowBase);
+	const workflow = new Workflow({ ...(workflowParameters as WorkflowParameters), nodeTypes });
+	const hooks = new ExecutionLifecycleHooks(mode, id, workflow as unknown as IWorkflowBase);
 	const manualExecutor = new WorkflowExecute(
 		{
 			hooks,
@@ -56,16 +53,15 @@ export const runWorkflowParameters = async (
 			webhookWaitingBaseUrl: 'http://example.com',
 			webhookTestBaseUrl: 'http://example.com',
 			formWaitingBaseUrl: 'http://example.com',
-		} as IWorkflowExecuteAdditionalData,
+		} as unknown as IWorkflowExecuteAdditionalData,
 		mode,
 	);
 	return await manualExecutor.run({ workflow });
 };
 
 export function completeRunData(run: IRun): unknown[] {
-	return run.data.resultData.runData[run.data.resultData.lastNodeExecuted][0].data.main[0].map(
-		(d) => d.json,
-	);
+	const lastNode = run.data.resultData.lastNodeExecuted ?? '';
+	return (run.data.resultData.runData[lastNode][0].data?.main ?? [])[0]?.map((d) => d.json) ?? [];
 }
 
 export function expectRunSuccess(run: IRun): void {

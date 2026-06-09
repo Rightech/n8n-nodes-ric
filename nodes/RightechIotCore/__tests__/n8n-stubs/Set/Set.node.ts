@@ -9,6 +9,7 @@ export class Set extends VersionedNodeType {
 		const baseDescription: INodeTypeBaseDescription = {
 			displayName: 'Set',
 			name: 'set',
+			// @ts-ignore
 			icon: 'node:edit-fields',
 			iconColor: 'blue',
 			group: ['input'],
