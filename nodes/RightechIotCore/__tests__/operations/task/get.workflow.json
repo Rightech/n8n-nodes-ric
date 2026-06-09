@@ -1,0 +1,67 @@
+{
+  "name": "test.workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        -64
+      ],
+      "id": "d511ccb3-fc00-4155-b7da-6e6da5439af5",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "task",
+        "taskId": {
+          "__rl": true,
+          "value": "66acd3973d4cc9e17264483b",
+          "mode": "list",
+          "cachedResultName": "Small repair 01"
+        }
+      },
+      "type": "CUSTOM.rightechIotCore",
+      "typeVersion": 1,
+      "position": [
+        -272,
+        -64
+      ],
+      "id": "84e127b5-50ee-4eea-8b8a-22c08e95fba3",
+      "name": "Get a task",
+      "credentials": {
+        "rightechIotCoreApi": {
+          "id": "Gl4395rs85y4BbdU",
+          "name": "all access"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get a task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "bfa9dcdb-4ab0-4cfe-97c6-b00347586de4",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6529141020368fa1fbca96461299f338a2b92db189547affb007361f7fc9a2b9"
+  },
+  "id": "Bvr0wnVBHPkHDIZd",
+  "tags": []
+}

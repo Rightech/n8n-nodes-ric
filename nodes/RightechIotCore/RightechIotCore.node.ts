@@ -17,7 +17,9 @@ import { listRows } from './methods/listRows.js';
 import { listScenarios } from './methods/listScenarios.js';
 import { listTables } from './methods/listTables.js';
 import { listTaskKinds } from './methods/listTaskKinds.js';
+import { listTasks } from './methods/listTasks.js';
 import { listUsers } from './methods/listUsers.js';
+import { loadOptionsOfTaskKinds } from './methods/loadOptionsOfTaskKinds.js';
 import { mapObjectColumnsFromModel } from './methods/mapObjectColumnsFromModel.js';
 import { mapObjectQueryFromModel } from './methods/mapObjectQueryFromModel.js';
 import { mapTableRowQuery } from './methods/mapTableRowQuery.js';
@@ -28,6 +30,7 @@ import { objectApiProperties } from './resources/object/index.js';
 import { route } from './resources/route.js';
 import { scenarioApiProperties } from './resources/scenario/index.js';
 import { tableApiProperties } from './resources/table/index.js';
+import { taskApiProperties } from './resources/task/index.js';
 import { userApiProperties } from './resources/user/index.js';
 
 export class RightechIotCore implements INodeType {
@@ -81,6 +84,11 @@ export class RightechIotCore implements INodeType {
 						description: 'Data tables define arbitrary data shapes and store data',
 					},
 					{
+						name: 'Task',
+						value: 'task',
+						description: 'Tasks assignable to platform users',
+					},
+					{
 						name: 'User',
 						value: 'user',
 						description: 'Users of the platform instance',
@@ -94,12 +102,14 @@ export class RightechIotCore implements INodeType {
 			...tableApiProperties,
 			...eventApiProperties,
 			...userApiProperties,
+			...taskApiProperties,
 		],
 	};
 	methods = {
 		loadOptions: {
 			eventOptions,
 			eventOptionsOfObjects,
+			loadOptionsOfTaskKinds,
 		},
 		listSearch: {
 			listObjects,
@@ -110,6 +120,7 @@ export class RightechIotCore implements INodeType {
 			listRows,
 			listUsers,
 			listTaskKinds,
+			listTasks,
 		},
 		resourceMapping: {
 			mapTableRowQuery,

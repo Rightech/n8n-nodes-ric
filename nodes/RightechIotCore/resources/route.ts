@@ -9,6 +9,7 @@ import { model } from './model/index.js';
 import { object } from './object/index.js';
 import { scenario } from './scenario/index.js';
 import { table } from './table/index.js';
+import { task } from './task/index.js';
 import { user } from './user/index.js';
 
 const handlers: Record<string, Record<string, handlerFn>> = {
@@ -18,6 +19,7 @@ const handlers: Record<string, Record<string, handlerFn>> = {
 	table,
 	event,
 	user,
+	task,
 };
 
 export async function route(exec: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {

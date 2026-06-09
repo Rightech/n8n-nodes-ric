@@ -72,6 +72,14 @@ Users of the platform instance
 - [**Get a user**](https://rightech.io/en/developers/projects/admin): Loads general user information
 - [**Get multiple users**](https://rightech.io/en/developers/projects/admin): Loads general information for multiple users at once
 
+### Tasks
+
+Maintenance tasks assignable to platform users. Tasks can have different kinds, statuses, and properties defined by kinds.
+Tasks expose temporary access to object commands for users in the related service app to enable maintenance scenarios.
+
+- [**Get a task**](https://rightech.io/ru/ric-service): Loads task information
+- [**Get multiple tasks**](https://rightech.io/ru/ric-service): Loads multiple tasks at once
+
 
 ## Credentials
 

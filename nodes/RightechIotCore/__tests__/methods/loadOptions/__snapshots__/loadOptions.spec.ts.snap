@@ -307,3 +307,48 @@ exports[`eventOptionsOfObjects returns options for various option types 1`] = `
   },
 ]
 `;
+
+exports[`loadOptionsOfTaskKinds returns options for various task kinds 1`] = `
+[
+  {
+    "name": "111",
+    "value": "6524122fc77b5dae08bf0490",
+  },
+  {
+    "name": "Cargo transportation",
+    "value": "62ac50cc38f7500012f0dafb",
+  },
+  {
+    "name": "Medium repair",
+    "value": "63fc8ffad1a50100117536d6",
+  },
+  {
+    "name": "pre-release",
+    "value": "66f0a3c1d0dea42108a85e1a",
+  },
+  {
+    "name": "Small repair",
+    "value": "62ac513938f7500012f0dafd",
+  },
+  {
+    "name": "TEST TYPE",
+    "value": "672e0338b6bb10805deead30",
+  },
+  {
+    "name": "ворота",
+    "value": "694262e6cfed184554ce21e1",
+  },
+  {
+    "name": "Замена батареи",
+    "value": "65f06cd1cf4ff8aaded4d021",
+  },
+  {
+    "name": "йййййй",
+    "value": "678774b8ee7f2eacd83cf433",
+  },
+  {
+    "name": "тест1111",
+    "value": "688cc4e5dd28ee2c5c00f634",
+  },
+]
+`;

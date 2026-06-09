@@ -88,12 +88,14 @@ it('resourceMapper modes refer to included method names', () => {
 	}
 });
 
-it('multiOptions modes refer to included method names', () => {
+it('multiOptions modes refer to included method names or are static', () => {
 	const methods = Object.keys(new RightechIotCore().methods.loadOptions);
 	const nodes = new RightechIotCore().description.properties.filter(
 		(n) => n.type === 'multiOptions',
 	);
 	for (const node of nodes) {
-		expect(methods).toContain(node.typeOptions?.loadOptionsMethod);
+		if (!node.options?.length) {
+			expect(methods).toContain(node.typeOptions?.loadOptionsMethod);
+		}
 	}
 });
