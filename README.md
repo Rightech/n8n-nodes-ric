@@ -77,8 +77,10 @@ Users of the platform instance
 Maintenance tasks assignable to platform users. Tasks can have different kinds, statuses, and properties defined by kinds.
 Tasks expose temporary access to object commands for users in the related service app to enable maintenance scenarios.
 
-- [**Get a task**](https://rightech.io/ru/ric-service): Loads task information
-- [**Get multiple tasks**](https://rightech.io/ru/ric-service): Loads multiple tasks at once
+- [**Get a task**](https://rightech.io/en/ric-service-itro): Loads task information
+- [**Get multiple tasks**](https://rightech.io/en/ric-service): Loads multiple tasks at once
+- [**Create a task**](https://rightech.io/en/ric-service): Creates a new task
+- [**Update a task**](https://rightech.io/en/ric-service): Updates task parameters
 
 
 ## Credentials

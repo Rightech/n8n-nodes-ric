@@ -1,0 +1,26 @@
+[
+	{
+		"status": "assigned",
+		"kind": "62ac50cc38f7500012f0dafb",
+		"priority": 2,
+		"name": "Test task from n8n",
+		"description": "test",
+		"object": "626679b5daacc00012016e94",
+		"assignee": "62d8e2a7ce20cb001187b87b",
+		"deadlines": {
+			"inwork": 1781136000000
+		},
+		"createdBy": {
+			"id": "682dd754b0738b9392dffd7e",
+			"store": "users"
+		},
+		"archived": false,
+		"notification": false,
+		"expired": false,
+		"owner": "682dd754b0738b9392dffd7e",
+		"group": "62667930daacc00012016e92",
+		"time": 1781123344082,
+		"_id": "6a29c910688fc7f1a0cc4583",
+		"success": true
+	}
+]

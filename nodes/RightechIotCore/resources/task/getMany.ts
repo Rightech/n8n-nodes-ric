@@ -8,11 +8,11 @@ import type {
 import type { INodeParameterResourceLocator } from 'n8n-workflow/dist/esm/interfaces.js';
 import {
 	objectSelector,
-	ricUuidPropertyMode,
 	stdQueryParameters,
 	type stdQueryParametersType,
 } from '../../common/properties.js';
 import { httpCall } from '../../common/util.js';
+import { assigneeId, kind, priority, status } from './properties.js';
 
 const displayOptions = {
 	show: {
@@ -23,42 +23,23 @@ const displayOptions = {
 
 export const taskGetManyProperties: INodeProperties[] = [
 	{
-		displayName: 'Status',
-		name: 'status',
+		...status,
 		type: 'multiOptions',
-		hint: 'Search by current status',
-		default: [],
-		options: [
-			{
-				name: 'Open',
-				value: 'created',
-			},
-			{
-				name: 'Assigned',
-				value: 'assigned',
-			},
-			{
-				name: 'In Work',
-				value: 'inwork',
-			},
-			{
-				name: 'Completed',
-				value: 'closed',
-			},
-		],
 		displayOptions,
 	},
 	{
-		displayName: 'Task Kind Types',
-		name: 'kind',
+		...kind,
+		default: [],
+		displayName: 'Kind Names or IDs',
 		type: 'multiOptions',
 		description:
 			'Choose from the list, or specify IDs using an <a href="https://docs.n8n.io/code/expressions/">expression</a>',
-		hint: 'Search by task kinds',
+		displayOptions,
+	},
+	{
+		...priority,
 		default: [],
-		typeOptions: {
-			loadOptionsMethod: 'loadOptionsOfTaskKinds',
-		},
+		type: 'multiOptions',
 		displayOptions,
 	},
 	{
@@ -67,26 +48,23 @@ export const taskGetManyProperties: INodeProperties[] = [
 		displayOptions,
 	},
 	{
-		displayName: 'Assignee',
-		name: 'assigneeId',
-		type: 'resourceLocator',
-		default: {
-			mode: 'list',
-			value: '',
-		},
-		modes: [
+		...assigneeId,
+		displayOptions,
+	},
+	{
+		displayName: 'Optional Parameters',
+		name: 'optionalParameters',
+		type: 'collection',
+		placeholder: 'Add Parameter',
+		default: {},
+		options: [
 			{
-				displayName: 'From List',
-				name: 'list',
-				type: 'list',
-				placeholder: 'Select a user...',
-				typeOptions: {
-					searchListMethod: 'listUsers',
-					searchable: true,
-					searchFilterRequired: false,
-				},
+				displayName: 'Expired',
+				name: 'expired',
+				type: 'boolean',
+				hint: 'Tasks have reached their deadline',
+				default: false,
 			},
-			ricUuidPropertyMode,
 		],
 		displayOptions,
 	},
@@ -104,16 +82,24 @@ export async function getMany(
 		'stdQueryParameters',
 		index,
 	) as stdQueryParametersType;
+	const priority = exec.getNodeParameter('priority', index) as number[];
 	const status = exec.getNodeParameter('status', index) as string[];
 	const kind = exec.getNodeParameter('kind', index) as string[];
 	const assigneeId = exec.getNodeParameter('assigneeId', index) as INodeParameterResourceLocator;
 	const objectId = exec.getNodeParameter('objectId', index) as INodeParameterResourceLocator;
+	const optionalParameters = exec.getNodeParameter('optionalParameters', index) as {
+		expired?: boolean;
+	};
 	const qs: IDataObject = {
 		...stdQueryParameters,
 		'where.status': status.length ? status.join(',') : undefined,
+		'where.priority': priority.length ? priority.join(',') : undefined,
 		'where.kind': kind.length ? kind.join(',') : undefined,
 		'where.assignee': assigneeId.value ? assigneeId.value : undefined,
 		'where.object': objectId.value ? objectId.value : undefined,
+		'where.archived': 'false', // by default users want unarchived tasks
+		'where.expired':
+			optionalParameters.expired === undefined ? undefined : optionalParameters.expired,
 	};
 	const request: IHttpRequestOptions = {
 		method: 'GET',

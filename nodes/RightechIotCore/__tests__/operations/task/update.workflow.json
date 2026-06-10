@@ -1,0 +1,116 @@
+{
+  "name": "test.workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        -64
+      ],
+      "id": "d511ccb3-fc00-4155-b7da-6e6da5439af5",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "task",
+        "taskId": {
+          "__rl": true,
+          "value": "6a29c910688fc7f1a0cc4583",
+          "mode": "list",
+          "cachedResultName": "Test task from n8n"
+        }
+      },
+      "type": "CUSTOM.rightechIotCore",
+      "typeVersion": 1,
+      "position": [
+        -272,
+        -64
+      ],
+      "id": "84e127b5-50ee-4eea-8b8a-22c08e95fba3",
+      "name": "Get a task",
+      "credentials": {
+        "rightechIotCoreApi": {
+          "id": "Gl4395rs85y4BbdU",
+          "name": "all access"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "task",
+        "operation": "update",
+        "taskId": {
+          "__rl": true,
+          "value": "={{ $json._id }}",
+          "mode": "id"
+        },
+        "fields": {
+          "priority": 3,
+          "status": "inwork",
+          "name": "={{ $json.name }} - updated",
+          "description": "changed",
+          "assigneeId": {
+            "__rl": true,
+            "value": "62d8ead5ce20cb001187b8c2",
+            "mode": "list",
+            "cachedResultName": "Максим Журавлев"
+          },
+          "deadline": ""
+        }
+      },
+      "type": "CUSTOM.rightechIotCore",
+      "typeVersion": 1,
+      "position": [
+        -48,
+        -64
+      ],
+      "id": "80c8b691-0b8d-4f1b-8021-ebf81dfaa4e1",
+      "name": "Update a task",
+      "credentials": {
+        "rightechIotCoreApi": {
+          "id": "Gl4395rs85y4BbdU",
+          "name": "all access"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get a task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a task": {
+      "main": [
+        [
+          {
+            "node": "Update a task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "09615659-fe05-49b5-9295-121cbe039cec",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6529141020368fa1fbca96461299f338a2b92db189547affb007361f7fc9a2b9"
+  },
+  "id": "Bvr0wnVBHPkHDIZd",
+  "tags": []
+}

@@ -6,6 +6,7 @@ import { listRows } from '../../../methods/listRows.js';
 import { listScenarios } from '../../../methods/listScenarios.js';
 import { listTables } from '../../../methods/listTables.js';
 import { listTaskKinds } from '../../../methods/listTaskKinds.js';
+import { listTasks } from '../../../methods/listTasks.js';
 import { listUsers } from '../../../methods/listUsers.js';
 import { expectScopeDone, setupNock } from '../../helpers/nock.js';
 import { loadOptions } from '../../helpers/Workflow.js';
@@ -121,4 +122,14 @@ it('listTaskKinds search by name', async () => {
 	options.results.forEach((item) => {
 		expect(item.name).toMatch(/repair/i);
 	});
+});
+
+it('listTasks search by name', async () => {
+	const scope = setupNock()
+		.get(`/api/v1/tasks?only=_id,name&where.archived=false`)
+		.reply(200, (await import('./api.v1.tasks.subset.json')).default);
+	const options = await listTasks.call(loadOptions(await import('./listObjects.workflow.json')));
+	expectScopeDone(scope);
+	expect(options.paginationToken).toBeUndefined();
+	expect(options).toMatchSnapshot();
 });

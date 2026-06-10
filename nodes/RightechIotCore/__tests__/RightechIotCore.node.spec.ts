@@ -101,9 +101,7 @@ it('multiOptions modes refer to included method names or are static', () => {
 });
 
 it('collection properties cannot use `required` or nest further', () => {
-	const nodes = new RightechIotCore().description.properties.filter(
-		(n) => n.type === 'collection',
-	);
+	const nodes = new RightechIotCore().description.properties.filter((n) => n.type === 'collection');
 	for (const node of nodes) {
 		// collection.options are a subset of INodeProperties[]
 		const options = (node.options ?? []) as INodeProperties[];

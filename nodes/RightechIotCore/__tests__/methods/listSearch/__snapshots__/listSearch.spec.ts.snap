@@ -291,6 +291,110 @@ exports[`listTables 1`] = `
 }
 `;
 
+exports[`listTasks search by name 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [
+    {
+      "name": "Обход No. 1",
+      "value": "63fdeb25d1a5010011753d11",
+    },
+    {
+      "name": "Cargo transportation 50",
+      "value": "64e62dea1c1ad8e7ffebb01d",
+    },
+    {
+      "name": "eeee",
+      "value": "65bfc0472aeba14588e5da5b",
+    },
+    {
+      "name": "Cargo transportation 11",
+      "value": "667a7d04427ff62204c11f22",
+    },
+    {
+      "name": "Small repair 01",
+      "value": "66acd3973d4cc9e17264483b",
+    },
+    {
+      "name": "Small repair 03",
+      "value": "66acfc2e3d4cc9e172644847",
+    },
+    {
+      "name": "Small repair 04",
+      "value": "66acfc753d4cc9e172644849",
+    },
+    {
+      "name": "Test",
+      "value": "66b0adb03d4cc9e1726448b8",
+    },
+    {
+      "name": "2024-09-04",
+      "value": "66d859e5e3eafc67b580a5d2",
+    },
+    {
+      "name": "Лампочка ТЕСТ ТАНЯ",
+      "value": "6712375914034d397ea8d5ff",
+    },
+    {
+      "name": "AAA",
+      "value": "671f4d47e0236b699a85dd6b",
+    },
+    {
+      "name": "Заменить масло через 3 км",
+      "value": "672bcc0acb60ba5bff78438e",
+    },
+    {
+      "name": "Пришить оторванную пуговицу",
+      "value": "672c5eebcb60ba5bff784394",
+    },
+    {
+      "name": "TEST TYPE 26",
+      "value": "672e03b6b6bb10805deead31",
+    },
+    {
+      "name": "Small repair 21",
+      "value": "68189f6a3a11b7d7108266c4",
+    },
+    {
+      "name": "Small repair 22",
+      "value": "68189fa53a11b7d7108266c5",
+    },
+    {
+      "name": "Medium repair 23",
+      "value": "68199abf3a11b7d7108266d3",
+    },
+    {
+      "name": "Поменять батарею срочнооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооо",
+      "value": "6819d3203a11b7d7108266d7",
+    },
+    {
+      "name": "Cargo transportation 25",
+      "value": "682233a75971a584395eeac8",
+    },
+    {
+      "name": "Замена батареи 27",
+      "value": "6822e6855971a584395eeacc",
+    },
+    {
+      "name": "Cargo transportation 28",
+      "value": "6844b008bef4c29bb6d3be9b",
+    },
+    {
+      "name": "тест1111 26",
+      "value": "688cc502dd28ee2c5c00f635",
+    },
+    {
+      "name": "TEST111",
+      "value": "69300c8744aa13703cde5a68",
+    },
+    {
+      "name": "Закрыть ворота",
+      "value": "69426308cfed184554ce21e2",
+    },
+  ],
+}
+`;
+
 exports[`listUsers - by text 1`] = `
 {
   "paginationToken": undefined,

@@ -5,33 +5,13 @@ import type {
 	INodeProperties,
 } from 'n8n-workflow';
 import type { INodeParameterResourceLocator } from 'n8n-workflow/dist/esm/interfaces.js';
-import { ricUuidPropertyMode } from '../../common/properties.js';
 import { httpCall } from '../../common/util.js';
+import { taskId } from './properties.js';
 
 export const taskGetProperties: INodeProperties[] = [
 	{
-		displayName: 'Task',
-		name: 'taskId',
+		...taskId,
 		required: true,
-		type: 'resourceLocator',
-		default: {
-			mode: 'list',
-			value: '',
-		},
-		modes: [
-			{
-				displayName: 'From List',
-				name: 'list',
-				type: 'list',
-				placeholder: 'Select a task...',
-				typeOptions: {
-					searchListMethod: 'listTasks',
-					searchable: true,
-					searchFilterRequired: false,
-				},
-			},
-			ricUuidPropertyMode,
-		],
 		displayOptions: {
 			show: {
 				resource: ['task'],
