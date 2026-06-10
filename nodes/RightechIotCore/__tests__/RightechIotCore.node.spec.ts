@@ -1,4 +1,4 @@
-import type { INodePropertyOptions } from 'n8n-workflow';
+import type { INodeProperties, INodePropertyOptions } from 'n8n-workflow';
 import { expect, it } from 'vitest';
 import { RightechIotCore } from '../RightechIotCore.node.js';
 
@@ -96,6 +96,20 @@ it('multiOptions modes refer to included method names or are static', () => {
 	for (const node of nodes) {
 		if (!node.options?.length) {
 			expect(methods).toContain(node.typeOptions?.loadOptionsMethod);
+		}
+	}
+});
+
+it('collection properties cannot use `required` or nest further', () => {
+	const nodes = new RightechIotCore().description.properties.filter(
+		(n) => n.type === 'collection',
+	);
+	for (const node of nodes) {
+		// collection.options are a subset of INodeProperties[]
+		const options = (node.options ?? []) as INodeProperties[];
+		for (const option of options) {
+			expect(option.type).not.toEqual('collection');
+			expect(option.required).toBeUndefined();
 		}
 	}
 });
