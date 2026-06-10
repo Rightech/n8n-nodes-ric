@@ -1,6 +1,58 @@
 import type { INodeProperties, INodePropertyOptions } from 'n8n-workflow';
 import { expect, it } from 'vitest';
 import { RightechIotCore } from '../RightechIotCore.node.js';
+import { expectScopeDone, setupNock } from './helpers/nock.js';
+import { completeRunData, runWorkflowParameters } from './helpers/Workflow.js';
+
+it('Common error handler returns augmented NodeApiError', async () => {
+	const scope = setupNock()
+		.get(`/api/v1/objects/ffffffffffffffffffffffff`)
+		.reply(404, {
+			"success": false,
+			"name": "RicError",
+			"code": "404",
+			"message": "Not Found",
+			"tags": [
+				"error_not_found",
+				"error_objects"
+			],
+			"codes": [
+				"error_not_found",
+				"error_objects"
+			]
+		})
+		.get(`/api/v1/objects/ffffffffffffffffffffffff`)
+		.reply(404, {
+			"success": false,
+			"name": "RicError",
+			"code": "404",
+			"message": "Not Found",
+			"tags": [
+				"error_not_found",
+				"error_objects"
+			],
+			"codes": [
+				"error_not_found",
+				"error_objects"
+			]
+		});
+	const runFail = await runWorkflowParameters(await import('./object.get.404.fail.workflow.json'));
+	expect(runFail.status).toBe('error');
+	expect(runFail.data.resultData.error).toMatchObject({
+		message: 'The resource you are requesting could not be found',
+		messages: ['The resource you are requesting could not be found [item 0]'],
+	});
+
+	const runContinue = await runWorkflowParameters(await import('./object.get.404.continue.workflow.json'));
+	expectScopeDone(scope);
+	expect(runContinue.status).toBe('success');
+	expect(completeRunData(runContinue)[0]).toMatchObject({
+		error: {
+			message: 'The resource you are requesting could not be found',
+			messages: ['The resource you are requesting could not be found [item 0]'],
+		}
+	});
+});
 
 it('All node properties declare visibility', () => {
 	const nodes = new RightechIotCore().description.properties;

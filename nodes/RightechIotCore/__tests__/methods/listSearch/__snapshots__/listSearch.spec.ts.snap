@@ -7,6 +7,20 @@ exports[`listCommands 1`] = `
 }
 `;
 
+exports[`listCommands all 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [],
+}
+`;
+
+exports[`listCommands filtered 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [],
+}
+`;
+
 exports[`listModels 1`] = `
 {
   "paginationToken": undefined,

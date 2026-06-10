@@ -6,5 +6,10 @@ export default defineConfig({
 		expect: {
 			requireAssertions: true,
 		},
+		coverage: {
+			provider: 'v8',
+			include: ['nodes/**/*.{ts,tsx}', 'credentials/**/*.{ts,tsx}'],
+			exclude: ['**/__tests__/**']
+		},
 	},
 });

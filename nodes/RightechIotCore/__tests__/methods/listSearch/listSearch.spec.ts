@@ -11,7 +11,14 @@ import { listUsers } from '../../../methods/listUsers.js';
 import { expectScopeDone, setupNock } from '../../helpers/nock.js';
 import { loadOptions } from '../../helpers/Workflow.js';
 
-it('listCommands', async () => {
+it('listCommands default', async () => {
+	const options = await listCommands.call(
+		loadOptions(await import('./listCommands.default.workflow.json')),
+	);
+	expect(options).toEqual({ results: [] });
+});
+
+it('listCommands empty', async () => {
 	const scope = setupNock()
 		.get(`/api/v1/objects/69ffff033463098bf7d49699/model?only=model`)
 		.reply(200, await import('./api.v1.objects.69ffff033463098bf7d49699.model.json'));
@@ -19,7 +26,48 @@ it('listCommands', async () => {
 		loadOptions(await import('./listCommands.workflow.json')),
 	);
 	expectScopeDone(scope);
-	expect(options).toMatchSnapshot();
+	expect(options).toEqual({ results: [] });
+});
+
+it('listCommands all', async () => {
+	const scope = setupNock()
+		.get(`/api/v1/objects/69ffff033463098bf7d49699/model?only=model`)
+		.reply(200, await import('./api.v1.objects.69f1e84c62c70f5e7252625c.model.json'));
+	const options = await listCommands.call(
+		loadOptions(await import('./listCommands.workflow.json')),
+	);
+	expectScopeDone(scope);
+	expect(options).toEqual({
+		results: [
+			{
+				name: "Turn-on LED",
+				value: "led-on",
+			},
+			{
+				name: "Turn-off LED",
+				value: "led-off",
+			},
+		],
+	});
+});
+
+it('listCommands filtered', async () => {
+	const scope = setupNock()
+		.get(`/api/v1/objects/69ffff033463098bf7d49699/model?only=model`)
+		.reply(200, await import('./api.v1.objects.69f1e84c62c70f5e7252625c.model.json'));
+	const options = await listCommands.call(
+		loadOptions(await import('./listCommands.workflow.json')),
+		'off'
+	);
+	expectScopeDone(scope);
+	expect(options).toEqual({
+		results: [
+			{
+				name: "Turn-off LED",
+				value: "led-off",
+			},
+		],
+	});
 });
 
 it('listModels', async () => {

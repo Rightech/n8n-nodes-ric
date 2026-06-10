@@ -18,5 +18,5 @@ export function setupNock(): Scope {
 }
 
 export function expectScopeDone(scope: Scope): void {
-	scope.isDone() || expect.fail(`API scenario is incomplete: ${scope.pendingMocks()[0]}`);
+	expect(scope.isDone(), `API scenario is incomplete: ${scope.pendingMocks()[0]}`).toEqual(true);
 }
