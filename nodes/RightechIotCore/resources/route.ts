@@ -12,7 +12,7 @@ import { table } from './table/index.js';
 import { task } from './task/index.js';
 import { user } from './user/index.js';
 
-const handlers: Record<string, Record<string, handlerFn>> = {
+export const handlers: Record<string, Record<string, handlerFn>> = {
 	object,
 	model,
 	scenario,

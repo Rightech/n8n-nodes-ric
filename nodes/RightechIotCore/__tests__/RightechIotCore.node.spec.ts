@@ -1,6 +1,7 @@
 import type { INodeProperties, INodePropertyOptions } from 'n8n-workflow';
 import { expect, it } from 'vitest';
 import { RightechIotCore } from '../RightechIotCore.node.js';
+import { handlers } from '../resources/route.js';
 import { expectScopeDone, setupNock } from './helpers/nock.js';
 import { completeRunData, runWorkflowParameters } from './helpers/Workflow.js';
 
@@ -105,6 +106,25 @@ it('All parameters correspond to defined operations', () => {
 				resources[byResource]?.includes(byOperation),
 				`Property ${node.name} is shown for operation "${byResource}/${byOperation}" which is not declared`,
 			).toBe(true);
+		}
+	}
+});
+
+it('All operations have corresponding handlers', () => {
+	// ideally I would want to have operations refer to constants, but then n8n linter won't be able to parse the node correctly
+	const nodes = new RightechIotCore().description.properties;
+	for (const node of nodes) {
+		if (node.name === 'operation') {
+			const resource = node.displayOptions?.show?.resource?.[0] as string;
+			for (const operation of (node.options as INodePropertyOptions[]).map(
+				(o) => o.value as string,
+			)) {
+				expect(
+					handlers[resource][operation]?.name,
+					`Cannot find handler for ${resource}/${operation}`,
+				).toEqual(operation);
+				expect(handlers[resource][operation]).toBeDefined();
+			}
 		}
 	}
 });
