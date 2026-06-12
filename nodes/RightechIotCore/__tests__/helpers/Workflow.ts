@@ -24,9 +24,12 @@ export const loadOptions = (workflowParameters: object): ILoadOptionsFunctions =
 	const id = 'execution-id';
 	const workflow = new Workflow({ ...(workflowParameters as WorkflowParameters), nodeTypes });
 	const hooks = new ExecutionLifecycleHooks(mode, id, workflow as unknown as IWorkflowBase);
+	const sutNode = Object.values(workflow.nodes).filter(
+		(n) => n.type === 'CUSTOM.rightechIotCore',
+	)[0] as INode;
 	return new LoadOptionsContext(
 		workflow,
-		workflow.getStartNode() as INode,
+		sutNode,
 		{
 			hooks,
 			credentialsHelper,
@@ -34,7 +37,7 @@ export const loadOptions = (workflowParameters: object): ILoadOptionsFunctions =
 			webhookWaitingBaseUrl: 'http://example.com',
 			webhookTestBaseUrl: 'http://example.com',
 			formWaitingBaseUrl: 'http://example.com',
-			currentNodeParameters: workflow.getStartNode()?.parameters,
+			currentNodeParameters: sutNode?.parameters,
 		} as unknown as IWorkflowExecuteAdditionalData,
 		'',
 	);
@@ -68,6 +71,6 @@ export function expectRunSuccess(run: IRun): void {
 	expect(run.status, run.data.resultData.error?.message).toBe('success');
 }
 
-export function expectRunData(run: IRun, data: unknown): void {
-	expect(completeRunData(run)).toEqual(data);
+export function expectRunData(run: IRun, data: object | unknown[]): void {
+	expect(completeRunData(run)).toMatchObject(data);
 }

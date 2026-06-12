@@ -50,7 +50,7 @@ export async function getMany(
 	};
 	const request: IHttpRequestOptions = {
 		method: 'GET',
-		url: `/api/v1/users?only=_id,role,group,name,login,email,phone`,
+		url: `/api/v1/users`,
 		headers: {
 			Accept: 'application/json',
 		},

@@ -1,0 +1,21 @@
+[
+	{
+		"_id": "6a2c8659e7f163fb71bd0f2b",
+		"role": "5c5061c11af9ac1100e8d55f",
+		"name": "ZXCZXCZXC",
+		"email": "zxczxczxc@gmail.com",
+		"login": "zxczxczxc@gmail.com",
+		"temp": false,
+		"access": [
+			"6a2c8659e7f163fb71bd0f2b"
+		],
+		"rights": 1.5,
+		"messages": true,
+		"owner": "682dd754b0738b9392dffd7e",
+		"group": "62667930daacc00012016e92",
+		"time": 1781302873439,
+		"_at": 1781302934135,
+		"phone": "+1234567890",
+		"success": true
+	}
+]

@@ -7,6 +7,7 @@ export default [
             '**/node_modules/**',
             '**/dist/**',
             '**/__tests__/**',
+            '**/coverage/**',
             'vitest.config.ts',
         ],
     },

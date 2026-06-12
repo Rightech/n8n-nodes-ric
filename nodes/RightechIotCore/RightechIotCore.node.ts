@@ -13,6 +13,7 @@ import { eventOptionsOfObjects } from './methods/eventOptionsOfObjects.js';
 import { listCommands } from './methods/listCommands.js';
 import { listModels } from './methods/listModels.js';
 import { listObjects } from './methods/listObjects.js';
+import { listRoles } from './methods/listRoles.js';
 import { listRows } from './methods/listRows.js';
 import { listScenarios } from './methods/listScenarios.js';
 import { listTables } from './methods/listTables.js';
@@ -121,6 +122,7 @@ export class RightechIotCore implements INodeType {
 			listUsers,
 			listTaskKinds,
 			listTasks,
+			listRoles,
 		},
 		resourceMapping: {
 			mapTableRowQuery,

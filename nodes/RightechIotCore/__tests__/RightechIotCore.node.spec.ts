@@ -8,33 +8,21 @@ it('Common error handler returns augmented NodeApiError', async () => {
 	const scope = setupNock()
 		.get(`/api/v1/objects/ffffffffffffffffffffffff`)
 		.reply(404, {
-			"success": false,
-			"name": "RicError",
-			"code": "404",
-			"message": "Not Found",
-			"tags": [
-				"error_not_found",
-				"error_objects"
-			],
-			"codes": [
-				"error_not_found",
-				"error_objects"
-			]
+			success: false,
+			name: 'RicError',
+			code: '404',
+			message: 'Not Found',
+			tags: ['error_not_found', 'error_objects'],
+			codes: ['error_not_found', 'error_objects'],
 		})
 		.get(`/api/v1/objects/ffffffffffffffffffffffff`)
 		.reply(404, {
-			"success": false,
-			"name": "RicError",
-			"code": "404",
-			"message": "Not Found",
-			"tags": [
-				"error_not_found",
-				"error_objects"
-			],
-			"codes": [
-				"error_not_found",
-				"error_objects"
-			]
+			success: false,
+			name: 'RicError',
+			code: '404',
+			message: 'Not Found',
+			tags: ['error_not_found', 'error_objects'],
+			codes: ['error_not_found', 'error_objects'],
 		});
 	const runFail = await runWorkflowParameters(await import('./object.get.404.fail.workflow.json'));
 	expect(runFail.status).toBe('error');
@@ -43,14 +31,16 @@ it('Common error handler returns augmented NodeApiError', async () => {
 		messages: ['The resource you are requesting could not be found [item 0]'],
 	});
 
-	const runContinue = await runWorkflowParameters(await import('./object.get.404.continue.workflow.json'));
+	const runContinue = await runWorkflowParameters(
+		await import('./object.get.404.continue.workflow.json'),
+	);
 	expectScopeDone(scope);
 	expect(runContinue.status).toBe('success');
 	expect(completeRunData(runContinue)[0]).toMatchObject({
 		error: {
 			message: 'The resource you are requesting could not be found',
 			messages: ['The resource you are requesting could not be found [item 0]'],
-		}
+		},
 	});
 });
 

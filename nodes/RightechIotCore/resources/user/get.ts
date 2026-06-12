@@ -5,33 +5,13 @@ import type {
 	INodeProperties,
 } from 'n8n-workflow';
 import type { INodeParameterResourceLocator } from 'n8n-workflow/dist/esm/interfaces.js';
-import { ricUuidPropertyMode } from '../../common/properties.js';
 import { httpCall } from '../../common/util.js';
+import { userId } from './parameters.js';
 
 export const userGetProperties: INodeProperties[] = [
 	{
-		displayName: 'User',
-		name: 'userId',
+		...userId,
 		required: true,
-		type: 'resourceLocator',
-		default: {
-			mode: 'list',
-			value: '',
-		},
-		modes: [
-			{
-				displayName: 'From List',
-				name: 'list',
-				type: 'list',
-				placeholder: 'Select a user...',
-				typeOptions: {
-					searchListMethod: 'listUsers',
-					searchable: true,
-					searchFilterRequired: false,
-				},
-			},
-			ricUuidPropertyMode,
-		],
 		displayOptions: {
 			show: {
 				resource: ['user'],
@@ -45,7 +25,7 @@ export async function get(exec: IExecuteFunctions, index: number): Promise<INode
 	const userId = exec.getNodeParameter('userId', index) as INodeParameterResourceLocator;
 	const responseData = (await httpCall(exec, {
 		method: 'GET',
-		url: `/api/v1/users/${userId.value}?only=_id,role,group,name,login,email,phone`,
+		url: `/api/v1/users/${userId.value}`,
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',

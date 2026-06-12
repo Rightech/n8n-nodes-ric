@@ -69,18 +69,20 @@ Event log stores all occurred events
 
 Users of the platform instance
 
-- [**Get a user**](https://rightech.io/en/developers/projects/admin): Loads general user information
-- [**Get multiple users**](https://rightech.io/en/developers/projects/admin): Loads general information for multiple users at once
+- [**Get a user**](https://rightech.io/en/developers/projects/admin): Loads platform user information
+- [**Get multiple users**](https://rightech.io/en/developers/projects/admin): Loads multiple platform users at once
+- [**Create a user**](https://rightech.io/en/developers/projects/admin): Creates a new platform user
+- [**Update a user**](https://rightech.io/en/developers/projects/admin): Updates an existing platform user
 
 ### Tasks
 
 Maintenance tasks assignable to platform users. Tasks can have different kinds, statuses, and properties defined by kinds.
 Tasks expose temporary access to object commands for users in the related service app to enable maintenance scenarios.
 
-- [**Get a task**](https://rightech.io/en/ric-service-itro): Loads task information
-- [**Get multiple tasks**](https://rightech.io/en/ric-service): Loads multiple tasks at once
-- [**Create a task**](https://rightech.io/en/ric-service): Creates a new task
-- [**Update a task**](https://rightech.io/en/ric-service): Updates task parameters
+- [**Get a task**](https://portal.staging.rightech.io/en/developers/tasks): Loads task information
+- [**Get multiple tasks**](https://portal.staging.rightech.io/en/developers/tasks): Loads multiple tasks at once
+- [**Create a task**](https://portal.staging.rightech.io/en/developers/tasks): Creates a new task
+- [**Update a task**](https://portal.staging.rightech.io/en/developers/tasks): Updates task parameters
 
 
 ## Credentials

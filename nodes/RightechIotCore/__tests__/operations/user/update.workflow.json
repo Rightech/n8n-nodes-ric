@@ -1,0 +1,114 @@
+{
+  "name": "test.workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        -64
+      ],
+      "id": "d511ccb3-fc00-4155-b7da-6e6da5439af5",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "user",
+        "userId": {
+          "__rl": true,
+          "value": "6a2c8659e7f163fb71bd0f2b",
+          "mode": "list",
+          "cachedResultName": "ZXCZXCZXC"
+        }
+      },
+      "type": "CUSTOM.rightechIotCore",
+      "typeVersion": 1,
+      "position": [
+        -272,
+        -64
+      ],
+      "id": "84e127b5-50ee-4eea-8b8a-22c08e95fba3",
+      "name": "Get a user",
+      "credentials": {
+        "rightechIotCoreApi": {
+          "id": "Gl4395rs85y4BbdU",
+          "name": "all access"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "user",
+        "operation": "update",
+        "userId": {
+          "__rl": true,
+          "value": "6a2c8659e7f163fb71bd0f2b",
+          "mode": "list",
+          "cachedResultName": "ZXCZXCZXC"
+        },
+        "fields": {
+          "roleId": {
+            "mode": "list",
+            "value": ""
+          },
+          "phone": "+1234567890",
+          "temp": false
+        }
+      },
+      "type": "CUSTOM.rightechIotCore",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        -64
+      ],
+      "id": "bc93549c-2202-4b51-bdfc-2a84be68cdee",
+      "name": "Updates user information",
+      "credentials": {
+        "rightechIotCoreApi": {
+          "id": "Gl4395rs85y4BbdU",
+          "name": "all access"
+        }
+      },
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get a user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a user": {
+      "main": [
+        [
+          {
+            "node": "Updates user information",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "55658e6f-d0fd-44a2-97f2-838cf433723f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6529141020368fa1fbca96461299f338a2b92db189547affb007361f7fc9a2b9"
+  },
+  "id": "Bvr0wnVBHPkHDIZd",
+  "tags": []
+}

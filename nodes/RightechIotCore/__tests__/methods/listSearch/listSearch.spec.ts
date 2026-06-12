@@ -2,6 +2,7 @@ import { expect, it } from 'vitest';
 import { listCommands } from '../../../methods/listCommands.js';
 import { listModels } from '../../../methods/listModels.js';
 import { listObjects } from '../../../methods/listObjects.js';
+import { listRoles } from '../../../methods/listRoles.js';
 import { listRows } from '../../../methods/listRows.js';
 import { listScenarios } from '../../../methods/listScenarios.js';
 import { listTables } from '../../../methods/listTables.js';
@@ -40,12 +41,12 @@ it('listCommands all', async () => {
 	expect(options).toEqual({
 		results: [
 			{
-				name: "Turn-on LED",
-				value: "led-on",
+				name: 'Turn-on LED',
+				value: 'led-on',
 			},
 			{
-				name: "Turn-off LED",
-				value: "led-off",
+				name: 'Turn-off LED',
+				value: 'led-off',
 			},
 		],
 	});
@@ -57,14 +58,14 @@ it('listCommands filtered', async () => {
 		.reply(200, await import('./api.v1.objects.69f1e84c62c70f5e7252625c.model.json'));
 	const options = await listCommands.call(
 		loadOptions(await import('./listCommands.workflow.json')),
-		'off'
+		'off',
 	);
 	expectScopeDone(scope);
 	expect(options).toEqual({
 		results: [
 			{
-				name: "Turn-off LED",
-				value: "led-off",
+				name: 'Turn-off LED',
+				value: 'led-off',
 			},
 		],
 	});
@@ -177,6 +178,16 @@ it('listTasks search by name', async () => {
 		.get(`/api/v1/tasks?only=_id,name&where.archived=false`)
 		.reply(200, (await import('./api.v1.tasks.subset.json')).default);
 	const options = await listTasks.call(loadOptions(await import('./listObjects.workflow.json')));
+	expectScopeDone(scope);
+	expect(options.paginationToken).toBeUndefined();
+	expect(options).toMatchSnapshot();
+});
+
+it('listRoles', async () => {
+	const scope = setupNock()
+		.get(`/api/v1/roles?only=_id,name`)
+		.reply(200, (await import('./api.v1.roles.subset.json')).default);
+	const options = await listRoles.call(loadOptions(await import('./listRoles.workflow.json')));
 	expectScopeDone(scope);
 	expect(options.paginationToken).toBeUndefined();
 	expect(options).toMatchSnapshot();

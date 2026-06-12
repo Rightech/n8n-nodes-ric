@@ -117,6 +117,126 @@ exports[`listObjects 1`] = `
 }
 `;
 
+exports[`listRoles 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [
+    {
+      "name": "[rightcar] base role",
+      "value": "5c5061c11af9ac1100e8d55f",
+    },
+    {
+      "name": "[rightech] signup",
+      "value": "5cc89f6af79a4969291dcbd7",
+    },
+    {
+      "name": "[demo] digital staff",
+      "value": "615c5a1cc8c3d6001115ad68",
+    },
+    {
+      "name": "Admin",
+      "value": "6267af23daacc000120170f1",
+    },
+    {
+      "name": "Starter Kit Role Admin",
+      "value": "67c5ab82bd30e23a717d30d0",
+    },
+    {
+      "name": "Starter Kit Role Admin USER",
+      "value": "67c83e1e2cd3dae2a66c1ef9",
+    },
+    {
+      "name": "Starter Kit Role Admin OPERATOR",
+      "value": "67c83e6e2cd3dae2a66c1efa",
+    },
+    {
+      "name": "Operator_Copy1",
+      "value": "67dad27785e80296df8f582c",
+    },
+    {
+      "name": "Админ Дефолт",
+      "value": "67e4fb3474d85648c3e93da3",
+    },
+    {
+      "name": "qqqq",
+      "value": "67e627ab2acd2c9f8551637d",
+    },
+    {
+      "name": "qqqqq",
+      "value": "67e627b32acd2c9f8551637e",
+    },
+    {
+      "name": "qqqqq",
+      "value": "67e627bc2acd2c9f8551637f",
+    },
+    {
+      "name": "qqqqqqq",
+      "value": "67e627c22acd2c9f85516380",
+    },
+    {
+      "name": "qqqqqqqqqqqqqq",
+      "value": "67e627c72acd2c9f85516381",
+    },
+    {
+      "name": "qqqqqqqqqqqqqq (копия)",
+      "value": "67e6289f2acd2c9f85516382",
+    },
+    {
+      "name": "Оператор Дефолт",
+      "value": "67e655f02acd2c9f8551638d",
+    },
+    {
+      "name": "Админ Дефолт (копия)",
+      "value": "67f3ca088d46ab353077bbc5",
+    },
+    {
+      "name": "[rightech] signup (копия)",
+      "value": "67f3cac08d46ab353077bbc6",
+    },
+    {
+      "name": "Админ Дефолт (копия 2",
+      "value": "67f7b25dd37fad5d5b491cd2",
+    },
+    {
+      "name": "Стартер кит копия оператор",
+      "value": "67f7b76fd37fad5d5b491cd4",
+    },
+    {
+      "name": "Starter Kit Role Admin (копия)",
+      "value": "67f7beb4d37fad5d5b491cd5",
+    },
+    {
+      "name": "Starter Kit Role Admin (копия) (копия)",
+      "value": "67f7bec5d37fad5d5b491cd6",
+    },
+    {
+      "name": "qqqqqqqqqqqqqq (копия) (копия)выпеавыраыраывравыравравраврвараврав",
+      "value": "686cdb9ba1e32a873185ef2f",
+    },
+    {
+      "name": "[public] Commercial base",
+      "value": "6888d3d0add7aa8811a6e370",
+    },
+    {
+      "name": "[public] DIY",
+      "value": "6888d3e9add7aa8811a6e372",
+    },
+    {
+      "name": "[public] student",
+      "value": "6888d3f5add7aa8811a6e373",
+    },
+    {
+      "name": "[public] Commercial pro",
+      "value": "6888d5e1add7aa8811a6e376",
+    },
+    {
+      "name": "фывфыв",
+      "value": "69fdce813463098bf7d495f0",
+    },
+  ],
+}
+`;
+
 exports[`listRows 1`] = `
 {
   "paginationToken": undefined,

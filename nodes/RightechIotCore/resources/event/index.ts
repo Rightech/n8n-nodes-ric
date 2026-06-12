@@ -20,7 +20,6 @@ export const eventApiProperties: INodeProperties[] = [
 				name: 'Get Many',
 				value: 'getMany',
 				action: 'Get multiple events',
-				// todo: better docs about event streams
 				description:
 					'Get filtered events from the global event stream. More at https://rightech.io/en/developers/handlers/create#generate-event.',
 			},
