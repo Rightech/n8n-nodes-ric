@@ -37,5 +37,6 @@ jobs:
       - name: Run n8n plugin build
         run: npm run build
 
+      # todo: --reporter=github-actions sometimes eats logs
       - name: Run tests
-        run: npx vitest run --reporter=github-actions
+        run: npx vitest run --reporter=default --reporter=github-actions

@@ -1,26 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`listCommands 1`] = `
-{
-  "paginationToken": undefined,
-  "results": [],
-}
-`;
-
-exports[`listCommands all 1`] = `
-{
-  "paginationToken": undefined,
-  "results": [],
-}
-`;
-
-exports[`listCommands filtered 1`] = `
-{
-  "paginationToken": undefined,
-  "results": [],
-}
-`;
-
 exports[`listModels 1`] = `
 {
   "paginationToken": undefined,

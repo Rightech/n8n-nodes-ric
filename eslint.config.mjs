@@ -9,6 +9,7 @@ export default [
             '**/__tests__/**',
             '**/coverage/**',
             'vitest.config.ts',
+            'vitest.setup.ts',
         ],
     },
 ];

@@ -3,6 +3,7 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
 	test: {
 		tsconfig: './tsconfig.test.json',
+		globalSetup: ['./vitest.setup.ts'],
 		expect: {
 			requireAssertions: true,
 		},

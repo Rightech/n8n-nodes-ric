@@ -76,7 +76,6 @@ export async function update(
 		assignee: fields.assigneeId?.value,
 		deadlines: fields.deadline ? { inwork: new Date(fields.deadline).getTime() } : { inwork: null },
 	};
-	exec.logger.info(JSON.stringify(body));
 	const responseData = (await httpCall(exec, {
 		method: 'PATCH',
 		url: `/api/v1/tasks/${taskId}`,
