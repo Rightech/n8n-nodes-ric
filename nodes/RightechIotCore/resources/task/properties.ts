@@ -45,15 +45,15 @@ export const priority: INodeProperties = {
 	default: 3,
 	options: [
 		{
-			name: '🔴 High',
+			name: 'High',
 			value: 1,
 		},
 		{
-			name: '🟡 Medium',
+			name: 'Medium',
 			value: 2,
 		},
 		{
-			name: '🟢 Low',
+			name: 'Low',
 			value: 3,
 		},
 	],
