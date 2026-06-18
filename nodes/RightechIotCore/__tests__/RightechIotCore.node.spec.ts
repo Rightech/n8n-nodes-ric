@@ -129,6 +129,76 @@ it('All operations have corresponding handlers', () => {
 	}
 });
 
+export function findAllEmptyStringPaths(value: unknown): string[] {
+	if (typeof value === 'string') {
+		return value.length === 0 ? [''] : [];
+	}
+	const visited = new WeakSet<object>();
+	if (Array.isArray(value)) {
+		return findAllEmptyStringPathsInArray('', value, visited);
+	}
+	if (value !== null && typeof value === 'object') {
+		return findAllEmptyStringPathsInObject('', value as Record<string, unknown>, visited);
+	}
+	return [];
+}
+
+function findAllEmptyStringPathsInObject(
+	prefix: string,
+	obj: Record<string, unknown>,
+	visited: WeakSet<object>
+): string[] {
+	if (visited.has(obj)) return [];
+	visited.add(obj);
+	const violations: string[] = [];
+	for (const key of Object.keys(obj)) {
+		const val = obj[key];
+		if (val === '') {
+			violations.push(prefix ? `${prefix}.${key}` : key);
+			continue;
+		}
+		const childPrefix = prefix ? `${prefix}.${key}` : key;
+		if (Array.isArray(val)) {
+			violations.push(...findAllEmptyStringPathsInArray(childPrefix, val, visited));
+		} else if (val !== null && typeof val === 'object') {
+			violations.push(...findAllEmptyStringPathsInObject(childPrefix, val as Record<string, unknown>, visited));
+		}
+	}
+	return violations;
+}
+
+function findAllEmptyStringPathsInArray(
+	prefix: string,
+	arr: unknown[],
+	visited: WeakSet<object>
+): string[] {
+	if (visited.has(arr)) return [];
+	visited.add(arr);
+	const violations: string[] = [];
+	for (let i = 0; i < arr.length; i++) {
+		const val = arr[i];
+		if (val === '') {
+			violations.push(`${prefix}[${i}]`);
+			continue;
+		}
+		const childPrefix = `${prefix}[${i}]`;
+		if (Array.isArray(val)) {
+			violations.push(...findAllEmptyStringPathsInArray(childPrefix, val, visited));
+		} else if (val !== null && typeof val === 'object') {
+			violations.push(...findAllEmptyStringPathsInObject(childPrefix, val as Record<string, unknown>, visited));
+		}
+	}
+	return violations;
+}
+
+it('All defined string properties are filled', () => {
+	const nodes = new RightechIotCore().description.properties;
+	const emptyStrings = findAllEmptyStringPaths(nodes);
+	expect(
+		emptyStrings.filter((s) => !s.includes(".default") && !s.includes(".hide"))
+	).toEqual([]);
+});
+
 it('resourceLocator modes refer to included method names', () => {
 	const methods = Object.keys(new RightechIotCore().methods.listSearch);
 	const modes = new RightechIotCore().description.properties
