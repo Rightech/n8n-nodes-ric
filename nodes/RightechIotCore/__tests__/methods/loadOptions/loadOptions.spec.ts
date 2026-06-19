@@ -2,6 +2,7 @@ import * as fs from 'node:fs';
 import { expect, it } from 'vitest';
 import { eventOptions } from '../../../methods/eventOptions.js';
 import { eventOptionsOfObjects } from '../../../methods/eventOptionsOfObjects.js';
+import { loadOptionsObjects } from '../../../methods/loadOptions/objectOptions.js';
 import { loadOptionsOfTaskKinds } from '../../../methods/loadOptionsOfTaskKinds.js';
 import { expectScopeDone, setupNock } from '../../helpers/nock.js';
 import { loadOptions } from '../../helpers/Workflow.js';
@@ -59,4 +60,22 @@ it('loadOptionsOfTaskKinds returns options for various task kinds', async () => 
 	);
 	expectScopeDone(scope);
 	expect(options).toMatchSnapshot();
+});
+
+it('loadOptionsObjects returns objects as ordered options', async () => {
+	const scope = setupNock()
+		.get(`/api/v1/objects?only=_id,name&sortBy=name&limit=10000`)
+		.reply(200, fs.readFileSync(`${__dirname}/api.v1.objects.asOptions.json`));
+	const options = await loadOptionsObjects.call(
+		loadOptions(await import('./loadOptionsObjects.workflow.json')),
+	);
+	expectScopeDone(scope);
+	const sorted = [...options].sort((a, b) => (b.name > a.name ? -1 : 1));
+	expect(options).toEqual(sorted);
+	for (const option of options) {
+		expect(option).toMatchObject({
+			name: expect.stringMatching(/.+/),
+			value: expect.stringMatching(/.+/),
+		});
+	}
 });

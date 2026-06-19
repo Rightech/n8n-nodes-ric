@@ -1,0 +1,41 @@
+[
+	{
+		"_id": "6a3420eaff5318ed5c0e19ad",
+		"report": "6a3295425ba3e13b1a7ec140",
+		"status": "completed",
+		"progress": 100,
+		"payload": {
+			"from": 1780272000000,
+			"to": 1781740800000,
+			"objects": [
+				"626679b5daacc00012016e94",
+				"6267a296daacc000120170a2"
+			],
+			"locale": "en_GB",
+			"timezoneOffset": null
+		},
+		"createdAt": 1781801194324,
+		"owner": "682dd754b0738b9392dffd7e",
+		"group": "62667930daacc00012016e92",
+		"time": 1781801194326,
+		"startedAt": 1781801194363,
+		"links": {
+			"files": [
+				{
+					"id": "6a3420eab146edf25d88cbcd",
+					"name": "6a3420eab146edf25d88cbcd",
+					"type": "application/json",
+					"field": "reports",
+					"size": 676,
+					"folder": "62667930daacc00012016e92.reports",
+					"session": "7A1mnOMz7tU"
+				}
+			]
+		},
+		"_exportName": "2026-06-18_16-50-41_lev-sample-report_2objects",
+		"completedAt": 1781801441013,
+		"_at": 1781853252961,
+		"_cancelRequested": true,
+		"success": true
+	}
+]

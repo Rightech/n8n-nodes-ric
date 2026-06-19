@@ -5,6 +5,8 @@ import { listObjects } from '../../../methods/listObjects.js';
 import { listRoles } from '../../../methods/listRoles.js';
 import { listRows } from '../../../methods/listRows.js';
 import { listScenarios } from '../../../methods/listScenarios.js';
+import { listReportBuilds } from '../../../methods/listSearch/listReportBuilds.js';
+import { listReports } from '../../../methods/listSearch/listReports.js';
 import { listTables } from '../../../methods/listTables.js';
 import { listTaskKinds } from '../../../methods/listTaskKinds.js';
 import { listTasks } from '../../../methods/listTasks.js';
@@ -188,6 +190,28 @@ it('listRoles', async () => {
 		.get(`/api/v1/roles?only=_id,name`)
 		.reply(200, (await import('./api.v1.roles.subset.json')).default);
 	const options = await listRoles.call(loadOptions(await import('./listRoles.workflow.json')));
+	expectScopeDone(scope);
+	expect(options.paginationToken).toBeUndefined();
+	expect(options).toMatchSnapshot();
+});
+
+it('listReports', async () => {
+	const scope = setupNock()
+		.get(`/api/v1/reports?only=_id,name`)
+		.reply(200, (await import('./api.v1.reports.idname.json')).default);
+	const options = await listReports.call(loadOptions(await import('./listReports.workflow.json')));
+	expectScopeDone(scope);
+	expect(options.paginationToken).toBeUndefined();
+	expect(options).toMatchSnapshot();
+});
+
+it('listReportBuilds', async () => {
+	const scope = setupNock()
+		.get(`/api/v1/reports/builds?only=_id,createdAt,payload`)
+		.reply(200, (await import('./api.v1.reports.builds.idatpayload.json')).default);
+	const options = await listReportBuilds.call(
+		loadOptions(await import('./listReportBuilds.workflow.json')),
+	);
 	expectScopeDone(scope);
 	expect(options.paginationToken).toBeUndefined();
 	expect(options).toMatchSnapshot();

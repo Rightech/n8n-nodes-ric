@@ -1,0 +1,355 @@
+[
+{"_id":"66ddf929a9e203b6d4c2c426","name":"11111111"}
+,
+{"_id":"626679b5daacc00012016e94","name":"A001AA157"}
+,
+{"_id":"671a028de0236b699a85dcae","name":"A001AA157-test"}
+,
+{"_id":"66c318ca0f061ecc8fe9b520","name":"A002AA157-lifef22"}
+,
+{"_id":"6267aa94daacc000120170c3","name":"A003AA157"}
+,
+{"_id":"67dd4b8630dbe3928bcaa063","name":"Avtom ampermeter"}
+,
+{"_id":"67dd4b1e30dbe3928bcaa05b","name":"Avton BS1"}
+,
+{"_id":"67dd4b3830dbe3928bcaa05d","name":"Avton Termometr"}
+,
+{"_id":"67dd4bc730dbe3928bcaa069","name":"Avton signal"}
+,
+{"_id":"67dd4b6230dbe3928bcaa060","name":"Avton termanometr"}
+,
+{"_id":"67dd4ba630dbe3928bcaa066","name":"Avton vibro"}
+,
+{"_id":"682465f0c5616e2143caf9c5","name":"BOT | 5710-ws4"}
+,
+{"_id":"66163f81a85d0c83cd355d32","name":"Coffemachine"}
+,
+{"_id":"66f4267c8bbf8817ddf4af14","name":"DEMO SMART LAMP"}
+,
+{"_id":"66f426bd8bbf8817ddf4af18","name":"DEMO SMART LAMP"}
+,
+{"_id":"626a5a0e4123ac0011fdea9d","name":"Electricity meter A100"}
+,
+{"_id":"629ddfc4e891130011f95130","name":"Electricity meter А101"}
+,
+{"_id":"6267a296daacc000120170a2","name":"Employee 01 (отчеты)"}
+,
+{"_id":"6267a42edaacc000120170a8","name":"Employee 02"}
+,
+{"_id":"6267a43ddaacc000120170ab","name":"Employee 03"}
+,
+{"_id":"649d31ffd50e53907b1727e9","name":"Fuel test"}
+,
+{"_id":"6267ab7ddaacc000120170c9","name":"Kamaz-cleaner 02"}
+,
+{"_id":"65fab56b82518fc83ad66ef2","name":"Kamaz_rulur_test"}
+,
+{"_id":"628dfa8dce987600119c9473","name":"LoRaWAN Sensor"}
+,
+{"_id":"670f8eba819ce7bb2b70c17f","name":"MQTT model test 13"}
+,
+{"_id":"64354309d72109eae7d4f0bb","name":"MQTT-01"}
+,
+{"_id":"69eb2ea024a55dd218dacd27","name":"Mashine model Object"}
+,
+{"_id":"63bd40b27c06640011e75cd6","name":"Mercedes Н888АУ 199"}
+,
+{"_id":"6720a933b0d2a751641dfa51","name":"NIDD MODEL_test 01-ef3xl2"}
+,
+{"_id":"65785e383c475b3ae5fa985d","name":"Navteelecom Navteelecom Navteelecom Navteelecom"}
+,
+{"_id":"67c9cc9bb2e8f5f971a26a7c","name":"New OBJECT TEST floors"}
+,
+{"_id":"62a205a6e9ac4800113d7c8a","name":"Object demo03"}
+,
+{"_id":"675fdc8dfa21f17e5d1714e4","name":"Object17-ICON"}
+,
+{"_id":"67693df40d49fcdc233dbc44","name":"Object1_Starter"}
+,
+{"_id":"67693df40d49fcdc233dbc45","name":"Object2_Starter"}
+,
+{"_id":"670f8c1f819ce7bb2b70c17d","name":"Object_12_test"}
+,
+{"_id":"67309ecab6bb10805deead44","name":"Object_NIDD_test"}
+,
+{"_id":"62c28e8efade610011a8851b","name":"Project demo"}
+,
+{"_id":"6492bcabc3b09928ec8fbb25","name":"Qwerty"}
+,
+{"_id":"63579d9d39f1c0001102bb08","name":"RulurEmployee 06"}
+,
+{"_id":"6a314f285ba3e13b1a7ec092","name":"SMPP (Билайн)"}
+,
+{"_id":"6a31017e0c460d13c2902cab","name":"SMPP (МТС)"}
+,
+{"_id":"664cc5f50415b02831efa26d","name":"Savichev_test"}
+,
+{"_id":"66852f0895e7a2efc475def1","name":"Savichev_test-dcelf for remove"}
+,
+{"_id":"648ae2e8c3b09928ec8fb809","name":"Smart"}
+,
+{"_id":"648ae307c3b09928ec8fb815","name":"Smart"}
+,
+{"_id":"62fb6a9a54b42800113469ee","name":"Smart home #1"}
+,
+{"_id":"648ae33ec3b09928ec8fb827","name":"Smart023"}
+,
+{"_id":"648ae335c3b09928ec8fb823","name":"Switchsmart 02"}
+,
+{"_id":"648ae365c3b09928ec8fb849","name":"Switchsmart022354"}
+,
+{"_id":"67e3c0be74d85648c3e93d7c","name":"TEST"}
+,
+{"_id":"680769d22e8739131407709c","name":"TEST Michail"}
+,
+{"_id":"66f15248d0dea42108a85e61","name":"TEST-2 mqtt-demo_project_01-t3uvt4"}
+,
+{"_id":"67d2ec544c79dac51953386e","name":"TESTTEST"}
+,
+{"_id":"67c6ad3abd30e23a717d30de","name":"TTTTTTTTT TEST Bot"}
+,
+{"_id":"648ae334c3b09928ec8fb822","name":"Tempsmart 02"}
+,
+{"_id":"648ae365c3b09928ec8fb848","name":"Tempsmart022341"}
+,
+{"_id":"63ef5bab00494800126304c6","name":"Tibbo example"}
+,
+{"_id":"6703b9a15ef39f6f46ff8d7b","name":"URI01_case1"}
+,
+{"_id":"635a39f0f7a1da0012d6d492","name":"[бот] LADA К890НП 134"}
+,
+{"_id":"6788ec4a94f8d49f871f0845","name":"demo111"}
+,
+{"_id":"66fd0482d4513093ed5d0ca8","name":"demo_project_01-0n6ipl"}
+,
+{"_id":"67d7d96a4c79dac519533898","name":"demo_project_01-1araad"}
+,
+{"_id":"6703a7fb5ef39f6f46ff8d6f","name":"demo_project_01-2efkk1"}
+,
+{"_id":"66f18861d0dea42108a85f3e","name":"demo_project_01-38ocse"}
+,
+{"_id":"688c9165dd28ee2c5c00f619","name":"demo_project_01-3q9txg"}
+,
+{"_id":"6703e3fd5ef39f6f46ff8d9f","name":"demo_project_01-4hapga"}
+,
+{"_id":"66f40b394a4d5787229cb9d4","name":"demo_project_01-56cfip"}
+,
+{"_id":"66f15525d0dea42108a85e66","name":"demo_project_01-602yor"}
+,
+{"_id":"63579d8739f1c0001102bafd","name":"demo_project_01-6hcid0"}
+,
+{"_id":"667aabc2027b47e36aeb4246","name":"demo_project_01-6u3jwm"}
+,
+{"_id":"67d3e7744c79dac519533876","name":"demo_project_01-7xn5xd"}
+,
+{"_id":"66e951055985b64a944cace9","name":"demo_project_01-912sd9"}
+,
+{"_id":"67a9bccffe7e4ee2308c380f","name":"demo_project_01-a8d8zm"}
+,
+{"_id":"67fcbb2a2a2074c465e99771","name":"demo_project_01-bo5mn3"}
+,
+{"_id":"6708ea1ffdc4d7a9ce671c6d","name":"demo_project_01-cmdhsi"}
+,
+{"_id":"678a12b794f8d49f871f0866","name":"demo_project_01-hff3i5"}
+,
+{"_id":"676e9601a5914ce10d0f2ede","name":"demo_project_01-hhhfto"}
+,
+{"_id":"6708e9dcfdc4d7a9ce671c6b","name":"demo_project_01-hwuxdz"}
+,
+{"_id":"67fcbb4a2a2074c465e99775","name":"demo_project_01-ihqvud"}
+,
+{"_id":"685512e9257d2d21d9074248","name":"demo_project_01-ik3fkb"}
+,
+{"_id":"67e3ebd474d85648c3e93d89","name":"demo_project_01-jtp1mw"}
+,
+{"_id":"678fb4404507e1c2107d8a0b","name":"demo_project_01-kr0o6t"}
+,
+{"_id":"6a203dd08c15ec70767b25ef","name":"demo_project_01-kz3ot1"}
+,
+{"_id":"66f19307d0dea42108a85f42","name":"demo_project_01-ns2fsw"}
+,
+{"_id":"635bc6e97f683900126dd41d","name":"demo_project_01-oa2sfm"}
+,
+{"_id":"679cd5ec4047c825908b9139","name":"demo_project_01-oa2sfm-dpxkr"}
+,
+{"_id":"685512b6257d2d21d9074247","name":"demo_project_01-pyfpjg"}
+,
+{"_id":"67bc256e92e14f0551345513","name":"demo_project_01-rcvhg2"}
+,
+{"_id":"66e2919a764076219e780be4","name":"demo_project_01-s27znr"}
+,
+{"_id":"63578b2739f1c0001102b9d2","name":"demo_project_01-s5n6md"}
+,
+{"_id":"66f2a15dd0dea42108a85f57","name":"demo_project_01-se3ezv"}
+,
+{"_id":"6702eb053f085eaa9b25ef4e","name":"demo_project_01-t6sa31"}
+,
+{"_id":"63578b9b39f1c0001102b9f4","name":"demo_project_01-ttiote"}
+,
+{"_id":"670689255ef39f6f46ff8f1f","name":"demo_project_01-u90mg0"}
+,
+{"_id":"6929a4528c7b110ac891d20a","name":"demo_project_01-v5mvez"}
+,
+{"_id":"6a33beabcaa6929d30b8936f","name":"demo_project_01-v8lx8l"}
+,
+{"_id":"63579d9d39f1c0001102bb04","name":"demo_project_01-whe8gw"}
+,
+{"_id":"650d5e2e9700a003408fa857","name":"demo_project_01-wnuefh"}
+,
+{"_id":"66aa4c03d62a99e6393421af","name":"demo_project_01-yteb5k"}
+,
+{"_id":"67ced69e173bd66ddf48a094","name":"demo_project_01-z02o6h"}
+,
+{"_id":"66e950fc5985b64a944cace6","name":"demo_project_01-znp9fu"}
+,
+{"_id":"6929ac078c7b110ac891d20e","name":"demo_test_samokat"}
+,
+{"_id":"66d561bc25e8200c9d469841","name":"inner_group_01-Tania"}
+,
+{"_id":"6513ffd64227b57adecbe13f","name":"inner_group_01-ljl6ae"}
+,
+{"_id":"697a45edd1caff26ab1c4bfd","name":"machine-model-lyas"}
+,
+{"_id":"666bf92edb77c583236dbb7e","name":"mqtt-demo_QA-bpvvg"}
+,
+{"_id":"689c7422620664911f7699bb","name":"mqtt-demo_project_01-6e5pxi"}
+,
+{"_id":"67e3eac074d85648c3e93d87","name":"mqtt-demo_project_01-7i0iwc"}
+,
+{"_id":"67e3eaad74d85648c3e93d86","name":"mqtt-demo_project_01-8jxutr"}
+,
+{"_id":"66e7eb0c5985b64a944cac4d","name":"mqtt-demo_project_01-8kq2z2"}
+,
+{"_id":"69afc697868344343f417716","name":"mqtt-demo_project_01-ctbqjl"}
+,
+{"_id":"6a15d8fd0411b40102a67409","name":"mqtt-demo_project_01-f2oenl"}
+,
+{"_id":"6859424f257d2d21d9074265","name":"mqtt-demo_project_01-fokre21"}
+,
+{"_id":"670fd7309347914ff0c0aace","name":"mqtt-demo_project_01-g2m08c"}
+,
+{"_id":"66eaa9ece99963246f6a51d8","name":"mqtt-demo_project_01-gabjs3"}
+,
+{"_id":"67a354964e7c80c8ff881d55","name":"mqtt-demo_project_01-iohtvs"}
+,
+{"_id":"66d1d43925e8200c9d4697a8","name":"mqtt-demo_project_01-j2yam2"}
+,
+{"_id":"676346a11e9ebac4efe0573c","name":"mqtt-demo_project_01-k2obt0"}
+,
+{"_id":"66ec3dece99963246f6a52de","name":"mqtt-demo_project_01-k8o39c"}
+,
+{"_id":"643f96474693821d1a0c9e78","name":"mqtt-demo_project_01-lyobno"}
+,
+{"_id":"64cbb4f2c004a7e10a7e2cc4","name":"mqtt-demo_project_01-m5ydyr"}
+,
+{"_id":"637e36daa4e3c200112f7351","name":"mqtt-demo_project_01-mfwian"}
+,
+{"_id":"6929b0808c7b110ac891d212","name":"mqtt-demo_project_01-na6zr2"}
+,
+{"_id":"66a64e506ac639d84d4b8063","name":"mqtt-demo_project_01-pemrhz"}
+,
+{"_id":"66f11ab8d0dea42108a85e3d","name":"mqtt-demo_project_01-q97y53"}
+,
+{"_id":"67e3ea8374d85648c3e93d85","name":"mqtt-demo_project_01-r806sj"}
+,
+{"_id":"66a64da06ac639d84d4b8062","name":"mqtt-demo_project_01-r9ulgj"}
+,
+{"_id":"66dc3f49a9e203b6d4c2c40d","name":"mqtt-demo_project_01-rk16b5"}
+,
+{"_id":"6809e4a32e8739131407711f","name":"mqtt-demo_project_01-survgw"}
+,
+{"_id":"66f11e69d0dea42108a85e3e","name":"mqtt-demo_project_01-t3uvt4 TEST"}
+,
+{"_id":"67208838b0d2a751641dfa4e","name":"mqtt-demo_project_01-t48pmk"}
+,
+{"_id":"6822332e5971a584395eeac2","name":"mqtt-demo_project_01-yifi5d"}
+,
+{"_id":"66e41e7e5985b64a944cabc1","name":"mqtt-demo_project_01-zbdewv"}
+,
+{"_id":"66f13fe7d0dea42108a85e5e","name":"mqtt-inner_group_01-2cwijt"}
+,
+{"_id":"672d3117aeb1a5373695e80b","name":"mqtt-savichev_staff1-yugajp"}
+,
+{"_id":"66631319cf03dcbd832285e0","name":"mymy-copy"}
+,
+{"_id":"69f1e84c62c70f5e7252625c","name":"n8n taxi demo object #1"}
+,
+{"_id":"69ffff033463098bf7d49699","name":"n8n-test-model-object-1"}
+,
+{"_id":"66f05414d0dea42108a85dea","name":"pre-release1"}
+,
+{"_id":"67160e34d75a2ebddaca7f12","name":"prerelease"}
+,
+{"_id":"6702eaed3f085eaa9b25ef46","name":"qa"}
+,
+{"_id":"673115dbb6bb10805deead50","name":"release1"}
+,
+{"_id":"650964418b31da5c45890d31","name":"savichev_staff1-s4x42z"}
+,
+{"_id":"646349dd511dc542125504dd","name":"savichev_staff1_fkjhpu"}
+,
+{"_id":"668ed1653a21c986bbedb412","name":"sonofffffffffffffffffffffffffffffffffff"}
+,
+{"_id":"66dc7e89a9e203b6d4c2c410","name":"sonofffffffffffffffffffffffffffffffffff1"}
+,
+{"_id":"64e46f5b337f93302def09f2","name":"test in"}
+,
+{"_id":"6929a22b8c7b110ac891d208","name":"test mqtt bot"}
+,
+{"_id":"672d38e0aeb1a5373695e80f","name":"test111111111"}
+,
+{"_id":"6538182703cb35959b3644f2","name":"testing_dashboards"}
+,
+{"_id":"65416a3095620f9f7dce5bec","name":"testing_dashboards_humidity_grishatestfordashboards"}
+,
+{"_id":"694b8f8220d9b786fe7af0f7","name":"Браслет"}
+,
+{"_id":"6267ae16daacc000120170e7","name":"Вертолет B001X2D"}
+,
+{"_id":"69f1ca6362c70f5e7252624c","name":"Гирлянда"}
+,
+{"_id":"66720457bb9fc91c7c22329b","name":"Датчик 1-test-arg-chart"}
+,
+{"_id":"648acd2ac3b09928ec8fb7df","name":"Датчик газа"}
+,
+{"_id":"628e2401ce987600119c94be","name":"Датчик температуры 2"}
+,
+{"_id":"6267acbfdaacc000120170df","name":"Защитный костюм №001"}
+,
+{"_id":"66e1ae8d764076219e780ba5","name":"ИМЯ ОБЪЕКТА"}
+,
+{"_id":"6267ab9ddaacc000120170cc","name":"Камаз-Уборщик 02"}
+,
+{"_id":"670e18cafdc4d7a9ce671e67","name":"Контроль скорости Rulur"}
+,
+{"_id":"656f1e2ad747fb7863942ccb","name":"Кофемашина HoReCa"}
+,
+{"_id":"635fcdb00671e7001234f115","name":"Лада К890НА 134"}
+,
+{"_id":"6899ab4eb8b306677af6b03f","name":"Объект самокат-бот"}
+,
+{"_id":"6267afafdaacc000120170f3","name":"Остановка №01"}
+,
+{"_id":"6267afdbdaacc000120170f9","name":"Остановка №02"}
+,
+{"_id":"648acd2ac3b09928ec8fb7de","name":"Температура"}
+,
+{"_id":"63594986f7a1da0012d6cb84","name":"Тест ТО"}
+,
+{"_id":"648acd2ac3b09928ec8fb7dd","name":"Умный светильник"}
+,
+{"_id":"6267d4fddaacc00012017177","name":"Фонарь"}
+,
+{"_id":"6267b2abdaacc00012017111","name":"Шахта"}
+,
+{"_id":"676abedda5914ce10d0f2eab","name":"Ща2"}
+,
+{"_id":"651bc93d79c1456470a46588","name":"тест"}
+,
+{"_id":"691f40ad17d8475b6f9f2897","name":"тест-дашборда"}
+,
+{"_id":"67e3ea1074d85648c3e93d84","name":"ууууe"}
+,
+{"_id":"66c4b9b7d951d27351077e7e","name":"🔧 Lathe machine"}
+]

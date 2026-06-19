@@ -7,6 +7,7 @@ import type { handlerFn } from '../common/types.js';
 import { event } from './event/index.js';
 import { model } from './model/index.js';
 import { object } from './object/index.js';
+import { reportBuild } from './reportBuild/index.js';
 import { scenario } from './scenario/index.js';
 import { table } from './table/index.js';
 import { task } from './task/index.js';
@@ -20,6 +21,7 @@ export const handlers: Record<string, Record<string, handlerFn>> = {
 	event,
 	user,
 	task,
+	reportBuild,
 };
 
 export async function route(exec: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {

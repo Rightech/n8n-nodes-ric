@@ -62,7 +62,7 @@ export const runWorkflowParameters = async (workflowParameters: object): Promise
 	return await manualExecutor.run({ workflow });
 };
 
-export function completeRunData(run: IRun): unknown[] {
+export function completeRunData(run: IRun): Record<string, unknown>[] {
 	const lastNode = run.data.resultData.lastNodeExecuted ?? '';
 	return (run.data.resultData.runData[lastNode][0].data?.main ?? [])[0]?.map((d) => d.json) ?? [];
 }

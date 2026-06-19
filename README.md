@@ -79,11 +79,20 @@ Users of the platform instance
 Maintenance tasks assignable to platform users. Tasks can have different kinds, statuses, and properties defined by kinds.
 Tasks expose temporary access to object commands for users in the related service app to enable maintenance scenarios.
 
-- [**Get a task**](https://portal.staging.rightech.io/en/developers/tasks): Loads task information
-- [**Get multiple tasks**](https://portal.staging.rightech.io/en/developers/tasks): Loads multiple tasks at once
-- [**Create a task**](https://portal.staging.rightech.io/en/developers/tasks): Creates a new task
-- [**Update a task**](https://portal.staging.rightech.io/en/developers/tasks): Updates task parameters
+- [**Get a task**](https://rightech.io/en/developers/tasks): Loads task information
+- [**Get multiple tasks**](https://rightech.io/en/developers/tasks): Loads multiple tasks at once
+- [**Create a task**](https://rightech.io/en/developers/tasks): Creates a new task
+- [**Update a task**](https://rightech.io/en/developers/tasks): Updates task parameters
 
+### Report builds
+
+Build and load reports designed on the platform.
+
+- [**Get a report build**](https://rightech.io/ru/developers/reports/generate): Loads report build status
+- [**Get multiple report builds**](https://rightech.io/ru/developers/reports/generate): Loads multiple builds at once
+- [**Create a new report build**](https://rightech.io/ru/developers/reports/generate): You can order to build a previously designed report, which takes some time to prepare data for you
+- [**Cancel a report build**](https://rightech.io/ru/developers/reports/generate): Sometimes you may realize that your report build order was too large or simply a mistake
+- [**Export a report build**](https://rightech.io/ru/developers/reports/generate): When report is ready you can export the built data in various formats, like tables or JSON
 
 ## Credentials
 

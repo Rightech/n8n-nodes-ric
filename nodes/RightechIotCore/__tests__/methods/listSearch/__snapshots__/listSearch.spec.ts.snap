@@ -96,6 +96,106 @@ exports[`listObjects 1`] = `
 }
 `;
 
+exports[`listReportBuilds 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [
+    {
+      "name": "6 objects 17.06.26 20:00 - 18.06.26 19:59 (19.06.26 10:00)",
+      "value": "6a351320b146edf25d88cc3e",
+    },
+    {
+      "name": "4 objects 01.06.26 - 19.06.26 (19.06.26 07:16)",
+      "value": "6a34ecc8ff5318ed5c0e1a0f",
+    },
+    {
+      "name": "2 objects 16.06.26 - 18.06.26 (19.06.26 06:01)",
+      "value": "6a34db4aff5318ed5c0e1a03",
+    },
+    {
+      "name": "2 objects 16.06.26 - 18.06.26 (19.06.26 04:14)",
+      "value": "6a34c21eff5318ed5c0e19f9",
+    },
+    {
+      "name": "2 objects 16.06.26 - 18.06.26 (19.06.26 04:14)",
+      "value": "6a34c20cff5318ed5c0e19f8",
+    },
+    {
+      "name": "2 objects 16.06.26 - 18.06.26 (19.06.26 04:13)",
+      "value": "6a34c1dbff5318ed5c0e19f7",
+    },
+    {
+      "name": "0 objects 16.06.26 - 18.06.26 (19.06.26 04:12)",
+      "value": "6a34c1cbff5318ed5c0e19f6",
+    },
+    {
+      "name": "4 objects 18.06.26 - 23:59 (19.06.26)",
+      "value": "6a348680b146edf25d88cc18",
+    },
+    {
+      "name": "2 objects 16.06.26 - 18.06.26 (18.06.26 16:53)",
+      "value": "6a3422a3ff5318ed5c0e19af",
+    },
+    {
+      "name": "2 objects 16.06.26 - 18.06.26 (18.06.26 16:52)",
+      "value": "6a342241ff5318ed5c0e19ae",
+    },
+  ],
+}
+`;
+
+exports[`listReports 1`] = `
+{
+  "paginationToken": undefined,
+  "results": [
+    {
+      "name": "Отчет",
+      "value": "644b6cd670c94a39bcf10394",
+    },
+    {
+      "name": "Гриша для тестов",
+      "value": "6538cb04ebd6eaa155ecb812",
+    },
+    {
+      "name": "Отчет 08 TT",
+      "value": "66e7fe8c5985b64a944cacb3",
+    },
+    {
+      "name": "Yuriy onboarding",
+      "value": "66ed217de99963246f6a531b",
+    },
+    {
+      "name": "bromanla dev",
+      "value": "676174b5673b68e24d19b53c",
+    },
+    {
+      "name": "Полный отчет",
+      "value": "67fcbb4a2a2074c465e9977a",
+    },
+    {
+      "name": "Celsium",
+      "value": "684166cc3b34cb448105b735",
+    },
+    {
+      "name": "Celsium",
+      "value": "6a0db642c9d736e3c939d252",
+    },
+    {
+      "name": "Отчет 16",
+      "value": "6a1534800411b40102a673b6",
+    },
+    {
+      "name": "Отчет 14",
+      "value": "6a17685c047dae93775e9590",
+    },
+    {
+      "name": "lev-sample-report",
+      "value": "6a3295425ba3e13b1a7ec140",
+    },
+  ],
+}
+`;
+
 exports[`listRoles 1`] = `
 {
   "paginationToken": undefined,
