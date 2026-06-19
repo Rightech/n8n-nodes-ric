@@ -16,10 +16,13 @@ import { listObjects } from './methods/listObjects.js';
 import { listRoles } from './methods/listRoles.js';
 import { listRows } from './methods/listRows.js';
 import { listScenarios } from './methods/listScenarios.js';
+import { listReportBuilds } from './methods/listSearch/listReportBuilds.js';
+import { listReports } from './methods/listSearch/listReports.js';
 import { listTables } from './methods/listTables.js';
 import { listTaskKinds } from './methods/listTaskKinds.js';
 import { listTasks } from './methods/listTasks.js';
 import { listUsers } from './methods/listUsers.js';
+import { loadOptionsObjects } from './methods/loadOptions/objectOptions.js';
 import { loadOptionsOfTaskKinds } from './methods/loadOptionsOfTaskKinds.js';
 import { mapObjectColumnsFromModel } from './methods/mapObjectColumnsFromModel.js';
 import { mapObjectQueryFromModel } from './methods/mapObjectQueryFromModel.js';
@@ -28,6 +31,7 @@ import { mapTelemetryParams } from './methods/mapTelemetryParams.js';
 import { eventApiProperties } from './resources/event/index.js';
 import { modelApiProperties } from './resources/model/index.js';
 import { objectApiProperties } from './resources/object/index.js';
+import { reportBuildApiProperties } from './resources/reportBuild/index.js';
 import { route } from './resources/route.js';
 import { scenarioApiProperties } from './resources/scenario/index.js';
 import { tableApiProperties } from './resources/table/index.js';
@@ -75,6 +79,11 @@ export class RightechIotCore implements INodeType {
 						description: 'Objects represent your IoT devices',
 					},
 					{
+						name: 'Report Build',
+						value: 'reportBuild',
+						description: 'Build and load reports designed on the platform',
+					},
+					{
 						name: 'Scenario',
 						value: 'scenario',
 						description: 'Automation scenarios enable stateful automations with visual tools',
@@ -104,6 +113,7 @@ export class RightechIotCore implements INodeType {
 			...eventApiProperties,
 			...userApiProperties,
 			...taskApiProperties,
+			...reportBuildApiProperties,
 		],
 	};
 	methods = {
@@ -111,6 +121,7 @@ export class RightechIotCore implements INodeType {
 			eventOptions,
 			eventOptionsOfObjects,
 			loadOptionsOfTaskKinds,
+			loadOptionsObjects,
 		},
 		listSearch: {
 			listObjects,
@@ -123,6 +134,8 @@ export class RightechIotCore implements INodeType {
 			listTaskKinds,
 			listTasks,
 			listRoles,
+			listReports,
+			listReportBuilds,
 		},
 		resourceMapping: {
 			mapTableRowQuery,
