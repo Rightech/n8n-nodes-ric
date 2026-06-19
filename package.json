@@ -1,6 +1,6 @@
 {
   "name": "@rightech/n8n-nodes-ric",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Dedicated n8n nodes for integration with Rightech IoT Core platform",
   "license": "MIT",
   "homepage": "https://github.com/Rightech/n8n-nodes-ric",
