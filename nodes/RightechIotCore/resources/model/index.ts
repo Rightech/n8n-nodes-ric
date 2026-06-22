@@ -21,7 +21,7 @@ export const modelApiProperties: INodeProperties[] = [
 				value: 'get',
 				action: 'Get model configuration',
 				description:
-					'Reads an entire model configuration tree. More at https://rightech.io/en/developers/http/models#get-one.',
+					'Reads an entire model configuration tree',
 			},
 		],
 		default: 'get',

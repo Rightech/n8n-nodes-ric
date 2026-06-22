@@ -23,21 +23,21 @@ export const tableApiProperties: INodeProperties[] = [
 				value: 'get',
 				action: 'Get data table declaration',
 				description:
-					'Returns table declaration with column properties. More at https://rightech.io/en/developers/objects/table.',
+					'Returns table declaration with column properties.',
 			},
 			{
 				name: 'Get Row',
 				value: 'getRow',
 				action: 'Get table row',
 				description:
-					'Returns a specific table row. More at https://rightech.io/en/developers/objects/table.',
+					'Returns a specific table row',
 			},
 			{
 				name: 'Get Rows',
 				value: 'getManyRows',
 				action: 'Get table rows',
 				description:
-					'Returns table rows, optionally matching selected conditions. More at https://rightech.io/en/developers/objects/table.',
+					'Returns table rows, optionally matching selected conditions',
 			},
 		],
 		default: 'get',
