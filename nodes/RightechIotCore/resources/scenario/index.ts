@@ -21,15 +21,13 @@ export const scenarioApiProperties: INodeProperties[] = [
 				name: 'Start Scenario',
 				value: 'start',
 				action: 'Start scenario on an object',
-				description:
-					'Starts a new scenario execution on the object',
+				description: 'Starts a new scenario execution on the object',
 			},
 			{
 				name: 'Stop Scenario',
 				value: 'stop',
 				action: 'Stop scenario on an object',
-				description:
-					'Stops a running scenario execution on an object',
+				description: 'Stops a running scenario execution on an object',
 			},
 		],
 		default: 'start',

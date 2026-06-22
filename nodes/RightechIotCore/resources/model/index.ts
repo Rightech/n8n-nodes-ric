@@ -20,8 +20,7 @@ export const modelApiProperties: INodeProperties[] = [
 				name: 'Get',
 				value: 'get',
 				action: 'Get model configuration',
-				description:
-					'Reads an entire model configuration tree',
+				description: 'Reads an entire model configuration tree',
 			},
 		],
 		default: 'get',

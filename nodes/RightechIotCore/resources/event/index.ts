@@ -20,8 +20,7 @@ export const eventApiProperties: INodeProperties[] = [
 				name: 'Get Many',
 				value: 'getMany',
 				action: 'Get multiple events',
-				description:
-					'Get filtered events from the global event stream',
+				description: 'Get filtered events from the global event stream',
 			},
 		],
 		default: 'getMany',

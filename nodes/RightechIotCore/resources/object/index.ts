@@ -37,58 +37,50 @@ export const objectApiProperties: INodeProperties[] = [
 				name: 'Create',
 				value: 'create',
 				action: 'Create object configuration',
-				description:
-					'Creates and configures IoT device connection object',
+				description: 'Creates and configures IoT device connection object',
 			},
 			{
 				name: 'Get',
 				value: 'get',
 				action: 'Get object configuration and state',
-				description:
-					'Reads an entire object configuration and recorded state params',
+				description: 'Reads an entire object configuration and recorded state params',
 			},
 			{
 				name: 'Get Events',
 				value: 'getEvents',
 				action: 'Get object event log',
-				description:
-					'Get events related to the object',
+				description: 'Get events related to the object',
 			},
 			{
 				name: 'Get History',
 				value: 'getHistory',
 				action: 'Get object telemetry history',
 				// todo: need to publish dedicated topic on telemetry / packets
-				description:
-					'Get historic telemetry packets for a specific time range',
+				description: 'Get historic telemetry packets for a specific time range',
 			},
 			{
 				name: 'Get Many',
 				value: 'getMany',
 				action: 'Get multiple objects',
-				description:
-					'Get configuration and state of multiple objects at once',
+				description: 'Get configuration and state of multiple objects at once',
 			},
 			{
 				name: 'Send Command',
 				value: 'sendCommand',
 				action: 'Send command to the object',
-				description:
-					'Sends any assigned command of the object to the device',
+				description: 'Sends any assigned command of the object to the device',
 			},
 			{
 				name: 'Send Telemetry',
 				value: 'sendTelemetry',
 				action: 'Send telemetry packet to the object',
-				description:
-					'Sends a customizable telemetry packet to the object, simulating device data',
+				description: 'Sends a customizable telemetry packet to the object, simulating device data',
 			},
 			{
 				name: 'Update',
 				value: 'update',
 				action: 'Update object configuration',
-				description:
-					'Updates object configuration parameters based on its model',
+				description: 'Updates object configuration parameters based on its model',
 			},
 		],
 		default: 'get',

@@ -22,22 +22,19 @@ export const tableApiProperties: INodeProperties[] = [
 				name: 'Get',
 				value: 'get',
 				action: 'Get data table declaration',
-				description:
-					'Returns table declaration with column properties.',
+				description: 'Returns table declaration with column properties',
 			},
 			{
 				name: 'Get Row',
 				value: 'getRow',
 				action: 'Get table row',
-				description:
-					'Returns a specific table row',
+				description: 'Returns a specific table row',
 			},
 			{
 				name: 'Get Rows',
 				value: 'getManyRows',
 				action: 'Get table rows',
-				description:
-					'Returns table rows, optionally matching selected conditions',
+				description: 'Returns table rows, optionally matching selected conditions',
 			},
 		],
 		default: 'get',
