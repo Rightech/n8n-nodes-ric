@@ -47,7 +47,7 @@ export const objectGetHistoryProperties: INodeProperties[] = [
 		required: true,
 		type: 'dateTime',
 		default: '',
-		hint: 'Typically, telemetry data is stored for up to three months - depending on your <a href="https://rightech.io/en/developers/projects/create">configuration</a>.',
+		hint: 'Typically, telemetry data is stored for up to three months - depending on your configuration',
 		displayOptions: {
 			show: {
 				resource: ['object'],

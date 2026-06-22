@@ -11,7 +11,7 @@ export const ricUuidPropertyMode: INodePropertyMode = {
 	name: 'id',
 	type: 'string',
 	placeholder: 'e.g. 5951113beb39561100fd5bbb',
-	hint: 'Automatically assigned by RIC - you can find it using e.g. <a href="https://rightech.io/en/developers/intro">Copy RIC ID</a> feature.',
+	hint: 'Automatically assigned by RIC - you can find it using e.g. "Copy RIC ID" feature.',
 	validation: [
 		{
 			type: 'regex',
@@ -49,7 +49,7 @@ export const objectSelector: INodeProperties = {
 			name: 'deviceId',
 			type: 'string',
 			placeholder: 'e.g. wialon:1234567878 or mqtt-project_name-aqv0zb',
-			hint: 'It is set during <a href="https://rightech.io/en/developers/objects/create">device connection</a>',
+			hint: 'It is set during device connection process',
 			validation: [
 				{
 					type: 'regex',
@@ -149,7 +149,7 @@ export const stdQueryParameters: INodeProperties = {
 	name: 'stdQueryParameters',
 	type: 'collection',
 	placeholder: 'Add Parameter',
-	hint: 'Standard parameters for most <a href="https://rightech.io/en/developers/http/base#get-all">searches</a>.',
+	hint: 'Standard parameters for most searches',
 	default: {},
 	options: [
 		{
